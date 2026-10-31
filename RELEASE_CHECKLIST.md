@@ -10,8 +10,9 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 | Recipe Browser is identified as Java Edition 1.21.11 data, not the cross-edition starter planner | Pass | Recipe heading and README describe the separate scope. |
 | Recipe coverage is not overstated | Pass | Documentation records 1,470 structurally imported definitions and says visual/in-game validation is incomplete. |
 | Farm cards distinguish creator claims from verified results | Pass | Gold is labelled creator-stated/not independently benchmarked; all other rates are unverified and materials are not audited. |
-| Every farm has a current 1.21.11-compatible, independently verified tutorial and materials list | Fail | Four cards lack selected verified tutorial embeds; all materials remain unaudited. See `farm-verification-report.md`. |
-| Minecraft texture redistribution rights are resolved | Fail | No game textures are distributed. Real item images require a clear applicable license or written permission. |
+| Farm cards accurately identify embed, creator, compatibility, rate, and material confidence | Pass | Six verified embeds are rendered; four cards retain external YouTube links only; unverified compatibility, rates, and materials are explicitly labelled. |
+| Every farm has a current 1.21.11-compatible, independently verified tutorial and materials list | Not Tested | This is a future research goal, not a public-beta blocker while the catalog remains clearly labelled. See `farm-verification-report.md`. |
+| Restricted Minecraft textures are not bundled | Pass | BlockWise uses original item initials; no game textures are distributed. |
 
 ## Functionality and accessibility
 
@@ -32,10 +33,11 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 
 | Requirement | Status | Evidence / action |
 | --- | --- | --- |
-| 320px content layouts avoid horizontal overflow | Pass | Browser: Recipes, Tools, and Farms had no horizontal overflow. |
-| 768px content layouts avoid horizontal overflow | Pass | Browser: Guides and Optimizer had no horizontal overflow. |
+| 320px content layouts avoid horizontal overflow | Pass | Browser: Guides had no horizontal overflow and retained its mobile menu. Earlier beta checks covered Recipes, Tools, and Farms. |
+| 390px content layouts avoid horizontal overflow | Pass | Browser: Guides and Farms had no horizontal overflow; mobile menu Escape returned focus to its trigger. |
+| 768px content layouts avoid horizontal overflow | Pass | Browser: Tools applied Dark and Reduced Motion preferences with no horizontal overflow. |
 | 1440px every public page avoids horizontal overflow | Pass | Browser: Home, Tools, Recipes, Optimizer, Guides, Farms, and About all fit. |
-| Light/dark/system preferences and reduced motion | Pass | Existing theme/motion checks passed; this audit rechecked saved Light persistence. |
+| Light/dark/system preferences and reduced motion | Pass | Browser: Dark and Reduced Motion were applied at 768px, then Reset restored defaults. Earlier beta checks rechecked saved Light persistence. |
 | WCAG AA tested text pairs and focus contrast | Pass | `tests/theme-contrast.test.js` checks documented color pairs. This is not a complete automated accessibility conformance audit. |
 | Exactly one H1, meaningful title/description, skip link, and favicon on every public page | Pass | Automated release-readiness test and browser check passed. |
 | Local static links and assets resolve | Pass | New automated static-hosting-path test passed. |
@@ -49,11 +51,26 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 | --- | --- | --- |
 | Buildless static hosting compatibility | Pass | The site has plain HTML, CSS, JavaScript, local assets, and no build step or server dependency. |
 | GitHub Pages / Cloudflare Pages deployment configuration | Not Tested | No account, repository, or hosting configuration was changed. |
+| GitHub Actions automated checks | Not Tested | `.github/workflows/tests.yml` was created and structurally tested locally; it has not run on GitHub yet. |
 | Production HTTPS, custom domain, and cache behavior | Not Tested | Verify after deployment. |
 
 ## Deploy after approval
 
-1. Put the contents of this folder at the publishing root (or configure the host to serve this folder).
-2. For GitHub Pages, publish from the branch/folder containing `index.html`; for Cloudflare Pages, create a static project with no build command and this folder as the output directory.
-3. Do not enable ads until the content, privacy/disclosure obligations, and applicable platform requirements have been reviewed.
-4. After deployment, retest each page over HTTPS, then run a Lighthouse pass and device/screen-reader checks before promoting beyond beta.
+1. Push the reviewed `beta-readiness` branch and open a pull request into `main`; wait for the GitHub Actions workflow to pass, then merge only when you approve it.
+2. In GitHub, open **Settings → Pages**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save. Keep the repository private and do not enable Pages until you approve publication.
+3. After GitHub reports a successful deployment, verify `https://unknown10998.github.io/BlockWise/` over HTTPS: Home, Tools, Recipes, Optimizer, Guides, Farms, Settings persistence, mobile navigation, and external source/video fallback links.
+4. Do not enable ads until the content, privacy/disclosure obligations, and applicable platform requirements have been reviewed.
+5. Run a Lighthouse pass and device/screen-reader checks before promoting beyond beta.
+
+## Remaining work
+
+### Before publication
+
+- Push the branch and confirm the new GitHub Actions workflow completes successfully.
+- Enable GitHub Pages only after an explicit publication decision, then complete the post-deployment HTTPS checks above.
+
+### Future improvements, not beta blockers
+
+- Independently validate a current Java 1.21.11 build, material list, and production conditions for each farm.
+- Test with physical mobile devices and a screen reader.
+- Measure production performance with Lighthouse or an equivalent tool.

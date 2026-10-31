@@ -1,0 +1,29 @@
+# macOS Finder metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+
+# Temporary logs and local test artifacts
+*.log
+*.tmp
+tmp/
+test-results/
+playwright-report/
+
+# Editor and operating-system workspace files
+.vscode/
+.idea/
+*.swp
+*.swo

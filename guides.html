@@ -51,24 +51,38 @@
         <div class="guide-grid" id="guideGrid">
           <article class="guide-card" data-category="planning" data-search="inventory storage organize items sorting">
             <div class="guide-art art-storage"><span class="art-badge">PLANNING</span><div class="chest-shape"><i></i></div><div class="storage-shelf"></div></div>
-            <div class="guide-body"><p class="guide-meta">5 MIN READ <span>•</span> STARTER</p><h3>Organize your storage before it gets messy</h3><p>A simple category system makes it easier to find materials after a long mining session.</p><a class="text-link" href="#starter-storage" data-guide-link="storage">Read starter tips <span aria-hidden="true">→</span></a></div>
+            <div class="guide-body"><p class="guide-meta">5 MIN READ <span>•</span> STARTER</p><h3>Organize your storage before it gets messy</h3><p>A simple category system makes it easier to find materials after a long mining session.</p><a class="text-link" href="#starter-storage" data-guide-link="storage" aria-controls="starterDetails" aria-expanded="false">Read starter tips <span aria-hidden="true">→</span></a></div>
           </article>
           <article class="guide-card" data-category="survival" data-search="survival prepare mining trip food tools torches safety">
             <div class="guide-art art-mining"><span class="art-badge">SURVIVAL</span><div class="pickaxe"><i></i></div><div class="ore ore-one"></div><div class="ore ore-two"></div></div>
-            <div class="guide-body"><p class="guide-meta">4 MIN READ <span>•</span> STARTER</p><h3>Prepare for a longer mining trip</h3><p>Use a repeatable checklist so you are less likely to run out of essentials underground.</p><a class="text-link" href="#starter-mining" data-guide-link="mining">Read starter tips <span aria-hidden="true">→</span></a></div>
+            <div class="guide-body"><p class="guide-meta">4 MIN READ <span>•</span> STARTER</p><h3>Prepare for a longer mining trip</h3><p>Use a repeatable checklist so you are less likely to run out of essentials underground.</p><a class="text-link" href="#starter-mining" data-guide-link="mining" aria-controls="starterDetails" aria-expanded="false">Read starter tips <span aria-hidden="true">→</span></a></div>
           </article>
           <article class="guide-card" data-category="building" data-search="building planning materials calculate blocks palette project">
             <div class="guide-art art-building"><span class="art-badge">BUILDING</span><div class="little-house"><i></i><b></b><span></span></div></div>
-            <div class="guide-body"><p class="guide-meta">6 MIN READ <span>•</span> STARTER</p><h3>Plan a build before placing blocks</h3><p>Break a big project into dimensions, material lists, and small sections you can finish.</p><a class="text-link" href="#starter-building" data-guide-link="building">Read starter tips <span aria-hidden="true">→</span></a></div>
+            <div class="guide-body"><p class="guide-meta">6 MIN READ <span>•</span> STARTER</p><h3>Plan a build before placing blocks</h3><p>Break a big project into dimensions, material lists, and small sections you can finish.</p><a class="text-link" href="#starter-building" data-guide-link="building" aria-controls="starterDetails" aria-expanded="false">Read starter tips <span aria-hidden="true">→</span></a></div>
           </article>
         </div>
         <p class="no-results" id="noGuides" hidden>No guides match that search. Try a different word or category.</p>
-        <div class="starter-details" id="starterDetails" hidden aria-live="polite">
+        <div class="starter-details" id="starterDetails" hidden aria-live="polite" tabindex="-1">
           <button type="button" class="detail-close" id="closeDetails" aria-label="Close guide details">×</button>
           <p class="eyebrow" id="detailCategory">STARTER GUIDE</p>
           <h3 id="detailTitle">Guide title</h3>
           <div id="detailContent"></div>
         </div>
+        <section class="guide-fallbacks" aria-label="Starter guide tips">
+          <article class="starter-details" id="starter-storage">
+            <p class="eyebrow">PLANNING / STARTER GUIDE</p><h2>Organize your storage before it gets messy</h2>
+            <ul><li>Start with broad categories: building blocks, natural blocks, ores and valuables, mob drops, food, tools, and miscellaneous items.</li><li>Put the categories you use most often closest to your crafting area or main entrance.</li><li>Use signs, item frames, or another label system so you can identify a chest without opening every one.</li><li>Keep a small temporary chest near your entrance for items you have not sorted yet, and empty it regularly.</li></ul>
+          </article>
+          <article class="starter-details" id="starter-mining">
+            <p class="eyebrow">SURVIVAL / STARTER GUIDE</p><h2>Prepare for a longer mining trip</h2>
+            <ul><li>Bring food, a reliable pickaxe, a weapon, torches, and a small stack of blocks for bridging or sealing off danger.</li><li>Place markers or follow a consistent tunnel pattern so you can find the way back to your base.</li><li>Keep your inventory clear before leaving and bring a crafting table or wood if your trip may run long.</li><li>Return early if you are low on food, tool durability, or safe inventory space rather than risking a full inventory.</li></ul>
+          </article>
+          <article class="starter-details" id="starter-building">
+            <p class="eyebrow">BUILDING / STARTER GUIDE</p><h2>Plan a build before placing blocks</h2>
+            <ul><li>Sketch the footprint and decide the width, length, and height before gathering materials.</li><li>Build a small sample wall or corner to check that your block palette works together.</li><li>Estimate major materials separately, then add a buffer for mistakes and decorative details.</li><li>Build in stages—foundation, frame, walls, roof, and details—so progress is easy to track.</li></ul>
+          </article>
+        </section>
       </div>
     </section>
   </main>

@@ -30,6 +30,9 @@ BlockWise is a free, beginner-friendly Minecraft guides-and-tools site for ordin
 - Visual design uses semantic CSS tokens rather than individual page-color patches. `theme-init.js` loads before the stylesheet on every page to apply saved preferences before paint. See `UI_DESIGN_REVIEW.md` for the palette, contrast measurements, and browser review.
 - Motion is intentionally short and state-oriented: shared tokens govern controls, hover-capable cards, dialogs, menu navigation, disclosures, and calculation feedback. It uses opacity/transform/color transitions, never continuous effects, and is disabled by the saved Reduced Motion preference or the system reduced-motion preference.
 - Public-beta baseline: all seven public pages now have page-specific descriptions and the local SVG favicon, while `tests/release-readiness.test.js` guards title/description/favicon/skip-link/H1/static-path basics. The focused Settings save handler responds to both `input` and `change` for native controls.
+- Beta-readiness repository cleanup uses `.gitignore` to exclude local metadata, secrets, dependencies, logs, editor files, and local test artifacts. `.DS_Store` is intentionally removed from Git tracking but never deleted from the user's disk. The default remote is `https://github.com/unknown10998/BlockWise.git`; use a non-main branch for review.
+- Guide links retain JavaScript detail-panel behavior but now have matching static fragment destinations with the essential tips for no-JavaScript navigation. The active JavaScript detail panel receives focus and its Close button returns focus to the originating link.
+- Farm documentation and UI distinguish six verified rendered embeds from four external-only candidate source links. The candidate links have unverified creator identity and no rendered embed; all material lists remain unaudited, and the sole numeric rate is creator-stated rather than independently measured.
 
 ## Verification status
 

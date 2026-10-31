@@ -5,18 +5,18 @@ Target: Minecraft Java Edition 1.21.11
 
 ## Delivered catalog coverage
 
-| Farm category | Source status | Rate status | Materials status |
+| Farm category | Tutorial status | Creator / compatibility status | Rate status | Materials status |
 | --- | --- | --- | --- |
-| Iron | ianxofour tutorial; Java 1.16+ stated | Not verified for 1.21.11 | Not audited |
-| General mob & XP | Minecraft Wiki reference | Not verified for 1.21.11 | Not audited |
-| Sugar cane | Minecraft Wiki reference | Not verified for 1.21.11 | Not audited |
-| Bamboo | Minecraft Wiki reference | Not verified for 1.21.11 | Not audited |
-| Creeper | Minecraft Wiki reference | Not verified for 1.21.11 | Not audited |
-| Gold & XP | ianxofour tutorial | Creator-stated: 360 gold blocks/hour; not independently benchmarked | Not audited |
-| Enderman XP | Jumper — NEW UPDATED Minecraft 1.21.11 Enderman XP Farm Tutorial \| 1 Hit Farm 50 levels | Not independently verified | Not audited |
-| Villager crop | Minecraft Wiki reference | Not verified for 1.21.11 | Not audited |
-| Slime | Minecraft Wiki reference | Not verified for 1.21.11 | Not audited |
-| Honey & honeycomb | ilmango 1.15 tutorial | Not verified for 1.21.11 | Not audited |
+| Iron | Verified embed: ianxofour | Creator states Java 1.16+; 1.21.11 requires revalidation | Not verified for 1.21.11 | Not audited |
+| General mob & XP | External YouTube source link only; no embed | Tutorial creator not independently verified; 1.21.11 is a research reference | Not verified for 1.21.11 | Not audited |
+| Sugar cane | Verified embed: ilmango | Historical tutorial; 1.21.11 compatibility not independently confirmed | Not verified for 1.21.11 | Not audited |
+| Bamboo | Verified embed: ilmango | Historical tutorial; 1.21.11 compatibility not independently confirmed | Not verified for 1.21.11 | Not audited |
+| Creeper | External YouTube source link only; no embed | Tutorial creator not independently verified; 1.21.11 is a research reference | Not verified for 1.21.11 | Not audited |
+| Gold & XP | Verified embed: ianxofour | Creator states Java 1.13–1.21 | Creator-stated: 360 gold blocks/hour; not independently benchmarked | Not audited |
+| Enderman XP | Verified embed: Jumper | Video targets Java 1.21.11; creator identity is shown, build not independently verified | Not independently verified | Not audited |
+| Villager crop | External YouTube source link only; no embed | Tutorial creator not independently verified; 1.21.11 is a research reference | Not verified for 1.21.11 | Not audited |
+| Slime | External YouTube source link only; no embed | Tutorial creator not independently verified; 1.21.11 is a research reference | Not verified for 1.21.11 | Not audited |
+| Honey & honeycomb | Verified embed: ilmango | Historical 1.15 tutorial; not a confirmed 1.21.11 build | Not verified for 1.21.11 | Not audited |
 
 ## Evidence and limitations
 
@@ -25,8 +25,9 @@ Target: Minecraft Java Edition 1.21.11
 - The iron and honey tutorial links predate Java 1.21.11. They are kept as historical creator references, not compatibility endorsements.
 - Generic tutorial pages are used only as references where a named creator’s current 1.21.11 design and exact rate have not yet been audited.
 - No build materials, storage totals, simulation values, or block-by-block tutorials were published because they would require choosing and auditing a precise version-matched design. The Build Material Estimator remains available separately.
-- Enderman now has a direct version-specific Jumper tutorial embed (`NbaCq8_3NPM`). General Mob & XP, Creeper, Villager Crop, and Slime remain unembedded: current research did not establish a sufficiently attributable creator/video pairing for each exact category. Candidate URLs or titles without a verified channel credit are not used.
-- All ten cards now have a YouTube embed. General Mob & XP (`CAcNIZ6Cxeo`), Creeper (`0hJ7gaqX1nk`), Villager Crop (`gX4rHVMAV5k`), and Slime (`TaA_qE2kq3c`) are candidate tutorials added at user direction; their displayed creator is intentionally “Tutorial creator not independently verified.”
+- Six categories have rendered YouTube embeds: Iron, Sugar Cane, Bamboo, Gold & XP, Enderman XP, and Honey & Honeycomb. Sugar Cane and Bamboo intentionally share ilmango's combined tutorial.
+- General Mob & XP, Creeper, Villager Crop, and Slime have external YouTube source links but no rendered embed. Their candidate URLs remain source links only because the creator/channel identity and embeddable tutorial status are not independently verified.
+- No material list has been audited. The only numeric production value displayed is ianxofour's creator-reported Gold & XP figure; it is not an independent BlockWise measurement.
 
 ## Next verification gate
 
