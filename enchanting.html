@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plan a lower-level Java Edition Minecraft anvil enchantment order with BlockWise's free optimizer.">
+  <meta name="theme-color" content="#17251d">
+  <title>Enchant Optimizer — BlockWise</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script src="theme-init.js?v=motion-audit-1"></script>
+  <link rel="stylesheet" href="styles.css?v=motion-audit-1">
+  <script src="script.js?v=motion-audit-1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html" aria-label="BlockWise home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span>Block<span class="brand-accent">Wise</span></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open navigation">☰</button>
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <a href="tools.html">Tools</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="enchanting.html" aria-current="page">Enchant optimizer</a>
+        <a href="guides.html">Guides</a>
+        <a href="farms.html">Farms</a>
+        <a href="about.html">About</a>
+        <a class="nav-cta" href="tools.html">Open a tool <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="enchant-section" id="enchanting">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ANVIL LAB</p>
+            <h1>Find your cheapest enchant order.</h1>
+            <p class="section-description">Choose the enchanted books you have and we'll search for a low-cost combination order, including the prior-work penalty.</p>
+          </div>
+          <span class="section-index">02 / OPTIMIZER</span>
+        </div>
+        <div class="optimizer-layout">
+          <form class="optimizer-card" id="enchantForm">
+            <div class="optimizer-heading">
+              <span class="tool-icon tool-icon-purple">✧</span>
+              <div><h3>Your enchantment setup</h3><p>Java Edition · Survival mode · Up to 8 books</p></div>
+            </div>
+            <label class="field-label" for="targetItem">Item you're enchanting</label>
+            <select id="targetItem" class="full-input">
+              <option value="axe">Axe</option>
+              <option value="book">Book (combine books only)</option>
+              <option value="boots">Boots</option>
+              <option value="bow">Bow</option>
+              <option value="chestplate">Chestplate</option>
+              <option value="crossbow">Crossbow</option>
+              <option value="elytra">Elytra</option>
+              <option value="helmet">Helmet</option>
+              <option value="hoe">Hoe</option>
+              <option value="leggings">Leggings</option>
+              <option value="mace">Mace</option>
+              <option value="pickaxe">Pickaxe</option>
+              <option value="shovel">Shovel</option>
+              <option value="sword" selected>Sword</option>
+              <option value="trident">Trident</option>
+            </select>
+            <div class="field-row">
+              <div class="field-grow">
+                <label class="field-label" for="itemPriorWork">Item prior-work count</label>
+                <input class="full-input" id="itemPriorWork" type="number" min="0" max="5" step="1" value="0">
+              </div>
+              <div class="field-grow">
+                <label class="field-label" for="bookCount">Books selected</label>
+                <div class="count-display" id="bookCount">4 / 8</div>
+              </div>
+            </div>
+            <div class="book-list-heading"><span>Enchanted books</span><span>Enchantment · Level</span></div>
+            <div id="enchantBookRows" class="enchant-book-rows"></div>
+            <div class="optimizer-actions">
+              <button class="button button-quiet" id="addEnchantBook" type="button">＋ Add book</button>
+              <button class="button button-primary" type="submit">Optimize order <span aria-hidden="true">→</span></button>
+            </div>
+            <p class="input-help">Use one row per distinct enchantment. Each book must contain one enchantment and have no prior anvil work; the item must not already have any of the selected enchantments or conflicting enchantments.</p>
+            <p class="optimizer-error" id="enchantError" role="alert" hidden></p>
+          </form>
+          <div class="optimizer-results" id="enchantResults" aria-live="polite">
+            <div class="results-topline"><span class="results-indicator"></span> OPTIMIZATION RESULT</div>
+            <h3 id="planHeadline">Your plan will appear here</h3>
+            <p class="results-summary" id="planSummary">Choose your books, then select Optimize order to compare anvil combinations.</p>
+            <div class="optimizer-stats">
+              <div><span class="optimizer-stat-number" id="planTotal">—</span><span class="optimizer-stat-label">total levels spent</span></div>
+              <div><span class="optimizer-stat-number" id="planWorst">—</span><span class="optimizer-stat-label">highest single step</span></div>
+              <div><span class="optimizer-stat-number" id="planSavings">—</span><span class="optimizer-stat-label">saved vs. applying in listed order</span></div>
+            </div>
+            <div class="plan-steps-wrap">
+              <div class="plan-steps-heading"><h4>Recommended anvil order</h4><span id="planStepCount">0 steps</span></div>
+              <ol class="plan-steps" id="planSteps"><li class="empty-step">Your step-by-step plan will show here.</li></ol>
+            </div>
+            <p class="optimizer-disclaimer">Minimizes total levels spent under the stated assumptions, with each operation at most 39 levels in Survival. This is not necessarily the fewest raw XP points: those depend on your XP level and when you earn XP. Check costs in-game before committing rare books.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-wrap footer-main">
+      <a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>Block<span class="brand-accent">Wise</span></span></a>
+      <p>Tools and field notes for your Minecraft adventures.</p>
+      <nav aria-label="Footer navigation"><a href="tools.html">Tools</a><a href="recipes.html">Recipes</a><a href="enchanting.html">Optimizer</a><a href="guides.html">Guides</a><a href="farms.html">Farms</a><a href="about.html">About</a></nav>
+    </div>
+    <div class="section-wrap footer-bottom"><span>© <span id="currentYear">2026</span> BlockWise. An independent fan project.</span><span>Minecraft is a trademark of its respective owner. BlockWise is not affiliated with or endorsed by Mojang or Microsoft.</span></div>
+  </footer>
+</body>
+</html>

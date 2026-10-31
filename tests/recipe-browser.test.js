@@ -1,0 +1,88 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+
+class Element {
+  constructor(tag) { this.tag = tag; this.children = []; this.attributes = {}; this.listeners = {}; this.value = ''; this.textContent = ''; }
+  append(...children) { this.children.push(...children); }
+  replaceChildren(...children) { this.children = children; }
+  setAttribute(key, value) { this.attributes[key] = value; }
+  addEventListener(event, callback) { this.listeners[event] = callback; }
+  trigger(event) { this.listeners[event](); }
+}
+function setup() {
+  const elements = Object.fromEntries(['recipeSearch', 'recipeStation', 'recipeType', 'recipeList', 'recipeDetail', 'recipeCount', 'recipeReset', 'recipePrev', 'recipeNext', 'recipePage'].map(id => [id, new Element('div')]));
+  elements.recipeStation.value = 'all';
+  elements.recipeType.value = 'all';
+  const context = { window: {}, document: { querySelector: selector => elements[selector.slice(1)], createElement: tag => new Element(tag) } };
+  vm.createContext(context);
+  vm.runInContext(fs.readFileSync('recipe-data.js', 'utf8'), context);
+  vm.runInContext(fs.readFileSync('recipe-browser.js', 'utf8'), context);
+  return elements;
+}
+function descendants(node) { return [node, ...node.children.flatMap(descendants)]; }
+
+test('search, multiple recipes, station filtering and reset', () => {
+  const ui = setup();
+  ui.recipeSearch.value = 'white dye'; ui.recipeSearch.trigger('input');
+  assert.ok(ui.recipeList.children.length >= 1);
+  assert.ok(descendants(ui.recipeDetail).filter(node => node.className === 'recipe-variant').length >= 2);
+  assert.ok(descendants(ui.recipeDetail).some(node => node.textContent.includes('Shapeless')));
+  ui.recipeSearch.value = 'stone bricks'; ui.recipeSearch.trigger('input');
+  ui.recipeList.children.find(button => descendants(button).some(node => node.textContent === 'Stone Bricks')).trigger('click');
+  assert.ok(descendants(ui.recipeDetail).filter(node => node.className === 'recipe-variant').length >= 2);
+  ui.recipeStation.value = 'stonecutting'; ui.recipeStation.trigger('change');
+  ui.recipeList.children.find(button => descendants(button).some(node => node.textContent === 'Stone Bricks')).trigger('click');
+  assert.equal(descendants(ui.recipeDetail).filter(node => node.className === 'recipe-variant').length, 1);
+  assert.ok(descendants(ui.recipeDetail).some(node => node.className === 'recipe-station-inputs'));
+  ui.recipeReset.trigger('click');
+  assert.equal(ui.recipeStation.value, 'all');
+  assert.ok(ui.recipeList.children.length > 1);
+});
+
+test('shaped grid keeps empty positions and output quantity', () => {
+  const ui = setup();
+  ui.recipeSearch.value = 'oak stairs'; ui.recipeSearch.trigger('input');
+  ui.recipeList.children.find(button => descendants(button).some(node => node.textContent === 'Oak Stairs')).trigger('click');
+  const nodes = descendants(ui.recipeDetail);
+  const slots = nodes.filter(node => node.className === 'recipe-slot');
+  assert.equal(slots.length, 9);
+  assert.equal(slots.filter(slot => slot.attributes['aria-label'] === 'Empty slot').length, 3);
+  assert.ok(nodes.some(node => node.textContent === 'Oak Stairs × 4'));
+  ui.recipeSearch.value = 'nothing matches'; ui.recipeSearch.trigger('input');
+  assert.match(ui.recipeCount.textContent, /No recipes found/);
+});
+
+test('crafting grids are keyboard-accessible full-screen recipe triggers and special recipes do not invent a grid', () => {
+  const ui = setup();
+  ui.recipeSearch.value = 'oak stairs'; ui.recipeSearch.trigger('input');
+  assert.ok(descendants(ui.recipeList).some(node => node.attributes['data-item-id'] === 'minecraft:oak_stairs'));
+  assert.ok(descendants(ui.recipeList).some(node => node.className === 'recipe-icon' && node.textContent === 'O'));
+  ui.recipeList.children.find(button => descendants(button).some(node => node.textContent === 'Oak Stairs')).trigger('click');
+  const grid = descendants(ui.recipeDetail).find(node => node.className === 'recipe-grid');
+  assert.equal(grid.attributes.role, 'button');
+  assert.equal(grid.attributes.tabindex, '0');
+  assert.match(grid.attributes['aria-label'], /Open Oak Stairs recipe in full screen/);
+  const fullscreenButton = descendants(ui.recipeDetail).find(node => node.className === 'recipe-fullscreen-button');
+  assert.equal(fullscreenButton.textContent, '⛶ Full-screen recipe');
+  assert.match(fullscreenButton.attributes['aria-label'], /Open Oak Stairs recipe in full screen/);
+  const ingredientSlot = descendants(grid).find(node => node.className === 'recipe-slot' && node.attributes['aria-label'] === 'Oak Planks');
+  assert.ok(ingredientSlot);
+  const outputButton = descendants(ui.recipeDetail).find(node => node.className === 'recipe-output-icon recipe-item-button');
+  assert.equal(outputButton.attributes['aria-label'], 'Oak Stairs');
+  assert.equal(descendants(outputButton).find(node => node.className === 'recipe-icon').textContent, 'O');
+  ui.recipeSearch.value = 'firework rocket'; ui.recipeSearch.trigger('input');
+  ui.recipeList.children[1].trigger('click');
+  assert.ok(descendants(ui.recipeDetail).some(node => node.textContent.includes('The game supplies this recipe')));
+  assert.equal(descendants(ui.recipeDetail).filter(node => node.className === 'recipe-grid').length, 0);
+});
+
+test('tag alternatives retain their version-matched accessible names in crafting slots', () => {
+  const ui = setup();
+  ui.recipeSearch.value = 'crafting table'; ui.recipeSearch.trigger('input');
+  ui.recipeList.children[0].trigger('click');
+  const itemSlot = descendants(ui.recipeDetail).find(node => node.className === 'recipe-slot' && /^Oak Planks or 11 other valid options/.test(node.attributes['aria-label'] || ''));
+  assert.ok(itemSlot);
+  assert.equal(descendants(itemSlot).find(node => node.className === 'recipe-icon').textContent, 'O');
+});

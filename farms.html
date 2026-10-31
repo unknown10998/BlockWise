@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A research-led directory of Minecraft Java farm references for BlockWise.">
+  <meta name="theme-color" content="#17251d">
+  <title>Farm Library — BlockWise</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script src="theme-init.js?v=motion-audit-1"></script>
+  <link rel="stylesheet" href="styles.css?v=motion-audit-1">
+  <script src="script.js?v=motion-audit-1" defer></script>
+  <script src="farm-data.js" defer></script>
+  <script src="farm-browser.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="nav-wrap">
+    <a class="brand" href="index.html" aria-label="BlockWise home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>Block<span class="brand-accent">Wise</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open navigation">☰</button>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation"><a href="tools.html">Tools</a><a href="recipes.html">Recipes</a><a href="enchanting.html">Enchant optimizer</a><a href="guides.html">Guides</a><a href="farms.html" aria-current="page">Farms</a><a href="about.html">About</a><a class="nav-cta" href="tools.html">Open a tool <span aria-hidden="true">↗</span></a></nav>
+  </div></header>
+  <main id="main">
+    <section class="farms-section"><div class="section-wrap">
+      <div class="section-heading"><div><p class="eyebrow">JAVA FARM RESEARCH</p><h1>Farm references, without made-up rates.</h1><p class="section-description">Ten practical farm categories for Java Edition 1.21.11 players. Each card links to its source and plainly separates creator claims from BlockWise verification.</p></div><span class="section-index">05 / FARMS</span></div>
+      <aside class="farm-disclosure"><strong>Research status:</strong> This first catalog is a source directory, not a block-by-block build guide. Only the gold-farm figure below is a linked creator-stated rate; other rate and material fields stay unverified until a specific 1.21.11 design is audited.</aside>
+      <div class="farm-controls" aria-label="Farm filters"><label class="search-box"><span aria-hidden="true">⌕</span><input id="farmSearch" type="search" placeholder="Search farms or creators" aria-label="Search farms or creators"></label><label>Type<select id="farmType"><option value="">All types</option><option value="mob">Mob</option><option value="plant">Plant</option><option value="villager">Villager</option><option value="animal">Animal</option></select></label><label>Dimension<select id="farmDimension"><option value="">All dimensions</option><option>Overworld</option><option>Nether</option><option>The End</option></select></label><label>Sort<select id="farmSort"><option value="name">Name</option><option value="difficulty">Difficulty</option><option value="rate">Known rate first</option></select></label></div>
+      <p class="farm-count" id="farmCount" aria-live="polite"></p><p class="farm-note farm-sort-note" id="farmNotice" hidden>Known-rate sorting places cited numeric claims first. It is not a fair performance ranking because the remaining designs do not have verified comparable rates.</p>
+      <div class="farm-grid" id="farmList"></div><p class="no-results" id="noFarms" hidden>No farm references match those filters.</p>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="section-wrap footer-main"><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>Block<span class="brand-accent">Wise</span></span></a><p>Tools and field notes for your Minecraft adventures.</p><nav aria-label="Footer navigation"><a href="tools.html">Tools</a><a href="recipes.html">Recipes</a><a href="enchanting.html">Optimizer</a><a href="guides.html">Guides</a><a href="farms.html">Farms</a><a href="about.html">About</a></nav></div><div class="section-wrap footer-bottom"><span>© <span id="currentYear">2026</span> BlockWise. An independent fan project.</span><span>Minecraft is a trademark of its respective owner. BlockWise is not affiliated with or endorsed by Mojang or Microsoft.</span></div></footer>
+</body>
+</html>

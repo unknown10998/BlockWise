@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Use free Minecraft calculators for stacks, crafting resources, build materials, and survival planning with BlockWise.">
+  <meta name="theme-color" content="#17251d">
+  <title>Tools — BlockWise</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script src="theme-init.js?v=motion-audit-1"></script>
+  <link rel="stylesheet" href="styles.css?v=motion-audit-1">
+  <script src="build-estimator.js?v=1" defer></script>
+  <script src="script.js?v=motion-audit-1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html" aria-label="BlockWise home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span>Block<span class="brand-accent">Wise</span></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open navigation">☰</button>
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <a href="tools.html" aria-current="page">Tools</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="enchanting.html">Enchant optimizer</a>
+        <a href="guides.html">Guides</a>
+        <a href="farms.html">Farms</a>
+        <a href="about.html">About</a>
+        <a class="nav-cta" href="tools.html">Open a tool <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="content-section section-wrap" id="tools">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE TOOLBOX</p><h1>Make every block count.</h1><p class="section-description">Small utilities for planning builds, organizing items, and getting back to the game.</p></div>
+        <span class="section-index">01 / TOOLS</span>
+      </div>
+      <div class="tool-layout">
+        <article class="tool-card featured-tool">
+          <div class="tool-card-top"><span class="tool-icon">▦</span><span class="tag tag-live">READY TO USE</span></div>
+          <h3>Stack calculator</h3>
+          <p>Turn any item quantity into full stacks and leftover items. Great for mining trips, storage planning, and big builds.</p>
+          <form id="stackForm" class="stack-form">
+            <label for="itemQuantity">How many items?</label>
+            <div class="input-row"><input id="itemQuantity" name="quantity" type="number" min="0" max="1000000000" step="1" value="1000" inputmode="numeric" required><button class="button button-primary" type="submit">Calculate <span aria-hidden="true">→</span></button></div>
+            <p class="input-help">Uses a standard 64-item stack. Some items stack differently.</p>
+          </form>
+          <div class="result-panel" id="stackResult" aria-live="polite" aria-atomic="true">
+            <div><span class="result-number" id="fullStacks">15</span><span class="result-label">full stacks</span></div>
+            <div><span class="result-number" id="leftoverItems">40</span><span class="result-label">items left over</span></div>
+            <div><span class="result-number" id="totalShulker">1</span><span class="result-label">shulker boxes*</span></div>
+          </div>
+          <p class="result-footnote">*Estimated using 27 slots per shulker box and 64 items per slot.</p>
+        </article>
+        <article class="tool-card build-estimator-card">
+          <div class="tool-card-top"><span class="tool-icon tool-icon-purple">⌂</span><span class="tag tag-live">BUILD READY</span></div>
+          <h3>Build material estimator</h3>
+          <p>Measure a simple build and get blocks, storage, crafting ingredients, and a gathering checklist.</p>
+          <form id="buildEstimatorForm" class="planner-form">
+            <div class="planner-grid"><div><label for="buildType">Structure</label><select id="buildType" class="planner-select"><option value="house">House</option><option value="room">Rectangular room</option><option value="wall">Wall</option><option value="floor">Floor</option><option value="solid_cuboid">Solid cuboid</option></select></div><div><label for="buildMaterial">Material</label><select id="buildMaterial" class="planner-select"><option value="oak_planks">Oak Planks</option><option value="stone_bricks">Stone Bricks</option><option value="glass">Glass</option><option value="cobblestone">Cobblestone</option><option value="bricks">Bricks</option></select></div></div>
+            <div class="build-dimensions"><div><label for="buildLength">Length</label><input id="buildLength" type="number" min="1" value="9" inputmode="numeric" required></div><div><label for="buildWidth">Width</label><input id="buildWidth" type="number" min="1" value="7" inputmode="numeric" required></div><div><label for="buildHeight">Height</label><input id="buildHeight" type="number" min="1" value="4" inputmode="numeric" required></div><div><label for="buildThickness">Wall thickness</label><input id="buildThickness" type="number" min="1" value="1" inputmode="numeric" required></div><div><label for="buildDoors">Doors (1×2)</label><input id="buildDoors" type="number" min="0" value="1" inputmode="numeric" required></div><div><label for="buildWindows">Windows (1×1)</label><input id="buildWindows" type="number" min="0" value="2" inputmode="numeric" required></div><div><label for="buildQuantity">Identical builds</label><input id="buildQuantity" type="number" min="1" value="1" inputmode="numeric" required></div></div>
+            <div class="build-options"><label><input id="buildFloor" type="checkbox" checked> Add interior floor</label><label><input id="buildCeiling" type="checkbox"> Add interior ceiling / flat roof</label></div>
+            <p class="input-help">Dimensions are outer block dimensions. The estimator prevents corners, floors, and ceilings from overlapping walls.</p>
+            <div class="planner-actions"><button class="button button-primary" type="submit">Estimate build <span aria-hidden="true">→</span></button><button class="button button-quiet" id="buildReset" type="button">Reset</button></div>
+          </form>
+          <div class="planner-results" aria-live="polite" aria-atomic="true">
+            <div class="planner-status" id="buildEstimatorStatus">Set your dimensions, then calculate a material list.</div>
+            <div class="planner-summary-grid"><div><span class="result-number" id="buildTotal">—</span><span class="result-label">blocks</span></div><div><span class="result-number" id="buildStacks">—</span><span class="result-label">full stacks</span></div><div><span class="result-number" id="buildSlots">—</span><span class="result-label">inventory slots</span></div><div><span class="result-number" id="buildBoxes">—</span><span class="result-label">shulker boxes*</span></div></div>
+            <div class="planner-breakdown"><h4>Geometry breakdown</h4><ul id="buildBreakdown"></ul></div>
+            <div class="planner-checklist-wrap"><div class="planner-checklist-header"><h4>Gathering checklist</h4><button id="buildCopy" class="small-link-button" type="button">Copy checklist</button></div><ul id="buildChecklist" class="planner-checklist"></ul><div id="buildCopyFallback" class="planner-copy-fallback" hidden><label for="buildCopyText">Manual copy text</label><textarea id="buildCopyText" rows="4" readonly></textarea></div></div>
+            <div id="buildWarnings" class="planner-warnings" hidden></div>
+          </div>
+          <p class="result-footnote">*Estimated using 27 inventory slots per shulker box. Crafting quantities round up to whole recipe batches.</p>
+        </article>
+        <article class="tool-card crafting-card">
+          <div class="tool-card-top"><span class="tool-icon tool-icon-orange">⚒</span><span class="tag tag-live">SURVIVAL READY</span></div>
+          <h3>Resource &amp; crafting planner</h3>
+          <p>Work backward from a target build or craft to estimate the materials you need before you gather them.</p>
+          <form id="plannerForm" class="planner-form">
+            <label for="plannerItem">Target item</label>
+            <select id="plannerItem" class="planner-select" aria-label="Choose a target item">
+              <option value="stone_bricks">Stone Bricks</option>
+              <option value="glass">Glass</option>
+              <option value="furnace">Furnace</option>
+              <option value="bread">Bread</option>
+              <option value="crafting_table">Crafting Table</option>
+              <option value="chest">Chest</option>
+              <option value="iron_pickaxe">Iron Pickaxe</option>
+              <option value="bucket">Bucket</option>
+              <option value="brick_block">Brick Block</option>
+              <option value="stick">Stick</option>
+              <option value="planks">Planks</option>
+            </select>
+            <div class="planner-grid">
+              <div>
+                <label for="plannerTargetQty">Target quantity</label>
+                <input id="plannerTargetQty" name="targetQuantity" type="number" min="1" max="100000" step="1" value="1" inputmode="numeric" required>
+              </div>
+              <div>
+                <label for="plannerEdition">Edition</label>
+                <select id="plannerEdition" class="planner-select">
+                  <option value="java-bedrock">Java &amp; Bedrock</option>
+                  <option value="java">Java</option>
+                  <option value="bedrock">Bedrock</option>
+                </select>
+              </div>
+            </div>
+            <p class="input-help">Common vanilla Java &amp; Bedrock recipes are modeled here. Select an edition to make version-sensitive warnings easier to spot; always verify unusual recipes in-game.</p>
+            <div class="planner-actions">
+              <button class="button button-primary" type="submit">Build list <span aria-hidden="true">→</span></button>
+              <button class="button button-quiet" id="plannerReset" type="button">Reset</button>
+            </div>
+          </form>
+          <div class="planner-results" id="plannerResults" aria-live="polite" aria-atomic="true">
+            <div class="planner-status" id="plannerStatus">Choose a target and build a checklist.</div>
+            <div class="planner-warnings" id="plannerWarnings" hidden></div>
+            <div class="planner-summary-grid">
+              <div><span class="result-number" id="plannerStackSummary">—</span><span class="result-label">full stacks</span></div>
+              <div><span class="result-number" id="plannerSlotSummary">—</span><span class="result-label">storage slots</span></div>
+              <div><span class="result-number" id="plannerBoxSummary">—</span><span class="result-label">shulker boxes*</span></div>
+            </div>
+            <div class="planner-breakdown">
+              <h4>Recipe breakdown</h4>
+              <ul id="plannerBreakdown"></ul>
+            </div>
+            <div class="planner-checklist-wrap">
+              <div class="planner-checklist-header">
+                <h4>Checklist</h4>
+                <button type="button" class="small-link-button" id="plannerCopy">Copy checklist</button>
+              </div>
+              <ul id="plannerChecklist" class="planner-checklist"></ul>
+              <div class="planner-copy-fallback" id="plannerCopyFallback" hidden>
+                <label for="plannerCopyText">Manual copy text</label>
+                <textarea id="plannerCopyText" rows="4" readonly></textarea>
+              </div>
+            </div>
+          </div>
+          <p class="result-footnote">*Estimated using 27 slots per shulker box and 64 items per slot.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-wrap footer-main">
+      <a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>Block<span class="brand-accent">Wise</span></span></a>
+      <p>Tools and field notes for your Minecraft adventures.</p>
+      <nav aria-label="Footer navigation"><a href="tools.html">Tools</a><a href="recipes.html">Recipes</a><a href="enchanting.html">Optimizer</a><a href="guides.html">Guides</a><a href="farms.html">Farms</a><a href="about.html">About</a></nav>
+    </div>
+    <div class="section-wrap footer-bottom"><span>© <span id="currentYear">2026</span> BlockWise. An independent fan project.</span><span>Minecraft is a trademark of its respective owner. BlockWise is not affiliated with or endorsed by Mojang or Microsoft.</span></div>
+  </footer>
+</body>
+</html>
