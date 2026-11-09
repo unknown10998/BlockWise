@@ -39,7 +39,9 @@ test('the ten supported command generators produce edition-aware, copy-ready com
   assert.equal(commandsApi.generateCommand('summon', { entity: 'minecraft:horse', x: '~', y: '~', z: '~' }).command, '/summon minecraft:horse ~ ~ ~');
   assert.equal(commandsApi.generateCommand('setblock', { x: '~', y: '64', z: '~', block: 'minecraft:stone', mode: 'keep' }).command, '/setblock ~ 64 ~ minecraft:stone keep');
   assert.equal(commandsApi.generateCommand('fill', { from: '~ ~ ~', to: '~5 ~4 ~5', block: 'minecraft:stone', mode: 'hollow' }).command, '/fill ~ ~ ~ ~5 ~4 ~5 minecraft:stone hollow');
-  assert.equal(commandsApi.generateCommand('gamerule', { rule: 'keepInventory', value: 'true' }).command, '/gamerule keepInventory true');
+  assert.equal(commandsApi.generateCommand('gamerule', { rule: 'keepInventory', value: 'true' }).command, '/gamerule minecraft:keep_inventory true');
+  assert.equal(commandsApi.generateCommand('gamerule', { rule: 'advance_time', value: 'false' }).command, '/gamerule minecraft:advance_time false');
+  assert.equal(commandsApi.generateCommand('gamerule', { rule: 'keepInventory', value: 'true' }, 'Bedrock').command, '/gamerule keepinventory true');
   assert.match(commandsApi.generateCommand('give', {}).error, /item identifier/);
   assert.match(commandsApi.generateCommand('fill', { from: 'nope', to: '~ ~ ~', block: 'minecraft:stone' }).error, /coordinate triples/);
 });
