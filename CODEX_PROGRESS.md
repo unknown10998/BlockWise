@@ -1,5 +1,16 @@
 # BlockWise planner progress
 
+## GitHub repository cleanup and beta-preparation follow-up
+
+- GitHub pull request [#1: Prepare BlockWise for Public Beta](https://github.com/unknown10998/BlockWise/pull/1) was opened from `beta-readiness` into `main`; it remains open and unmerged. GitHub Actions workflow run [#1](https://github.com/unknown10998/BlockWise/actions/runs/42703318118) completed successfully. Its syntax, full Node suite, and release-readiness job steps all succeeded.
+- Confirmed the `origin` fetch/push remote is `https://github.com/unknown10998/BlockWise.git`; work is on the local `beta-readiness` branch and does not alter `main`.
+- Added `.gitignore` for macOS metadata, local secrets, dependencies, generated outputs, logs, and editor/test artifacts. The tracked `.DS_Store` entry is removed from Git's index without deleting the local Finder metadata file.
+- Added `.github/workflows/tests.yml`. It uses Node 22, runs syntax checks and the dependency-free Node suite on pushes to `main` and pull requests targeting `main`; its first real GitHub execution completed successfully on PR #1.
+- Corrected the Farm Library documentation: six categories have rendered verified embeds (Iron, Sugar Cane, Bamboo, Gold & XP, Enderman XP, Honey & Honeycomb). General Mob & XP, Creeper, Villager Crop, and Slime have external YouTube source links only, with unverified creator identity and no rendered embed. No farm material list is audited; Gold & XP's 360 gold blocks/hour remains creator-stated and not independently benchmarked.
+- Fixed guide-link fallback behavior. `#starter-storage`, `#starter-mining`, and `#starter-building` now resolve to static content if JavaScript is unavailable. With JavaScript, the existing focused detail panel remains the interaction path and Close returns focus to the trigger.
+- Added Node regression tests for guide fallbacks/focus source behavior and GitHub Actions workflow structure. Release checklist deployment instructions now cover the approved GitHub Pages path, while distinguishing publication gates from future research.
+- Verification actually run for this follow-up: `git diff --check`; syntax checks for `script.js` and `farm-browser.js`; and `node --test tests/*.test.js` (46 passing, 0 failing after the Farm embed-split regression test). Real-browser checks used a fresh localhost preview at 320px, 390px, 768px, and 1440px: guide detail focus/close focus return; mobile navigation Escape focus return; Farms' ten cards/six iframe embeds/external-only notice; Dark + Reduced Motion Settings; seven desktop page titles/descriptions/no horizontal overflow; and a final empty console-error log. GitHub Actions ran successfully on PR #1.
+
 ## Public beta readiness audit
 
 - Audited Home, Tools, Recipes, Enchant Optimizer, Guides, Farms, and About for public-facing scope, static paths, page metadata, heading structure, responsive overflow, and feature regressions.

@@ -19,7 +19,7 @@ A lightweight, responsive Minecraft guides-and-tools website built with plain HT
 
 - Stack calculator supports whole-number quantities from 0 through 1,000,000,000.
 - Guide cards can be filtered by category and searched by text.
-- Guide links open short starter tips without leaving the page.
+- Guide links open short starter tips without leaving the page; each link also targets an in-page static guide section so the tips remain available if JavaScript is disabled or fails.
 - Mobile navigation opens and closes with a button.
 - The anvil optimizer searches book merges and successive item applications for the minimum total levels under its Java Edition Survival model. It assumes distinct single-enchantment books with no prior work and an item without selected or conflicting enchantments; duplicate upgrades and pre-enchanted items are not modeled. Raw XP points depend on player level and when XP is earned, so minimum levels do not guarantee minimum XP points.
 - The survival planner recursively expands a small set of common Java/Bedrock vanilla recipes, combines repeated raw resources, and summarizes per-resource stacks, slots, and shulker-box count.
@@ -43,7 +43,7 @@ The **Reduced Motion** setting and operating-system reduced-motion preference di
 
 Open `farms.html` for Iron, General Mob & XP, Sugar Cane, Bamboo, Creeper, Gold & XP, Enderman XP, Villager Crop, Slime, and Honey & Honeycomb references. This is deliberately a research catalog rather than a claim that all ten builds are verified for Java 1.21.11: nine cards say “Rate not verified,” and their materials are “Not audited.” The Gold & XP card retains ianxofour’s linked creator-stated 360-gold-blocks/hour figure but labels it as not independently benchmarked. See [farm-verification-report.md](farm-verification-report.md) for all coverage and limits.
 
-Only videos verified as loadable embeds are shown in the Farm Library. Candidate videos with an unverified creator or player availability are not displayed as watchable embeds.
+Six categories have verified rendered embeds: Iron, Sugar Cane, Bamboo, Gold & XP, Enderman XP, and Honey & Honeycomb. General Mob & XP, Creeper, Villager Crop, and Slime retain external YouTube source links only; their creator identity and embeddable tutorial status are not independently verified. Candidate videos are not presented as watchable embeds.
 
 ## Build Material Estimator notes
 
@@ -102,9 +102,9 @@ node --test tests/*.test.js
 
 ## Public beta readiness
 
-The site is buildless and can be served by free static hosts such as GitHub Pages or Cloudflare Pages; no server, package installation, or paid API is required. Before deploying, review [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md). It records verified functionality and the release blockers that must not be hidden: incomplete Farm Library verification, unresolved rights to redistribute Minecraft textures, and untested production/device/accessibility conditions.
+The site is buildless and can be served by free static hosts such as GitHub Pages or Cloudflare Pages; no server, package installation, or paid API is required. Before deploying, review [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md). It records verified functionality, public-beta publication gates, and future research limitations. BlockWise does not distribute Minecraft textures; its original item initials are intentional and are not a release blocker.
 
-For a static-host deployment, publish this folder with `index.html` at the public root and no build command. After deployment, test the published HTTPS URL, external video/source links, and the target devices before promoting the beta.
+For GitHub Pages, use **Settings → Pages → Build and deployment → Deploy from a branch**, select `main` and `/ (root)`, then save after the beta-readiness changes are merged. The expected project URL is `https://unknown10998.github.io/BlockWise/`; it is not confirmed live until GitHub reports a successful deployment. All page and asset paths are relative, so they are compatible with the `/BlockWise/` project path. After deployment, test the published HTTPS URL, external video/source links, and the target devices before promoting the beta.
 
 ## Java recipe browser
 

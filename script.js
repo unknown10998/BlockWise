@@ -247,6 +247,7 @@ const starterDetails = document.querySelector("#starterDetails");
 const detailCategory = document.querySelector("#detailCategory");
 const detailTitle = document.querySelector("#detailTitle");
 const detailContent = document.querySelector("#detailContent");
+let activeGuideLink = null;
 
 document.querySelectorAll("[data-guide-link]").forEach((link) => {
   link.addEventListener("click", (event) => {
@@ -264,13 +265,20 @@ document.querySelectorAll("[data-guide-link]").forEach((link) => {
     });
     detailContent.replaceChildren(list);
     starterDetails.hidden = false;
+    activeGuideLink = link;
+    document.querySelectorAll("[data-guide-link]").forEach(candidate => candidate.setAttribute("aria-expanded", String(candidate === link)));
     pulseResult(starterDetails);
     starterDetails.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    starterDetails.focus({ preventScroll: true });
   });
 });
 
+if (starterDetails) document.documentElement.classList.add("js-guides");
+
 document.querySelector("#closeDetails")?.addEventListener("click", () => {
   starterDetails.hidden = true;
+  activeGuideLink?.setAttribute("aria-expanded", "false");
+  activeGuideLink?.focus();
 });
 
 document.querySelector("#currentYear").textContent = new Date().getFullYear();
