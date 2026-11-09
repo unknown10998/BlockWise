@@ -1,5 +1,14 @@
 # BlockWise planner progress
 
+## Commands Explorer — first curated reference increment
+
+- Added `commands.html`, `commands-data.js`, and `commands-browser.js`: a dependency-free explorer with 39 curated common commands across player, world, location, entity, building, administration, scoreboard, and advanced-command categories. It searches names, aliases, categories, and practical keywords; filters by Java/Bedrock availability; and renders syntax, example, permissions, warnings, source links, and argument labels.
+- Java entries are labelled for Java Edition 1.21.11. Bedrock syntax is visibly separate and labelled as a stable-reference comparison. The page gives users command/cheat, selector, coordinate, permission, achievement, and destructive-operation guidance; it does not claim the two editions share a grammar.
+- Implemented ten input-validated, review-before-copy generators: `/give`, `/teleport`, `/gamemode`, `/time`, `/weather`, `/effect`, `/summon`, `/setblock`, `/fill`, and `/gamerule`. Copying uses the Clipboard API and retains the project’s focused manual-copy fallback when access is unavailable.
+- Added Commands links to every header/footer, semantic-token responsive styles, and Node tests for catalog records, searching, Java/Bedrock generator output, invalid inputs, page hooks, fallback implementation, and public-page static links.
+- Verification actually run: `node --check commands-data.js`, `node --check commands-browser.js`, `node --check script.js`, `node --test tests/*.test.js` (**50 passing, 0 failing**), and `git diff --check`. A local real-browser check at 1440px verified “diamonds” search (1 of 39), `/give` details, Bedrock syntax switching, generator output, actual clipboard copy, and no horizontal overflow. At 390px and 320px, command search/list/detail and the 10-generator UI fit without horizontal overflow; the final 320px Stack Calculator regression still returned 15 full stacks for 1,000 items. Browser console-error logs were empty on Commands and Tools.
+- Remaining command work: an exhaustive Java 1.21.11 command catalog, per-argument documentation, in-game execution checks for every entry/permission context, Bedrock version-specific audit, physical-device, and screen-reader tests. No Minecraft textures, paid APIs, libraries, game files, or external accounts were added.
+
 ## GitHub repository cleanup and beta-preparation follow-up
 
 - GitHub pull request [#1: Prepare BlockWise for Public Beta](https://github.com/unknown10998/BlockWise/pull/1) was opened from `beta-readiness` into `main`; it remains open and unmerged. GitHub Actions workflow run [#1](https://github.com/unknown10998/BlockWise/actions/runs/42703318118) completed successfully. Its syntax, full Node suite, and release-readiness job steps all succeeded.

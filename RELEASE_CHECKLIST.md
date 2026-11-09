@@ -6,13 +6,15 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 
 | Requirement | Status | Evidence / action |
 | --- | --- | --- |
-| Public pages have clear scope and independent-fan-project disclosure | Pass | Footer disclaimer is present on all seven public pages. |
+| Public pages have clear scope and independent-fan-project disclosure | Pass | Footer disclaimer is present on all eight public pages. |
 | Recipe Browser is identified as Java Edition 1.21.11 data, not the cross-edition starter planner | Pass | Recipe heading and README describe the separate scope. |
 | Recipe coverage is not overstated | Pass | Documentation records 1,470 structurally imported definitions and says visual/in-game validation is incomplete. |
 | Farm cards distinguish creator claims from verified results | Pass | Gold is labelled creator-stated/not independently benchmarked; all other rates are unverified and materials are not audited. |
 | Farm cards accurately identify embed, creator, compatibility, rate, and material confidence | Pass | Six verified embeds are rendered; four cards retain external YouTube links only; unverified compatibility, rates, and materials are explicitly labelled. |
 | Every farm has a current 1.21.11-compatible, independently verified tutorial and materials list | Not Tested | This is a future research goal, not a public-beta blocker while the catalog remains clearly labelled. See `farm-verification-report.md`. |
 | Restricted Minecraft textures are not bundled | Pass | BlockWise uses original item initials; no game textures are distributed. |
+| Commands Explorer distinguishes Java syntax from Bedrock reference syntax and warns about permissions/destructive actions | Pass | The Commands page labels edition-specific syntax, provides safety guidance, and links to its sources. It does not claim full command or in-game coverage. |
+| Every command and generator has been verified in a Java 1.21.11 and Bedrock game world | Not Tested | Local data and browser rendering checks cannot substitute for in-game execution across every command, permission context, and server configuration. |
 
 ## Functionality and accessibility
 
@@ -23,6 +25,7 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 | Build Material Estimator works | Pass | Browser: default house estimate returned 143 blocks and 3 inventory slots. |
 | Enchantment Optimizer works within its stated model | Pass | Browser: default setup returned 23 levels and four steps; automated exhaustive-model tests passed. |
 | Recipe search and full-screen grid work | Pass | Browser: “oak stairs” yielded three results, a nine-slot grid, and a full-screen view with item names. |
+| Commands search, filters, detail syntax, generator, and copy control work | Pass | Local desktop and mobile browser checks exercised a search, edition switch, `/give` generator, clipboard copy, and no-overflow layout. |
 | Guide and Farm search work | Pass | Browser: “mining” showed two guide cards; “gold” showed 1 of 10 farm references. |
 | Mobile navigation and keyboard Escape work | Pass | Browser at 390px: menu closed on Escape and returned focus to the menu button. |
 | Settings persist across reload | Pass | Browser: Light theme was retained after reload. Settings save handler supports both `input` and native select `change`. |

@@ -10,7 +10,7 @@ A lightweight, responsive Minecraft guides-and-tools website built with plain HT
 
 ## Files
 
-- `index.html`, `tools.html`, `recipes.html`, `enchanting.html`, `guides.html`, `farms.html`, and `about.html` — the individual site pages
+- `index.html`, `tools.html`, `commands.html`, `recipes.html`, `enchanting.html`, `guides.html`, `farms.html`, and `about.html` — the individual site pages
 - `styles.css` — responsive layout and visual design
 - `script.js` — stack calculator, mobile navigation, guide search/filter, guide detail panels, enchant optimizer, and the Minecraft Survival Planner
 - `build-estimator.js` — reusable geometry and material-list core for the Build Material Estimator
@@ -25,6 +25,7 @@ A lightweight, responsive Minecraft guides-and-tools website built with plain HT
 - The survival planner recursively expands a small set of common Java/Bedrock vanilla recipes, combines repeated raw resources, and summarizes per-resource stacks, slots, and shulker-box count.
 - The Build Material Estimator plans rooms, houses, walls, floors, and solid cuboids, then lists blocks, storage, modeled crafting ingredients, and a copyable gathering checklist.
 - The Farm Library provides a searchable, filterable set of ten Java farm research references with direct source links, requirements, and transparent rate/material verification status.
+- The Commands Explorer is a curated, searchable command reference with separate Java Edition 1.21.11 and Bedrock syntax, safety notes, copyable examples, and ten carefully scoped command generators.
 - The header Settings control saves System/Light/Dark theme, Small/Normal/Large/Extra Large text, Compact/Comfortable density, High Contrast, and Reduced Motion preferences locally. Settings work across all pages and can be reset to defaults.
 
 ## Appearance and accessibility
@@ -44,6 +45,12 @@ The **Reduced Motion** setting and operating-system reduced-motion preference di
 Open `farms.html` for Iron, General Mob & XP, Sugar Cane, Bamboo, Creeper, Gold & XP, Enderman XP, Villager Crop, Slime, and Honey & Honeycomb references. This is deliberately a research catalog rather than a claim that all ten builds are verified for Java 1.21.11: nine cards say “Rate not verified,” and their materials are “Not audited.” The Gold & XP card retains ianxofour’s linked creator-stated 360-gold-blocks/hour figure but labels it as not independently benchmarked. See [farm-verification-report.md](farm-verification-report.md) for all coverage and limits.
 
 Six categories have verified rendered embeds: Iron, Sugar Cane, Bamboo, Gold & XP, Enderman XP, and Honey & Honeycomb. General Mob & XP, Creeper, Villager Crop, and Slime retain external YouTube source links only; their creator identity and embeddable tutorial status are not independently verified. Candidate videos are not presented as watchable embeds.
+
+## Commands Explorer
+
+Open `commands.html` to browse the initial curated set of 39 common commands. Search by command, alias, category, or a practical goal such as “diamonds,” then select an edition to see its separate syntax. The page includes generators for `/give`, `/teleport`, `/gamemode`, `/time`, `/weather`, `/effect`, `/summon`, `/setblock`, `/fill`, and `/gamerule`; generated text must still be reviewed before it is run.
+
+The Java examples are presented for Java Edition 1.21.11. Bedrock entries are a stable-reference comparison, not a claim that both editions share syntax. Each entry links to its external command reference. The first catalog is intentionally not a complete list of every Java or Bedrock command, argument tree, permission level, or in-game validation result. Clipboard copying uses the browser API when available and otherwise reveals focused, selected text for manual copying.
 
 ## Build Material Estimator notes
 

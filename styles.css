@@ -616,6 +616,60 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
 }
 
 .reduce-motion .button, .reduce-motion .settings-trigger, .reduce-motion .menu-toggle, .reduce-motion .filter-button, .reduce-motion .recipe-choice, .reduce-motion .recipe-fullscreen-button, .reduce-motion .recipe-item-button, .reduce-motion .small-link-button, .reduce-motion .text-link, .reduce-motion .farm-details summary, .reduce-motion .recipe-options summary, .reduce-motion .tool-card, .reduce-motion .guide-card, .reduce-motion .farm-card, .reduce-motion .recipe-detail, .reduce-motion .recipe-browser-controls, .reduce-motion .optimizer-card, .reduce-motion .optimizer-results, .reduce-motion .settings-dialog, .reduce-motion .recipe-modal, .reduce-motion .nav-backdrop, .reduce-motion .site-nav, .reduce-motion .result-updated, .reduce-motion .farm-details[open] > :not(summary), .reduce-motion .recipe-options[open] > :not(summary) { animation: none !important; transition: none !important; transform: none !important; }
+
+/* Commands explorer */
+.commands-section { padding-block: calc(82px * var(--space-scale)) calc(98px * var(--space-scale)); }
+.commands-safety { margin-bottom: 22px; padding: calc(20px * var(--space-scale)); border: 1px solid var(--warning-border); border-radius: 14px; background: var(--warning-bg); color: var(--warning-text); }
+.commands-safety h2 { margin-bottom: 9px; font-size: 1.1rem; letter-spacing: -.025em; }
+.commands-safety p { max-width: 990px; margin-bottom: 10px; font-size: .88rem; }
+.commands-safety p:last-child { margin-bottom: 0; }
+.commands-safety code, .command-detail code { overflow-wrap: anywhere; }
+.commands-controls { display: grid; grid-template-columns: minmax(230px, 1.7fr) repeat(2, minmax(140px, .75fr)) auto; gap: 12px; align-items: end; padding: calc(18px * var(--space-scale)); border: 1px solid var(--border); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+.commands-controls > label:not(.search-box) { display: grid; gap: 5px; color: var(--text-muted); font-size: .72rem; font-weight: 800; letter-spacing: .03em; }
+.commands-controls select, .command-generator input, .command-generator select { min-width: 0; min-height: 42px; border: 1px solid var(--border); border-radius: 9px; padding: 8px 10px; background: var(--control); color: var(--text); }
+.commands-controls .button { min-height: 42px; padding-inline: 14px; white-space: nowrap; }
+.command-count { margin: 13px 0; color: var(--text-subtle); font-size: .8rem; }
+.commands-layout { display: grid; grid-template-columns: minmax(235px, .78fr) minmax(0, 1.45fr); gap: 18px; align-items: start; }
+.command-list { display: grid; gap: 8px; max-height: 690px; overflow: auto; padding-right: 4px; }
+.command-choice { width: 100%; padding: 13px; border: 1px solid var(--border); border-radius: 11px; background: var(--surface); color: var(--text); text-align: left; cursor: pointer; }
+.command-choice strong, .command-choice span, .command-choice small { display: block; }
+.command-choice strong { font-size: .94rem; }
+.command-choice span { margin-top: 3px; color: var(--text-muted); font-size: .78rem; line-height: 1.42; }
+.command-choice small { margin-top: 7px; color: var(--text-subtle); font-size: .63rem; font-weight: 800; letter-spacing: .04em; }
+.command-choice:hover, .command-choice.active { border-color: var(--accent); background: var(--accent-soft); }
+.command-detail { min-width: 0; min-height: 420px; padding: calc(24px * var(--space-scale)); border: 1px solid var(--border); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+.command-detail h2 { margin-bottom: 7px; font-size: clamp(1.8rem, 3vw, 2.45rem); }
+.command-detail h3 { margin: 25px 0 9px; font-size: 1rem; }
+.command-detail-head > p:not(.eyebrow) { max-width: 700px; margin-bottom: 13px; color: var(--text-muted); }
+.command-editions { display: flex; flex-wrap: wrap; gap: 6px; }
+.command-editions span { border: 1px solid var(--border); border-radius: 999px; padding: 3px 8px; background: var(--surface-muted); color: var(--accent-hover); font-size: .67rem; font-weight: 800; }
+.command-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 19px 0 0; }
+.command-facts div { padding: 11px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface-muted); }
+.command-facts dt { color: var(--text-subtle); font-size: .62rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+.command-facts dd { margin: 3px 0 0; font-size: .76rem; font-weight: 700; }
+.command-detail pre { max-width: 100%; overflow: auto; margin: 0; padding: 12px; border: 1px solid var(--border); border-radius: 9px; background: var(--control); color: var(--text); font-size: .82rem; }
+.command-detail section > ul { margin: 0; padding-left: 20px; color: var(--text-muted); font-size: .85rem; }
+.copy-command { margin-top: 9px; min-height: 40px; padding: 8px 12px; font-size: .78rem; }
+.copy-status, #generatorStatus { min-height: 1.3em; margin: 7px 0 0; color: var(--text-subtle); font-size: .75rem; }
+.copy-status .planner-copy-fallback { display: block; width: 100%; min-height: 72px; margin-top: 6px; resize: vertical; }
+.command-warning { margin-top: 23px; padding: 12px; border: 1px solid var(--warning-border); border-radius: 9px; background: var(--warning-bg); color: var(--warning-text); font-size: .82rem; }
+.command-generator { margin-top: 24px; padding: 17px; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--surface-raised); }
+.command-generator h3 { margin-top: 0; }.command-generator > p { margin-bottom: 13px; color: var(--text-muted); font-size: .82rem; }
+.command-generator > label, .generator-fields label { display: grid; gap: 5px; color: var(--text-muted); font-size: .72rem; font-weight: 800; letter-spacing: .03em; }
+.generator-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 11px; }
+.generator-result { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; margin-top: 14px; padding: 10px; border: 1px solid var(--border); border-radius: 9px; background: var(--control); }
+.generator-result code { min-width: 0; overflow-wrap: anywhere; font-size: .79rem; }.generator-result .button { min-height: 40px; padding-inline: 12px; font-size: .78rem; }
+.generator-result #generatorStatus { grid-column: 1 / -1; margin: 0; }
+.no-results { color: var(--text-muted); }
+
+@media (hover: hover) and (pointer: fine) {
+  .commands-controls, .command-detail { transition: transform var(--motion-normal) var(--ease-out), box-shadow var(--motion-normal) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard); }
+  .commands-controls:hover, .command-detail:hover { transform: translateY(-2px); border-color: var(--border-strong); box-shadow: 0 16px 34px rgb(16 40 25 / 12%); }
+  .command-choice { transition: background-color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
+  .command-choice:hover { transform: translateX(2px); }
+}
+@media (max-width: 940px) { .commands-controls { grid-template-columns: minmax(200px, 1.4fr) repeat(2, minmax(130px, .8fr)); }.commands-controls .button { grid-column: 1 / -1; }.commands-layout { grid-template-columns: 1fr; }.command-list { grid-template-columns: repeat(2, minmax(0, 1fr)); max-height: 420px; } }
+@media (max-width: 680px) { .commands-section { padding-block: calc(58px * var(--space-scale)) calc(68px * var(--space-scale)); }.commands-safety, .commands-controls, .command-detail { padding: calc(17px * var(--space-scale)); }.commands-controls, .command-list, .generator-fields { grid-template-columns: 1fr; }.commands-controls .search-box { grid-column: auto; }.command-list { max-height: none; }.command-facts, .generator-result { grid-template-columns: 1fr; }.generator-result .button { width: 100%; }.command-detail pre { font-size: .74rem; } }
 @media (prefers-reduced-motion: reduce) {
   :root:not(.reduce-motion) .button, :root:not(.reduce-motion) .settings-trigger, :root:not(.reduce-motion) .menu-toggle, :root:not(.reduce-motion) .filter-button, :root:not(.reduce-motion) .recipe-choice, :root:not(.reduce-motion) .recipe-fullscreen-button, :root:not(.reduce-motion) .recipe-item-button, :root:not(.reduce-motion) .small-link-button, :root:not(.reduce-motion) .text-link, :root:not(.reduce-motion) .farm-details summary, :root:not(.reduce-motion) .recipe-options summary, :root:not(.reduce-motion) .tool-card, :root:not(.reduce-motion) .guide-card, :root:not(.reduce-motion) .farm-card, :root:not(.reduce-motion) .recipe-detail, :root:not(.reduce-motion) .recipe-browser-controls, :root:not(.reduce-motion) .optimizer-card, :root:not(.reduce-motion) .optimizer-results, :root:not(.reduce-motion) .settings-dialog, :root:not(.reduce-motion) .recipe-modal, :root:not(.reduce-motion) .nav-backdrop, :root:not(.reduce-motion) .site-nav, :root:not(.reduce-motion) .result-updated, :root:not(.reduce-motion) .farm-details[open] > :not(summary), :root:not(.reduce-motion) .recipe-options[open] > :not(summary) { animation: none !important; transition: none !important; transform: none !important; }
 }

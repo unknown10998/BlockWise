@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const pages = ['index.html', 'tools.html', 'recipes.html', 'enchanting.html', 'guides.html', 'farms.html', 'about.html'];
+const pages = ['index.html', 'tools.html', 'commands.html', 'recipes.html', 'enchanting.html', 'guides.html', 'farms.html', 'about.html'];
 const root = path.resolve(__dirname, '..');
 
 function localReferences(html) {
