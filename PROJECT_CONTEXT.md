@@ -14,7 +14,7 @@ BlockWise is a free, beginner-friendly Minecraft guides-and-tools site for ordin
 - Java 1.21.11 recipe browser: 1,470 source definitions, search, station/type filtering, pagination, alternatives, grids, smithing and other station layouts, and accessible initials with full-screen crafting-grid views.
 - Build Material Estimator: overlap-safe room/house, wall, floor, and solid-cuboid calculations; repeated structures; openings; storage summaries; initial material ingredients; and a copyable gathering list.
 - Farm Library: a searchable/filterable Java farm research directory for ten requested categories, with source attribution, dimension/type/difficulty metadata, requirements, and explicit data-confidence labels.
-- Commands Explorer: a curated 39-command browser with command/goal search, category and edition filters, Java Edition 1.21.11 syntax, separate Bedrock reference syntax, safety guidance, copyable examples, and generators for ten common commands.
+- Commands Explorer: a curated 39-command browser with command/goal search, category and edition filters, Java Edition 1.21.11 syntax, separate Bedrock reference syntax, safety guidance, copyable examples, and generators for ten common commands. Its separate Smart Command Finder uses a deterministic local parser for custom enchantments, status effects, basic giving, upward teleports, and always-day sequences.
 - Shared appearance settings: System/Light/Dark theme, four text sizes, compact/comfortable spacing, high contrast, reduced motion, persistence, and reset across every page.
 
 ## Important decisions
@@ -35,6 +35,7 @@ BlockWise is a free, beginner-friendly Minecraft guides-and-tools site for ordin
 - Guide links retain JavaScript detail-panel behavior but now have matching static fragment destinations with the essential tips for no-JavaScript navigation. The active JavaScript detail panel receives focus and its Close button returns focus to the originating link.
 - Farm documentation and UI distinguish six verified rendered embeds from four external-only candidate source links. The candidate links have unverified creator identity and no rendered embed; all material lists remain unaudited, and the sole numeric rate is creator-stated rather than independently measured.
 - Commands are an intentionally scoped reference, not an exhaustive in-game command parser. Command data is separate from rendering in `commands-data.js`; `commands-browser.js` renders it without dependencies. Java syntax is labeled for 1.21.11, while Bedrock is separately labeled as a stable-reference comparison. Generated commands are suggestions requiring player review, especially for permissions, selectors, destructive block operations, and edition-specific behavior.
+- `commands-intent.js` deliberately supports only recognized intent patterns. It uses Java 1.21.11 item-component syntax for custom items and accepts component enchantment values from 1 through 255; a natural-language request above 255 is clamped only with an explicit warning. It never executes a command, makes network calls, treats an unknown request as valid, or generates custom-item component syntax for Bedrock.
 
 ## Verification status
 

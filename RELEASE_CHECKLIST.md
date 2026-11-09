@@ -26,6 +26,8 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 | Enchantment Optimizer works within its stated model | Pass | Browser: default setup returned 23 levels and four steps; automated exhaustive-model tests passed. |
 | Recipe search and full-screen grid work | Pass | Browser: “oak stairs” yielded three results, a nine-slot grid, and a full-screen view with item names. |
 | Commands search, filters, detail syntax, generator, and copy control work | Pass | Local desktop and mobile browser checks exercised a search, edition switch, `/give` generator, clipboard copy, and no-overflow layout. |
+| Smart Command Finder is separate from the catalog and produces verified supported patterns | Pass | Local automated/browser checks covered parser recognition, editable output, copy/current command behavior, unknown requests, reset isolation, and 320px–1440px layouts. |
+| Smart Finder covers every Minecraft command, item component, enchantment, and Bedrock custom item | Not Tested | It intentionally handles only documented patterns; in-game validation and broader grammar/component coverage remain future work. |
 | Guide and Farm search work | Pass | Browser: “mining” showed two guide cards; “gold” showed 1 of 10 farm references. |
 | Mobile navigation and keyboard Escape work | Pass | Browser at 390px: menu closed on Escape and returned focus to the menu button. |
 | Settings persist across reload | Pass | Browser: Light theme was retained after reload. Settings save handler supports both `input` and native select `change`. |

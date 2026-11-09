@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css?v=motion-audit-1">
   <script src="script.js?v=motion-audit-1" defer></script>
   <script src="commands-data.js" defer></script>
+  <script src="commands-intent.js" defer></script>
   <script src="commands-browser.js" defer></script>
 </head>
 <body>
@@ -24,7 +25,13 @@
     <section class="commands-section"><div class="section-wrap">
       <div class="section-heading"><div><p class="eyebrow">COMMAND LIBRARY</p><h1>Type less. Understand more.</h1><p class="section-description">Find a command, check its edition-specific syntax, customize common commands, then copy it into Minecraft yourself.</p></div><span class="section-index">06 / COMMANDS</span></div>
       <aside class="commands-safety" aria-labelledby="commandSafetyTitle"><h2 id="commandSafetyTitle">Before you run a command</h2><p>Open chat and start with <code>/</code>. Single-player worlds need commands/cheats enabled; servers require permission from the owner or operator. Bedrock cheats disable achievements for that world. Never use commands to bypass a server's rules or permissions.</p><p><strong>Selectors:</strong> <code>@s</code> is the executor, <code>@p</code> nearest player, <code>@a</code> all players, <code>@e</code> all entities, and <code>@r</code> a random player. Use coordinates as absolute values, relative values such as <code>~5</code>, or local values such as <code>^ ^ ^3</code> where supported.</p><p><strong>Take care:</strong> <code>/clear</code>, <code>/kill</code>, and large <code>/fill</code> operations can affect many entities or erase builds.</p></aside>
-      <section class="commands-browser" aria-label="Command explorer">
+      <section class="smart-finder" aria-labelledby="smartFinderTitle">
+        <div class="smart-finder-heading"><div><p class="eyebrow">SMART COMMAND FINDER</p><h2 id="smartFinderTitle">Describe it. Then refine it.</h2><p>Describe what you want to do in Minecraft. We'll help you find or build the command.</p></div><span>LOCAL, DETERMINISTIC PARSER</span></div>
+        <form id="smartFinderForm" class="smart-finder-form" novalidate><label class="search-box"><span aria-hidden="true">⌕</span><input id="smartCommandSearch" type="search" placeholder="Try: knockback stick, infinite speed 5, give 64 diamonds..." aria-label="Describe a Minecraft command"></label><button class="button button-primary" id="smartGenerate" type="submit">Generate Command</button></form>
+        <p class="smart-finder-help">Supports custom enchantments, status effects, item giving, relative upward teleports, and “always day.” It only generates suggestions—it never runs a command.</p>
+        <div id="smartCommandResult" class="smart-command-result" aria-live="polite"></div>
+      </section>
+      <section class="commands-browser" aria-labelledby="commandBrowseTitle"><div class="command-browse-heading"><div><p class="eyebrow">REFERENCE CATALOG</p><h2 id="commandBrowseTitle">Browse Commands</h2><p>Search the 39-command reference by name, alias, category, or a practical goal.</p></div></div>
         <div class="commands-controls"><label class="search-box"><span aria-hidden="true">⌕</span><input id="commandSearch" type="search" placeholder="Search commands, for example diamonds or teleport" aria-label="Search commands"></label><label>Category <select id="commandCategory"><option value="all">All categories</option></select></label><label>Edition <select id="commandEdition"><option value="all">Java and Bedrock</option><option value="Java">Java</option><option value="Bedrock">Bedrock</option></select></label><button class="button button-quiet" id="commandReset" type="button">Clear search</button></div>
         <p class="command-count" id="commandCount" aria-live="polite"></p>
         <div class="commands-layout"><div class="command-list" id="commandList" aria-label="Command results"></div><section class="command-detail" id="commandDetail" aria-live="polite"><p class="coming-note">Choose a command to see syntax, examples, and a generator where available.</p></section></div>
