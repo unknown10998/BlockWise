@@ -13,9 +13,9 @@ class Element {
   get classList() {
     const node = this;
     return {
-      contains(value) { return (node.className || '').split(/\\s+/).includes(value); },
+      contains(value) { return (node.className || '').split(/\s+/).includes(value); },
       add(value) { if (!this.contains(value)) node.className = ((node.className || '') + ' ' + value).trim(); },
-      toggle(value, force) { const has = this.contains(value); const shouldAdd = force === undefined ? !has : force; node.className = (node.className || '').split(/\\s+/).filter(x => x && x !== value).concat(shouldAdd ? [value] : []).join(' '); return shouldAdd; }
+      toggle(value, force) { const has = this.contains(value); const shouldAdd = force === undefined ? !has : force; node.className = (node.className || '').split(/\s+/).filter(x => x && x !== value).concat(shouldAdd ? [value] : []).join(' '); return shouldAdd; }
     };
   }
   focus() { this.focused = true; }
@@ -140,4 +140,20 @@ test('fullscreen recipe alternatives allow switching and previewing alternate in
   selection.trigger('change');
   assert.ok(descendants(modal).some(node => node.textContent === 'Birch Planks'));
   assert.ok(descendants(modal).some(node => node.className === 'recipe-preview-grid'));
+});
+
+test('site provides locally hosted scenic backgrounds and recipe explorer styling', () => {
+  const css = fs.readFileSync('styles.css', 'utf8');
+  const home = fs.readFileSync('index.html', 'utf8');
+  const recipesPage = fs.readFileSync('recipes.html', 'utf8');
+  assert.match(home, /class="hero hero-scenic section-wrap"/);
+  for (const path of ['assets/backgrounds/overworld-landscape.svg', 'assets/backgrounds/enchanting-cavern.svg']) {
+    assert.ok(fs.existsSync(path), 'background exists locally: ' + path);
+    const artwork = fs.readFileSync(path, 'utf8');
+    assert.match(artwork, /^<svg /);
+    assert.ok(css.includes(path), 'stylesheet references ' + path);
+  }
+  assert.match(css, /recipe-ingredient-preview/);
+  assert.match(css, /recipe-modal-ingredient/);
+  assert.match(recipesPage, /Hover or focus an ingredient/);
 });
