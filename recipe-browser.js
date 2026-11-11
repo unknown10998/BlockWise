@@ -101,6 +101,11 @@
       if (!matches.length) return null;
       return firstRecipe(itemId);
     }
+    function revealPreviewOnSmallScreen() {
+      if (window.matchMedia?.('(max-width: 680px)').matches) {
+        preview.scrollIntoView?.({ block: 'nearest', behavior: motionIsReduced() ? 'auto' : 'smooth' });
+      }
+    }
     function previewIngredient(itemId) {
       preview.replaceChildren();
       const recipeMatch = chooseRecipe(itemId);
@@ -108,6 +113,7 @@
       preview.append(el('h3', '', name(itemId)));
       if (!recipeMatch) {
         preview.append(el('p', 'recipe-preview-caption', 'No defined crafting or station recipe for this item in the imported Java 1.21.11 data. It may be gathered, mined, traded, or obtained another way.'));
+        revealPreviewOnSmallScreen();
         return;
       }
       const stationLabel = stationLabels[stationName(recipeMatch.type)] || fallbackName(recipeMatch.type);
@@ -134,6 +140,7 @@
       openButton.type = 'button';
       openButton.addEventListener('click', () => navigateTo(recipeMatch));
       preview.append(openButton);
+      revealPreviewOnSmallScreen();
     }
     function navigateTo(nextRecipe) {
       if (!nextRecipe || history.length > 24) return;
