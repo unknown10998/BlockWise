@@ -58,7 +58,7 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 | --- | --- | --- |
 | Buildless static hosting compatibility | Pass | The site has plain HTML, CSS, JavaScript, local assets, and no build step or server dependency. |
 | GitHub Pages / Cloudflare Pages deployment configuration | Not Tested | No account, repository, or hosting configuration was changed. |
-| GitHub Actions automated checks | Pass | The `Static site checks` workflow completed successfully on PR #1. Syntax, the full Node suite, and release-readiness checks all passed. |
+| GitHub Actions automated checks | Pass | `Static site checks` completed successfully for final-polish PR #4 (run 11), in addition to the earlier beta baseline. |
 | Production HTTPS, custom domain, and cache behavior | Not Tested | Verify after deployment. |
 
 ## Deploy after approval
