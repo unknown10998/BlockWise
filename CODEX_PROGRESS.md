@@ -1,5 +1,13 @@
 # BlockWise planner progress
 
+## Scenic backgrounds and fullscreen ingredient-recipe exploration — feature branch
+
+- Added two original vector scenery illustrations, `assets/backgrounds/overworld-landscape.svg` and `assets/backgrounds/enchanting-cavern.svg`. These are not third-party screenshots or extracted game textures. The home hero displays the landscape; Tools, Recipes, Enchanting, Guides, Farms, and Commands headings use localized scenic image backdrops, leaving tools on solid readable surfaces.
+- Enhanced the full-screen Java 1.21.11 recipe viewer: hover or keyboard focus on an ingredient to preview its own source-defined recipe; click to open it, with a Back button for navigation. Tag alternatives can be selected, and items without defined recipes clearly indicate that limitation. Lookup uses the full imported recipe catalog independent of current search filters.
+- Added DOM-simulation tests for hover, nested browsing, Back, ingredient alternatives, local artwork presence and stylesheet wiring. These changes are in PR #4's feature branch, not yet on the public website. The scenery files are original illustrations, not true Minecraft gameplay screenshots.
+- The preceding branch GitHub Actions checks completed successfully. Check latest CI and preview before merging.
+
+
 ## Final website polish, image-ready visuals, and search foundations
 
 - Created `feature/final-polish-seo` from the current merged `main` baseline. The Smart Commands work remains preserved and no recipe, farm, calculator, or settings dataset was rebuilt.
