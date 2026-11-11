@@ -1,5 +1,26 @@
 # BlockWise planner progress
 
+## Scenic backgrounds and fullscreen ingredient-recipe exploration — feature branch
+
+- Added two original vector scenery illustrations, `assets/backgrounds/overworld-landscape.svg` and `assets/backgrounds/enchanting-cavern.svg`. These are not third-party screenshots or extracted game textures. The home hero displays the landscape; Tools, Recipes, Enchanting, Guides, Farms, and Commands headings use localized scenic image backdrops, leaving tools on solid readable surfaces.
+- Enhanced the full-screen Java 1.21.11 recipe viewer: hover or keyboard focus on an ingredient to preview its own source-defined recipe; click to open it, with a Back button for navigation. Tag alternatives can be selected, and items without defined recipes clearly indicate that limitation. Lookup uses the full imported recipe catalog independent of current search filters.
+- Added DOM-simulation tests for hover, nested browsing, Back, ingredient alternatives, local artwork presence and stylesheet wiring. These changes are in PR #4's feature branch, not yet on the public website. The scenery files are original illustrations, not true Minecraft gameplay screenshots.
+- The preceding branch GitHub Actions checks completed successfully. Check latest CI and preview before merging.
+
+
+## Final website polish, image-ready visuals, and search foundations
+
+- Created `feature/final-polish-seo` from the current merged `main` baseline. The Smart Commands work remains preserved and no recipe, farm, calculator, or settings dataset was rebuilt.
+- Added project-path canonical URLs, concise Open Graph/Twitter summaries, and refreshed page-specific explanatory copy across the eight primary public pages. The home page now makes the site's main paths—tools, recipes, and commands—visible in static HTML, and the About page accurately states that the site currently has no analytics, advertising, or account collection.
+- Added a valid `sitemap.xml` with the eleven intended canonical URLs: eight primary pages plus three new original, indexable Java Edition 1.21.11 reference guides. The only structured data is a truthful `WebSite` record on the home page; no ratings, reviews, FAQ markup, or unsupported rich-result claims were added. A project-directory `robots.txt` was deliberately not added because it would not control the root `unknown10998.github.io` robots policy.
+- Added focused reference pages for custom Knockback sticks, long-lasting status effects, and keep-inventory. Each states Java Edition 1.21.11 scope, includes practical syntax and cautions, and links to the Commands Explorer. They do not claim in-game execution testing or universal server compatibility.
+- No Minecraft photographs, extracted textures, promotional artwork, or third-party wallpapers were added. The current home illustration remains original CSS. `styles.css` includes a dormant `.hero-art-owner-image` integration hook, ready only for an owner-approved optimized background image. `SEO_LAUNCH_CHECKLIST.md` records required screenshot provenance, publishing permission, filename, performance, alt-text, and credit steps.
+- Corrected a confirmed README error: the recipe browser is opened from `recipes.html`, not `index.html`.
+- Verification actually run: `node --check` on the shared, recipe, farm, build, and command scripts; `node --test tests/*.test.js` (**60 passing, 0 failing**); and `git diff --check`. The new SEO tests validate sitemap completeness, canonical URLs, structured data, and version-scoped guide links.
+- Real-browser verification actually run using a local static server under `/BlockWise/`: all 11 intended public pages had one H1, their expected canonical, and no horizontal overflow at 1440px, 768px, 390px, and 320px. At 390px, Stack Calculator returned 15 stacks / 40 leftovers for 1,000 items; Iron Pickaxe planning produced 3 Iron Ingots plus 1 Log; the Build Estimator returned 143 blocks; Smart Finder generated the Java Knockback-255 syntax; recipe search found 3 Oak Stairs recipes and opened its full-screen grid; the guide hub reached the new article; Farms search returned 1 Gold reference; mobile navigation opened and closed with Escape; and Dark theme persisted through reload before Reset restored System. The final local browser error log was empty.
+- Performance limits: the static preview returned `200 OK` for both `/BlockWise/index.html` and `/BlockWise/sitemap.xml`. No Lighthouse, PageSpeed Insights, production HTTPS, physical-device, screen-reader, live GitHub Pages, or Minecraft in-game test was run for this branch.
+- Committed as `c235227` (`Polish site and add search foundations`), pushed to `origin/feature/final-polish-seo`, and opened as [PR #4](https://github.com/unknown10998/BlockWise/pull/4) against `main`. GitHub Actions run 11, **Static site checks**, completed successfully for that commit. The PR is open and unmerged; no GitHub Pages or repository setting changed.
+
 ## Smart Commands 2.0 — syntax corrections and bounded expansion
 
 - Corrected the Java custom-item output for 1.21.11: it now uses `minecraft:enchantments={"minecraft:knockback":255}` and no longer emits the removed `levels:{...}` wrapper. Values above 255 are rejected in the editable result for the player to correct; they are never silently replaced.

@@ -41,14 +41,16 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 | 320px content layouts avoid horizontal overflow | Pass | Browser: Guides had no horizontal overflow and retained its mobile menu. Earlier beta checks covered Recipes, Tools, and Farms. |
 | 390px content layouts avoid horizontal overflow | Pass | Browser: Guides and Farms had no horizontal overflow; mobile menu Escape returned focus to its trigger. |
 | 768px content layouts avoid horizontal overflow | Pass | Browser: Tools applied Dark and Reduced Motion preferences with no horizontal overflow. |
-| 1440px every public page avoids horizontal overflow | Pass | Browser: Home, Tools, Recipes, Optimizer, Guides, Farms, and About all fit. |
+| 1440px every intended public page avoids horizontal overflow | Pass | Final-polish browser check: all 11 sitemap pages fit at 1440px; the same set fit at 320px, 390px, and 768px. |
 | Light/dark/system preferences and reduced motion | Pass | Browser: Dark and Reduced Motion were applied at 768px, then Reset restored defaults. Earlier beta checks rechecked saved Light persistence. |
 | WCAG AA tested text pairs and focus contrast | Pass | `tests/theme-contrast.test.js` checks documented color pairs. This is not a complete automated accessibility conformance audit. |
-| Exactly one H1, meaningful title/description, skip link, and favicon on every public page | Pass | Automated release-readiness test and browser check passed. |
+| Exactly one H1, meaningful title/description, skip link, and favicon on every primary public page | Pass | Automated release-readiness test and browser check passed. |
+| Canonical URLs, share metadata, and sitemap match the GitHub Pages project path | Pass | `tests/release-readiness.test.js` and `tests/seo.test.js` check all 11 intended public URLs under `/BlockWise/`. |
+| Owner-approved Minecraft screenshots are present with a usable license/credit record | Not Tested | No screenshots were added; the existing CSS illustration remains the safe fallback. See `SEO_LAUNCH_CHECKLIST.md`. |
 | Local static links and assets resolve | Pass | New automated static-hosting-path test passed. |
 | External links, YouTube playback, and third-party availability | Not Tested | External sources can change; embeds were not played during this audit. |
-| Browser console errors | Pass | Final local-browser error log was empty. |
-| Performance metrics (Lighthouse/Core Web Vitals) | Not Tested | No Lighthouse or throttled-network measurement was run. |
+| Browser console errors | Pass | Final-polish local-browser error log was empty after calculator, recipe, command, guide, farm, navigation, and settings checks. |
+| Performance metrics (Lighthouse/Core Web Vitals) | Not Tested | No Lighthouse, PageSpeed Insights, or throttled-network measurement was run for the final-polish branch. |
 
 ## Hosting handoff
 
@@ -56,7 +58,7 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 | --- | --- | --- |
 | Buildless static hosting compatibility | Pass | The site has plain HTML, CSS, JavaScript, local assets, and no build step or server dependency. |
 | GitHub Pages / Cloudflare Pages deployment configuration | Not Tested | No account, repository, or hosting configuration was changed. |
-| GitHub Actions automated checks | Pass | The `Static site checks` workflow completed successfully on PR #1. Syntax, the full Node suite, and release-readiness checks all passed. |
+| GitHub Actions automated checks | Pass | `Static site checks` completed successfully for final-polish PR #4 (run 11), in addition to the earlier beta baseline. |
 | Production HTTPS, custom domain, and cache behavior | Not Tested | Verify after deployment. |
 
 ## Deploy after approval
@@ -79,3 +81,4 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 - Independently validate a current Java 1.21.11 build, material list, and production conditions for each farm.
 - Test with physical mobile devices and a screen reader.
 - Measure production performance with Lighthouse or an equivalent tool.
+- Supply and record rights for any desired Minecraft gameplay background before it is added.

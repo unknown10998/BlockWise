@@ -128,6 +128,16 @@ h1 span { color: var(--green); }
 .quick-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 auto; border: 1px solid #dce7d7; border-radius: 11px; background: white; color: var(--green); font-size: 1.2rem; }
 .quick-grid strong { font-size: .88rem; }
 .quick-grid small { margin-top: 3px; color: var(--muted); font-size: .75rem; }
+.home-paths { padding-top: 76px; padding-bottom: 94px; }
+.home-path-grid, .reference-guide-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.home-path-card, .reference-guide-grid a { min-width: 0; border: 1px solid var(--line); border-radius: 15px; background: var(--surface); box-shadow: 0 8px 26px rgba(25,48,32,.04); color: var(--ink); padding: 22px; }
+.home-path-card { display: grid; gap: 9px; }
+.home-path-card > span { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 11px; background: var(--control); color: var(--green); font-weight: 850; font-size: 1.2rem; }
+.home-path-card strong, .reference-guide-grid strong { font-size: 1.05rem; letter-spacing: -.03em; }
+.home-path-card small, .reference-guide-grid span { color: var(--muted); font-size: .84rem; line-height: 1.5; }
+.home-path-card:hover, .home-path-card:focus-visible, .reference-guide-grid a:hover, .reference-guide-grid a:focus-visible { border-color: var(--green); box-shadow: 0 12px 30px rgba(25,48,32,.1); outline: none; }
+.hero-art.hero-art-owner-image { background-image: linear-gradient(150deg, rgba(18,41,26,.24), rgba(21,65,40,.18)), var(--blockwise-owner-hero-image); background-position: center; background-size: cover; }
+.hero-art.hero-art-owner-image > :not(.art-label) { display: none; }
 .content-section { padding-top: 91px; padding-bottom: 98px; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 30px; }
 .section-heading .eyebrow { margin-bottom: 10px; }
@@ -261,6 +271,20 @@ h2 { margin-bottom: 10px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; l
 .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .guide-card { overflow: hidden; border: 1px solid #dfe6da; border-radius: 14px; background: white; transition: transform .2s, box-shadow .2s; }
 .guide-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.reference-guides { margin-top: 48px; padding-top: 42px; border-top: 1px solid var(--line); }
+.reference-guides h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
+.reference-guide-grid { margin-top: 24px; }
+.reference-guide-grid a { display: grid; gap: 8px; padding: 20px; }
+.article-content { max-width: 820px; }
+.article-content h1 { max-width: 760px; font-size: clamp(2.5rem, 5vw, 4.25rem); }
+.article-content h2 { margin-top: 44px; font-size: clamp(1.5rem, 3vw, 2.2rem); }
+.article-content p, .article-content li { max-width: 740px; color: var(--muted); font-size: 1rem; line-height: 1.75; }
+.article-content li + li { margin-top: 8px; }
+.article-content .article-lead { color: var(--ink); font-size: 1.15rem; }
+.article-content pre { overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 12px; background: var(--control); padding: 18px; color: var(--ink); font: 700 .9rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.article-content code { overflow-wrap: anywhere; }
+.article-cta { margin-top: 34px; }
+.article-note { padding: 13px 15px; border-left: 4px solid var(--green); background: var(--control); font-size: .85rem !important; }
 .guide-art { position: relative; height: 175px; overflow: hidden; }
 .art-badge { position: absolute; z-index: 2; top: 13px; left: 13px; padding: 5px 7px; border: 1px solid rgba(255,255,255,.7); border-radius: 5px; background: rgba(255,255,255,.82); color: #4d6551; font-size: .58rem; font-weight: 850; letter-spacing: .08em; }
 .art-storage { background: linear-gradient(140deg, #dcebcf, #a6c89a); }
@@ -392,6 +416,15 @@ h2 { margin-bottom: 10px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; l
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+}
+
+@media (max-width: 680px) {
+  .home-path-grid, .reference-guide-grid { grid-template-columns: 1fr; }
+  .home-paths { padding-top: 56px; padding-bottom: 66px; }
+  .reference-guides { margin-top: 36px; padding-top: 32px; }
+  .article-content { padding-top: 56px; padding-bottom: 66px; }
+  .article-content h2 { margin-top: 35px; }
+  .article-content pre { padding: 14px; font-size: .76rem; }
 }
 
 
@@ -684,4 +717,169 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
 @media (max-width: 680px) { .commands-section { padding-block: calc(58px * var(--space-scale)) calc(68px * var(--space-scale)); }.commands-safety, .smart-finder, .commands-controls, .command-detail { padding: calc(17px * var(--space-scale)); }.smart-finder-heading, .smart-result-head { display: grid; }.smart-finder-heading > span { white-space: normal; }.smart-finder-form, .commands-controls, .command-list, .generator-fields, .smart-settings-grid, .smart-library { grid-template-columns: 1fr; }.smart-finder-form .button { width: 100%; }.commands-controls .search-box { grid-column: auto; }.command-list { max-height: none; }.command-facts, .generator-result, .smart-result-facts, .smart-command-line { grid-template-columns: 1fr; }.generator-result .button, .smart-command-line .button { width: 100%; }.command-detail pre { font-size: .74rem; } }
 @media (prefers-reduced-motion: reduce) {
   :root:not(.reduce-motion) .button, :root:not(.reduce-motion) .settings-trigger, :root:not(.reduce-motion) .menu-toggle, :root:not(.reduce-motion) .filter-button, :root:not(.reduce-motion) .recipe-choice, :root:not(.reduce-motion) .recipe-fullscreen-button, :root:not(.reduce-motion) .recipe-item-button, :root:not(.reduce-motion) .small-link-button, :root:not(.reduce-motion) .text-link, :root:not(.reduce-motion) .farm-details summary, :root:not(.reduce-motion) .recipe-options summary, :root:not(.reduce-motion) .tool-card, :root:not(.reduce-motion) .guide-card, :root:not(.reduce-motion) .farm-card, :root:not(.reduce-motion) .recipe-detail, :root:not(.reduce-motion) .recipe-browser-controls, :root:not(.reduce-motion) .optimizer-card, :root:not(.reduce-motion) .optimizer-results, :root:not(.reduce-motion) .settings-dialog, :root:not(.reduce-motion) .recipe-modal, :root:not(.reduce-motion) .nav-backdrop, :root:not(.reduce-motion) .site-nav, :root:not(.reduce-motion) .result-updated, :root:not(.reduce-motion) .farm-details[open] > :not(summary), :root:not(.reduce-motion) .recipe-options[open] > :not(summary) { animation: none !important; transition: none !important; transform: none !important; }
+}
+
+
+/* Original BlockWise landscapes: local SVG assets, not extracted game textures. */
+.hero.hero-scenic {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid #315946;
+  border-radius: 23px;
+  background-color: #10252c;
+  background-image:
+    linear-gradient(90deg, rgb(6 23 22 / 92%) 0%, rgb(7 28 28 / 74%) 42%, rgb(7 25 31 / 32%) 100%),
+    url("assets/backgrounds/overworld-landscape.svg");
+  background-size: cover;
+  background-position: center;
+  padding-inline: clamp(24px, 4vw, 66px);
+  box-shadow: 0 24px 64px rgb(10 34 26 / 22%);
+  color: #f4fff5;
+}
+.hero.hero-scenic h1 { color: #fff; text-shadow: 0 2px 18px rgb(0 0 0 / 30%); }
+.hero.hero-scenic h1 span, .hero.hero-scenic .eyebrow { color: #b2fac7; }
+.hero.hero-scenic .hero-intro, .hero.hero-scenic .hero-proof small { color: #d9ece4; }
+.hero.hero-scenic .hero-proof strong { color: #fff; }
+.hero.hero-scenic .proof-icon { background: rgb(8 34 26 / 82%); border-color: #92cba5; color: #b2fac7; }
+.hero.hero-scenic .button-primary { color: #0c2819; background: #a6f4b9; }
+.hero.hero-scenic .button-primary:hover { background: #c2fbd0; }
+.hero.hero-scenic .button-quiet { background: rgb(9 36 31 / 89%); border: 1px solid #a6d7bd; color: #fff; }
+.hero.hero-scenic .hero-art {
+  background-image: linear-gradient(180deg, rgb(7 26 24 / 4%), rgb(7 26 24 / 35%)), url("assets/backgrounds/overworld-landscape.svg");
+  background-size: cover;
+  background-position: 76% center;
+  border-color: rgb(226 255 236 / 42%);
+  min-height: 350px;
+  box-shadow: 0 18px 48px rgb(0 0 0 / 24%);
+}
+.hero.hero-scenic .hero-art > :not(.art-label) { display: none; }
+.hero.hero-scenic .art-label { background: rgb(6 25 23 / 84%); color: #f3fff5; border-color: rgb(226 255 236 / 35%); }
+
+/* Page banners are scenic; forms and data remain on solid accessible surfaces. */
+#tools > .section-heading,
+#recipes > .section-heading,
+.enchant-section .section-wrap > .section-heading,
+.guides-section .section-wrap > .section-heading,
+.farms-section .section-wrap > .section-heading,
+.commands-section .section-wrap > .section-heading {
+  isolation: isolate;
+  background-color: #173b3c;
+  background-image:
+    linear-gradient(90deg, rgb(7 26 28 / 94%), rgb(7 29 32 / 84%) 49%, rgb(7 29 35 / 34%)),
+    url("assets/backgrounds/overworld-landscape.svg");
+  background-position: center;
+  background-size: cover;
+  padding: clamp(20px, 4vw, 42px);
+  border-radius: 19px;
+  color: #f7fff8;
+  border: 1px solid rgb(84 145 117 / 55%);
+}
+#recipes > .section-heading,
+.enchant-section .section-wrap > .section-heading,
+.commands-section .section-wrap > .section-heading {
+  background-image:
+    linear-gradient(90deg, rgb(7 22 28 / 95%), rgb(7 22 31 / 83%) 52%, rgb(7 22 31 / 31%)),
+    url("assets/backgrounds/enchanting-cavern.svg");
+}
+#tools > .section-heading .eyebrow,
+#recipes > .section-heading .eyebrow,
+.enchant-section .section-heading .eyebrow,
+.guides-section .section-heading .eyebrow,
+.farms-section .section-heading .eyebrow,
+.commands-section .section-heading .eyebrow { color: #b6fbc7; }
+#tools > .section-heading .section-description,
+#recipes > .section-heading .section-description,
+.enchant-section .section-heading .section-description,
+.guides-section .section-heading .section-description,
+.farms-section .section-heading .section-description,
+.commands-section .section-heading .section-description { color: #e0f1e8; }
+#tools > .section-heading .section-index,
+.enchant-section .section-heading .section-index,
+.farms-section .section-heading .section-index,
+.commands-section .section-heading .section-index { color: #d1e9dc; }
+
+/* Ingredient-level recipe explorer inside the fullscreen recipe dialog. */
+.recipe-modal { overflow-y: auto; }
+.recipe-modal-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: end; gap: 9px; }
+.recipe-modal-back, .recipe-preview-open {
+  border: 1px solid var(--border-strong);
+  border-radius: 9px;
+  padding: 9px 14px;
+  background: var(--surface);
+  color: var(--accent-hover);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.recipe-modal-back:disabled { opacity: .45; cursor: not-allowed; }
+.recipe-modal .recipe-modal-layout { margin-top: clamp(20px, 4vh, 38px); }
+.recipe-modal-ingredient {
+  width: 100%;
+  min-height: 90px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 7px;
+  border: 0;
+  padding: 7px;
+  background: transparent;
+  color: #244631;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+.recipe-modal-ingredient:hover, .recipe-modal-ingredient:focus-visible {
+  border-radius: 6px;
+  outline: 3px solid #327a4e;
+  outline-offset: -3px;
+  background: #d5e9d3;
+}
+.recipe-modal-ingredient.recipe-modal-no-recipe { cursor: help; }
+.recipe-modal-choice {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  margin-top: 5px;
+  background: #fff;
+  border: 1px solid #819883;
+  border-radius: 6px;
+  padding: 3px;
+  color: #203b2d;
+  font: inherit;
+  font-size: .71rem;
+}
+.recipe-ingredient-preview {
+  box-sizing: border-box;
+  width: min(980px, 100%);
+  margin: 24px auto;
+  padding: 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--text);
+}
+.recipe-ingredient-preview h3 { margin: 0 0 7px; font-size: 1.17rem; }
+.recipe-ingredient-preview .eyebrow { margin: 0 0 6px; }
+.recipe-preview-caption { color: var(--text-muted); font-size: .79rem; line-height: 1.5; margin-bottom: 8px; }
+.recipe-preview-grid { display: grid; grid-template-columns: repeat(3, 45px); gap: 4px; margin: 13px 0; }
+.recipe-preview-slot { width: 45px; height: 45px; display: grid; place-items: center; border: 1px solid var(--border-strong); border-radius: 6px; background: var(--surface-muted); }
+.recipe-preview-empty { opacity: .35; }
+.recipe-preview-open { margin-top: 4px; background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.recipe-preview-open:hover, .recipe-preview-open:focus-visible { background: var(--accent-hover); }
+@media (max-width: 680px) {
+  .hero.hero-scenic { padding-inline: 21px; background-position: 54% center; }
+  .hero.hero-scenic .hero-art { min-height: 235px; }
+  .recipe-modal-header { align-items: center; }
+  .recipe-modal-header h2 { font-size: clamp(1.75rem, 7vw, 2.75rem); }
+  .recipe-modal-controls { justify-content: start; }
+  .recipe-modal-ingredient { min-height: 73px; padding: 3px; }
+  .recipe-modal-choice { font-size: .63rem; }
+  .recipe-modal-slot .recipe-icon { width: 31px; height: 31px; font-size: 1rem; }
+  .recipe-ingredient-preview { margin-top: 16px; padding: 13px; }
+}
+@media (max-width: 380px) {
+  .recipe-modal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .recipe-modal-item-name { font-size: .58rem; }
+  .recipe-modal-slot { padding: 3px; }
 }
