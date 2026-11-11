@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const pages = ['index.html', 'tools.html', 'commands.html', 'recipes.html', 'enchanting.html', 'guides.html', 'farms.html', 'about.html'];
+const canonicalBase = 'https://unknown10998.github.io/BlockWise/';
 const root = path.resolve(__dirname, '..');
 
 function localReferences(html) {
@@ -12,12 +13,16 @@ function localReferences(html) {
     .filter(value => value && !value.startsWith('#') && !/^(?:https?:|mailto:|tel:|data:)/.test(value));
 }
 
-test('public pages provide a title, description, favicon, skip link, and one main heading', () => {
+test('public pages provide a title, description, favicon, canonical, skip link, and one main heading', () => {
   for (const page of pages) {
     const html = fs.readFileSync(path.join(root, page), 'utf8');
     assert.match(html, /<title>[^<]+<\/title>/, `${page} title`);
     assert.match(html, /<meta name="description" content="[^"]+">/, `${page} description`);
     assert.match(html, /<link rel="icon" href="favicon\.svg" type="image\/svg\+xml">/, `${page} favicon`);
+    const canonical = page === 'index.html' ? canonicalBase : `${canonicalBase}${page}`;
+    assert.match(html, new RegExp(`<link rel="canonical" href="${canonical}">`), `${page} canonical`);
+    assert.match(html, /<meta property="og:title" content="[^"]+">/, `${page} Open Graph title`);
+    assert.match(html, /<meta property="og:description" content="[^"]+">/, `${page} Open Graph description`);
     assert.match(html, /<a class="skip-link" href="#main">/, `${page} skip link`);
     assert.equal((html.match(/<h1(?:\s[^>]*)?>/g) || []).length, 1, `${page} has one h1`);
   }

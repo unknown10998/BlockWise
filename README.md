@@ -117,7 +117,7 @@ For GitHub Pages, use **Settings → Pages → Build and deployment → Deploy f
 
 ## Java recipe browser
 
-The Recipes section covers the imported **Java Edition 1.21.11** definitions, separately from the cross-edition starter planner. It works by opening `index.html` directly. Search by output name, item ID or recipe ID, filter by station and recipe type, and page through the results. Ingredient alternatives are listed below each grid; shapeless positions are illustrative. Click a crafting grid, or use Enter/Space while it is focused, to open a full-screen recipe view with larger slots and full item names.
+The Recipes section covers the imported **Java Edition 1.21.11** definitions, separately from the cross-edition starter planner. Open `recipes.html` to search by output name, item ID or recipe ID, filter by station and recipe type, and page through the results. Ingredient alternatives are listed below each grid; shapeless positions are illustrative. Click a crafting grid, or use Enter/Space while it is focused, to open a full-screen recipe view with larger slots and full item names.
 
 The source is [misode/mcmeta](https://github.com/misode/mcmeta), a community-maintained extraction of Minecraft data, tag `1.21.11-data-json`, commit `3926dfaf527cbf692f161ef8f7cdad17a1a06b74`; item registry tag `1.21.11-registries` is commit `208aa83038851414dfe235068fe36650b068384b`; English item names use `1.21.11-assets-json` commit `00cd93a451611a147b99a439e76c74d040407b69`. It is not an official Mojang project. Its code license should not be assumed to license the underlying Minecraft data or graphics. [Minecraft's usage guidelines](https://www.minecraft.net/en-us/usage-guidelines) allow appropriately branded Minecraft-information websites and third-party ads that do not harm the brand, but treat textures as Minecraft assets and prohibit redistributing game files. No game textures are included; text initials provide the item cue while game-derived icons remain unavailable pending clear separate permission or licensing. Review data and asset rights before public or advertising-supported deployment.
 
@@ -142,3 +142,15 @@ node --test tests/*.test.js
 ```
 
 The build script regenerates `recipe-data.js` and `recipe-coverage.json`. The report records all 1,470 source definitions: 1,396 standard and 74 special, with zero unresolved static item/tag references and 977 distinct fixed output IDs. Automated structural validation covers all 1,470 imported definitions: shaped dimensions/slots, shapeless inputs, fixed output counts, and station-input layouts. The 74 specials are represented as follows: 32 transmutations show their two defined inputs and fixed item type; 18 smithing trims show their template/base/addition choices and honestly identify their input-dependent outputs; 12 smithing transforms show three inputs and a fixed output; and 12 game-rule recipes are rendered as labeled limitation panels without invented grids. This is not recipe-by-recipe visual or in-game verification.
+
+## Search and content foundations
+
+Every public page has a page-specific title, description, canonical URL under `https://unknown10998.github.io/BlockWise/`, and share metadata. `sitemap.xml` lists only real, intended public pages, including the three Java Edition 1.21.11 command references. The homepage also includes a modest `WebSite` structured-data record that matches its visible purpose; no ratings, FAQ, or review schema is claimed.
+
+The site deliberately keeps useful explanatory text in the HTML around its JavaScript tools. Google can render JavaScript, but static titles, headings, descriptions, links, and reference notes make the site understandable before catalog scripts execute. See [SEO_LAUNCH_CHECKLIST.md](SEO_LAUNCH_CHECKLIST.md) for the Search Console steps and the project-path `robots.txt` limitation on GitHub Pages.
+
+## Background-image policy
+
+No screenshots, artwork, or game textures were added in the final-polish work. The current hero is original CSS decoration, so it adds no image request or licensing uncertainty. `styles.css` includes an optional `.hero-art-owner-image` treatment for a future approved hero image, but it has no image URL until the owner supplies one.
+
+Before adding a background, the owner should provide an original gameplay screenshot they control, the capture version/date, the intended filename, and written confirmation that BlockWise may publish it on its free fan site and in future advertising-supported contexts. Store the approved, optimized asset in `assets/backgrounds/` with its source/credit record. Do not substitute extracted JAR textures, official promotional art, or images copied from fan sites. Minecraft's [Usage Guidelines](https://www.minecraft.net/en-us/usage-guidelines) allow fan information sites under conditions, allow gameplay screenshots to be shared, prohibit redistribution of game files, and require a clear independent-project disclaimer.
