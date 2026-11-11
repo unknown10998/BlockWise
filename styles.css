@@ -718,3 +718,168 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
 @media (prefers-reduced-motion: reduce) {
   :root:not(.reduce-motion) .button, :root:not(.reduce-motion) .settings-trigger, :root:not(.reduce-motion) .menu-toggle, :root:not(.reduce-motion) .filter-button, :root:not(.reduce-motion) .recipe-choice, :root:not(.reduce-motion) .recipe-fullscreen-button, :root:not(.reduce-motion) .recipe-item-button, :root:not(.reduce-motion) .small-link-button, :root:not(.reduce-motion) .text-link, :root:not(.reduce-motion) .farm-details summary, :root:not(.reduce-motion) .recipe-options summary, :root:not(.reduce-motion) .tool-card, :root:not(.reduce-motion) .guide-card, :root:not(.reduce-motion) .farm-card, :root:not(.reduce-motion) .recipe-detail, :root:not(.reduce-motion) .recipe-browser-controls, :root:not(.reduce-motion) .optimizer-card, :root:not(.reduce-motion) .optimizer-results, :root:not(.reduce-motion) .settings-dialog, :root:not(.reduce-motion) .recipe-modal, :root:not(.reduce-motion) .nav-backdrop, :root:not(.reduce-motion) .site-nav, :root:not(.reduce-motion) .result-updated, :root:not(.reduce-motion) .farm-details[open] > :not(summary), :root:not(.reduce-motion) .recipe-options[open] > :not(summary) { animation: none !important; transition: none !important; transform: none !important; }
 }
+
+
+/* Original BlockWise landscapes: local SVG assets, not extracted game textures. */
+.hero.hero-scenic {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid #315946;
+  border-radius: 23px;
+  background-color: #10252c;
+  background-image:
+    linear-gradient(90deg, rgb(6 23 22 / 92%) 0%, rgb(7 28 28 / 74%) 42%, rgb(7 25 31 / 32%) 100%),
+    url("assets/backgrounds/overworld-landscape.svg");
+  background-size: cover;
+  background-position: center;
+  padding-inline: clamp(24px, 4vw, 66px);
+  box-shadow: 0 24px 64px rgb(10 34 26 / 22%);
+  color: #f4fff5;
+}
+.hero.hero-scenic h1 { color: #fff; text-shadow: 0 2px 18px rgb(0 0 0 / 30%); }
+.hero.hero-scenic h1 span, .hero.hero-scenic .eyebrow { color: #b2fac7; }
+.hero.hero-scenic .hero-intro, .hero.hero-scenic .hero-proof small { color: #d9ece4; }
+.hero.hero-scenic .hero-proof strong { color: #fff; }
+.hero.hero-scenic .proof-icon { background: rgb(8 34 26 / 82%); border-color: #92cba5; color: #b2fac7; }
+.hero.hero-scenic .button-primary { color: #0c2819; background: #a6f4b9; }
+.hero.hero-scenic .button-primary:hover { background: #c2fbd0; }
+.hero.hero-scenic .button-quiet { background: rgb(9 36 31 / 89%); border: 1px solid #a6d7bd; color: #fff; }
+.hero.hero-scenic .hero-art {
+  background-image: linear-gradient(180deg, rgb(7 26 24 / 4%), rgb(7 26 24 / 35%)), url("assets/backgrounds/overworld-landscape.svg");
+  background-size: cover;
+  background-position: 76% center;
+  border-color: rgb(226 255 236 / 42%);
+  min-height: 350px;
+  box-shadow: 0 18px 48px rgb(0 0 0 / 24%);
+}
+.hero.hero-scenic .hero-art > :not(.art-label) { display: none; }
+.hero.hero-scenic .art-label { background: rgb(6 25 23 / 84%); color: #f3fff5; border-color: rgb(226 255 236 / 35%); }
+
+/* Page banners are scenic; forms and data remain on solid accessible surfaces. */
+#tools > .section-heading,
+#recipes > .section-heading,
+.enchant-section .section-wrap > .section-heading,
+.guides-section .section-wrap > .section-heading,
+.farms-section .section-wrap > .section-heading,
+.commands-section .section-wrap > .section-heading {
+  isolation: isolate;
+  background-color: #173b3c;
+  background-image:
+    linear-gradient(90deg, rgb(7 26 28 / 94%), rgb(7 29 32 / 84%) 49%, rgb(7 29 35 / 34%)),
+    url("assets/backgrounds/overworld-landscape.svg");
+  background-position: center;
+  background-size: cover;
+  padding: clamp(20px, 4vw, 42px);
+  border-radius: 19px;
+  color: #f7fff8;
+  border: 1px solid rgb(84 145 117 / 55%);
+}
+#recipes > .section-heading,
+.enchant-section .section-wrap > .section-heading,
+.commands-section .section-wrap > .section-heading {
+  background-image:
+    linear-gradient(90deg, rgb(7 22 28 / 95%), rgb(7 22 31 / 83%) 52%, rgb(7 22 31 / 31%)),
+    url("assets/backgrounds/enchanting-cavern.svg");
+}
+#tools > .section-heading .eyebrow,
+#recipes > .section-heading .eyebrow,
+.enchant-section .section-heading .eyebrow,
+.guides-section .section-heading .eyebrow,
+.farms-section .section-heading .eyebrow,
+.commands-section .section-heading .eyebrow { color: #b6fbc7; }
+#tools > .section-heading .section-description,
+#recipes > .section-heading .section-description,
+.enchant-section .section-heading .section-description,
+.guides-section .section-heading .section-description,
+.farms-section .section-heading .section-description,
+.commands-section .section-heading .section-description { color: #e0f1e8; }
+#tools > .section-heading .section-index,
+.enchant-section .section-heading .section-index,
+.farms-section .section-heading .section-index,
+.commands-section .section-heading .section-index { color: #d1e9dc; }
+
+/* Ingredient-level recipe explorer inside the fullscreen recipe dialog. */
+.recipe-modal { overflow-y: auto; }
+.recipe-modal-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: end; gap: 9px; }
+.recipe-modal-back, .recipe-preview-open {
+  border: 1px solid var(--border-strong);
+  border-radius: 9px;
+  padding: 9px 14px;
+  background: var(--surface);
+  color: var(--accent-hover);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.recipe-modal-back:disabled { opacity: .45; cursor: not-allowed; }
+.recipe-modal .recipe-modal-layout { margin-top: clamp(20px, 4vh, 38px); }
+.recipe-modal-ingredient {
+  width: 100%;
+  min-height: 90px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 7px;
+  border: 0;
+  padding: 7px;
+  background: transparent;
+  color: #244631;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+.recipe-modal-ingredient:hover, .recipe-modal-ingredient:focus-visible {
+  border-radius: 6px;
+  outline: 3px solid #327a4e;
+  outline-offset: -3px;
+  background: #d5e9d3;
+}
+.recipe-modal-ingredient.recipe-modal-no-recipe { cursor: help; }
+.recipe-modal-choice {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  margin-top: 5px;
+  background: #fff;
+  border: 1px solid #819883;
+  border-radius: 6px;
+  padding: 3px;
+  color: #203b2d;
+  font: inherit;
+  font-size: .71rem;
+}
+.recipe-ingredient-preview {
+  box-sizing: border-box;
+  width: min(980px, 100%);
+  margin: 24px auto;
+  padding: 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--text);
+}
+.recipe-ingredient-preview h3 { margin: 0 0 7px; font-size: 1.17rem; }
+.recipe-ingredient-preview .eyebrow { margin: 0 0 6px; }
+.recipe-preview-caption { color: var(--text-muted); font-size: .79rem; line-height: 1.5; margin-bottom: 8px; }
+.recipe-preview-grid { display: grid; grid-template-columns: repeat(3, 45px); gap: 4px; margin: 13px 0; }
+.recipe-preview-slot { width: 45px; height: 45px; display: grid; place-items: center; border: 1px solid var(--border-strong); border-radius: 6px; background: var(--surface-muted); }
+.recipe-preview-empty { opacity: .35; }
+.recipe-preview-open { margin-top: 4px; background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.recipe-preview-open:hover, .recipe-preview-open:focus-visible { background: var(--accent-hover); }
+@media (max-width: 680px) {
+  .hero.hero-scenic { padding-inline: 21px; background-position: 54% center; }
+  .hero.hero-scenic .hero-art { min-height: 235px; }
+  .recipe-modal-header { align-items: center; }
+  .recipe-modal-header h2 { font-size: clamp(1.75rem, 7vw, 2.75rem); }
+  .recipe-modal-controls { justify-content: start; }
+  .recipe-modal-ingredient { min-height: 73px; padding: 3px; }
+  .recipe-modal-choice { font-size: .63rem; }
+  .recipe-modal-slot .recipe-icon { width: 31px; height: 31px; font-size: 1rem; }
+  .recipe-ingredient-preview { margin-top: 16px; padding: 13px; }
+}
+@media (max-width: 380px) {
+  .recipe-modal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .recipe-modal-item-name { font-size: .58rem; }
+  .recipe-modal-slot { padding: 3px; }
+}
