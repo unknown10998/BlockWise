@@ -57,40 +57,165 @@
     modal.classList.add('is-closing');
     window.setTimeout(finish, 200);
   }
+  // Output-to-recipe index: ingredient navigation remains independent of the current search filters.
+  const recipeByOutput = new Map();
+  recipes.forEach(entry => {
+    if (!entry.result?.id || entry.special || !(entry.slots || entry.ingredients || entry.ingredient || entry.stationInputs)) return;
+    if (!recipeByOutput.has(entry.result.id)) recipeByOutput.set(entry.result.id, []);
+    recipeByOutput.get(entry.result.id).push(entry);
+  });
+  const availableRecipes = id => recipeByOutput.get(id) || [];
+  function firstRecipe(id) {
+    const options = availableRecipes(id);
+    return options.find(entry => entry.slots || entry.ingredients) || options[0] || null;
+  }
+  function recipeSlots(entry) {
+    if (entry.slots) return Array.from({ length: 9 }, (_, i) => entry.slots[Math.floor(i / 3)]?.[i % 3] || null);
+    if (entry.ingredients) return Array.from({ length: 9 }, (_, i) => entry.ingredients[i] || null);
+    return [];
+  }
   function openRecipeModal(recipe, opener) {
     const modal = el('dialog', 'recipe-modal');
+    const history = [recipe];
     const header = el('div', 'recipe-modal-header');
-    header.append(el('div', '', ''), el('button', 'recipe-modal-close', 'Close'));
-    header.children[0].append(el('p', 'eyebrow', 'FULL-SCREEN RECIPE'), el('h2', '', name(recipe.result.id)));
-    const closeButton = header.children[1];
-    closeButton.type = 'button';
-    closeButton.setAttribute('aria-label', 'Close full-screen recipe');
-    closeButton.addEventListener('click', () => closeRecipeModal(modal));
-    modal.append(header, el('p', 'recipe-modal-note', recipe.type === 'crafting_shapeless' ? 'Shapeless recipe: ingredient positions do not matter.' : 'Shaped recipe: ingredient positions match the crafting table.'));
-    const fullLayout = el('div', 'recipe-modal-layout');
-    const grid = el('div', 'recipe-modal-grid');
-    const slots = recipe.slots ? Array.from({ length: 9 }, (_, i) => recipe.slots[Math.floor(i / 3)]?.[i % 3] || null) : Array.from({ length: 9 }, (_, i) => recipe.ingredients[i] || null);
-    slots.forEach((options) => {
-      const slot = el('div', 'recipe-modal-slot');
-      if (options?.length) {
-        slot.setAttribute('aria-label', itemNames(options));
-        slot.append(icon(options[0]), el('span', 'recipe-modal-item-name', itemNames(options)));
-      } else {
-        slot.className += ' recipe-modal-empty';
-        slot.setAttribute('aria-label', 'Empty slot');
+    const headingWrap = el('div');
+    headingWrap.append(el('p', 'eyebrow', 'FULL-SCREEN RECIPE'));
+    const heading = el('h2', '', '');
+    headingWrap.append(heading);
+    const controls = el('div', 'recipe-modal-controls');
+    const back = el('button', 'recipe-modal-back', '← Back');
+    back.type = 'button';
+    const close = el('button', 'recipe-modal-close', 'Close');
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Close full-screen recipe');
+    controls.append(back, close);
+    header.append(headingWrap, controls);
+    const note = el('p', 'recipe-modal-note');
+    const layout = el('div', 'recipe-modal-layout');
+    const preview = el('section', 'recipe-ingredient-preview');
+    preview.setAttribute('aria-label', 'Ingredient recipe preview');
+    preview.setAttribute('aria-live', 'polite');
+    modal.append(header, note, layout, preview);
+    function chooseRecipe(itemId) {
+      const matches = availableRecipes(itemId);
+      if (!matches.length) return null;
+      return firstRecipe(itemId);
+    }
+    function previewIngredient(itemId) {
+      preview.replaceChildren();
+      const recipeMatch = chooseRecipe(itemId);
+      preview.append(el('p', 'eyebrow', 'INGREDIENT RECIPE PREVIEW'));
+      preview.append(el('h3', '', name(itemId)));
+      if (!recipeMatch) {
+        preview.append(el('p', 'recipe-preview-caption', 'No defined crafting or station recipe for this item in the imported Java 1.21.11 data. It may be gathered, mined, traded, or obtained another way.'));
+        return;
       }
-      grid.append(slot);
+      const stationLabel = stationLabels[stationName(recipeMatch.type)] || fallbackName(recipeMatch.type);
+      preview.append(el('p', 'recipe-preview-caption', stationLabel + ' · makes ' + recipeMatch.result.count + ' × ' + name(itemId)));
+      const ingredients = recipeSlots(recipeMatch);
+      if (ingredients.length) {
+        const grid = el('div', 'recipe-preview-grid');
+        ingredients.forEach(options => {
+          const slot = el('div', 'recipe-preview-slot');
+          if (options?.length) {
+            slot.append(icon(options[0]));
+            slot.title = itemNames(options);
+          } else slot.classList.add('recipe-preview-empty');
+          grid.append(slot);
+        });
+        preview.append(grid);
+      } else {
+        const input = recipeMatch.ingredient || recipeMatch.stationInputs?.[0]?.options;
+        if (input?.length) preview.append(el('p', 'recipe-preview-caption', 'Input: ' + itemNames(input)));
+      }
+      if (availableRecipes(itemId).length > 1)
+        preview.append(el('p', 'recipe-preview-caption', availableRecipes(itemId).length + ' known recipe variants; the first crafting recipe is shown.'));
+      const openButton = el('button', 'recipe-preview-open', 'Open ' + name(itemId) + ' recipe');
+      openButton.type = 'button';
+      openButton.addEventListener('click', () => navigateTo(recipeMatch));
+      preview.append(openButton);
+    }
+    function navigateTo(nextRecipe) {
+      if (!nextRecipe || history.length > 24) return;
+      history.push(nextRecipe);
+      renderModal(nextRecipe);
+      back.focus();
+    }
+    function makeIngredient(options) {
+      const slot = el('div', 'recipe-modal-slot');
+      let current = options[0];
+      const action = el('button', 'recipe-modal-ingredient');
+      action.type = 'button';
+      function refreshChoice() {
+        action.replaceChildren(icon(current), el('span', 'recipe-modal-item-name', name(current)));
+        const matched = Boolean(chooseRecipe(current));
+        action.setAttribute('aria-label', name(current) + (matched ? ': preview or open its recipe' : ': no recipe listed'));
+        action.title = matched ? 'Hover to preview; click to open ' + name(current) + ' recipe' : 'No recipe listed for ' + name(current);
+        action.classList.toggle('recipe-modal-no-recipe', !matched);
+      }
+      action.addEventListener('mouseenter', () => previewIngredient(current));
+      action.addEventListener('focus', () => previewIngredient(current));
+      action.addEventListener('click', () => {
+        const next = chooseRecipe(current);
+        if (next) navigateTo(next);
+        else previewIngredient(current);
+      });
+      slot.append(action);
+      if (options.length > 1) {
+        const choice = el('select', 'recipe-modal-choice');
+        choice.setAttribute('aria-label', 'Choose ingredient alternative');
+        options.forEach(id => {
+          const item = el('option', '', name(id));
+          item.value = id;
+          choice.append(item);
+        });
+        choice.addEventListener('change', () => {
+          current = choice.value;
+          refreshChoice();
+          previewIngredient(current);
+        });
+        slot.append(choice);
+      }
+      refreshChoice();
+      return slot;
+    }
+    function renderModal(currentRecipe) {
+      heading.textContent = name(currentRecipe.result.id);
+      const special = currentRecipe.type === 'crafting_shapeless';
+      const gridEntries = recipeSlots(currentRecipe);
+      note.textContent = gridEntries.length
+        ? (special ? 'Shapeless recipe: positions are interchangeable.' : 'Hover, focus, or tap an ingredient for its recipe. Click to follow a craftable ingredient, then use Back to return.')
+        : 'This recipe uses a crafting station or a special process. Ingredient details may vary.';
+      back.disabled = history.length < 2;
+      layout.replaceChildren();
+      const grid = el('div', 'recipe-modal-grid');
+      if (gridEntries.length) {
+        gridEntries.forEach(options => grid.append(options?.length ? makeIngredient(options) : el('div', 'recipe-modal-slot recipe-modal-empty')));
+      } else {
+        grid.className = 'recipe-modal-station-inputs';
+        const inputs = currentRecipe.stationInputs?.map(entry => entry.options) ||
+          (currentRecipe.ingredient ? [currentRecipe.ingredient] : []);
+        inputs.forEach(options => { if (options?.length) grid.append(makeIngredient(options)); });
+      }
+      const output = el('div', 'recipe-modal-output');
+      output.append(icon(currentRecipe.result.id), el('strong', '', name(currentRecipe.result.id)), el('span', '', '× ' + currentRecipe.result.count));
+      layout.append(grid, el('span', 'recipe-modal-arrow', '→'), output);
+      preview.replaceChildren(el('p', 'recipe-preview-caption', 'Hover, focus, or tap any ingredient to preview its recipe here. Click a craftable ingredient to open its full recipe.'));
+    }
+    back.addEventListener('click', () => {
+      if (history.length <= 1) return;
+      history.pop();
+      renderModal(history[history.length - 1]);
+      back.focus();
     });
-    const output = el('div', 'recipe-modal-output');
-    output.append(icon(recipe.result.id), el('strong', '', name(recipe.result.id)), el('span', '', `× ${recipe.result.count}`));
-    fullLayout.append(grid, el('span', 'recipe-modal-arrow', '→'), output);
-    modal.append(fullLayout);
-    modal.addEventListener('click', (event) => { if (event.target === modal) closeRecipeModal(modal); });
-    modal.addEventListener('cancel', (event) => { event.preventDefault(); closeRecipeModal(modal); });
+    close.addEventListener('click', () => closeRecipeModal(modal));
+    modal.addEventListener('click', event => { if (event.target === modal) closeRecipeModal(modal); });
+    modal.addEventListener('cancel', event => { event.preventDefault(); closeRecipeModal(modal); });
     modal.addEventListener('close', () => { modal.remove(); opener?.focus(); });
     document.body.append(modal);
+    renderModal(recipe);
     modal.showModal();
-    closeButton.focus();
+    close.focus();
   }
   const groupKey = recipe => recipe.result?.id || `special:${recipe.id}`;
   const groupName = (key, recipe) => key.startsWith('special:') ? `${fallbackName(recipe.id)} (special)` : name(key);
