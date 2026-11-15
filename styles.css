@@ -720,7 +720,8 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
 }
 
 
-/* Original BlockWise landscapes: local SVG assets, not extracted game textures. */
+/* Owner-provided, locally hosted Minecraft-style scenic backgrounds. Interactive
+   interfaces intentionally remain on solid surfaces below these banners. */
 .hero.hero-scenic {
   position: relative;
   isolation: isolate;
@@ -729,8 +730,8 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
   border-radius: 23px;
   background-color: #10252c;
   background-image:
-    linear-gradient(90deg, rgb(6 23 22 / 92%) 0%, rgb(7 28 28 / 74%) 42%, rgb(7 25 31 / 32%) 100%),
-    url("assets/backgrounds/overworld-landscape.svg");
+    linear-gradient(90deg, rgb(6 23 22 / 88%) 0%, rgb(7 28 28 / 63%) 43%, rgb(7 25 31 / 18%) 100%),
+    url("assets/backgrounds/home-hero.webp");
   background-size: cover;
   background-position: center;
   padding-inline: clamp(24px, 4vw, 66px);
@@ -746,7 +747,7 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
 .hero.hero-scenic .button-primary:hover { background: #c2fbd0; }
 .hero.hero-scenic .button-quiet { background: rgb(9 36 31 / 89%); border: 1px solid #a6d7bd; color: #fff; }
 .hero.hero-scenic .hero-art {
-  background-image: linear-gradient(180deg, rgb(7 26 24 / 4%), rgb(7 26 24 / 35%)), url("assets/backgrounds/overworld-landscape.svg");
+  background-image: linear-gradient(180deg, rgb(7 26 24 / 3%), rgb(7 26 24 / 30%)), url("assets/backgrounds/home-hero.webp");
   background-size: cover;
   background-position: 76% center;
   border-color: rgb(226 255 236 / 42%);
@@ -765,9 +766,6 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
 .commands-section .section-wrap > .section-heading {
   isolation: isolate;
   background-color: #173b3c;
-  background-image:
-    linear-gradient(90deg, rgb(7 26 28 / 94%), rgb(7 29 32 / 84%) 49%, rgb(7 29 35 / 34%)),
-    url("assets/backgrounds/overworld-landscape.svg");
   background-position: center;
   background-size: cover;
   padding: clamp(20px, 4vw, 42px);
@@ -775,12 +773,50 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
   color: #f7fff8;
   border: 1px solid rgb(84 145 117 / 55%);
 }
-#recipes > .section-heading,
-.enchant-section .section-wrap > .section-heading,
+#tools > .section-heading {
+  background-image: linear-gradient(90deg, rgb(7 26 28 / 88%), rgb(7 29 32 / 61%) 49%, rgb(7 29 35 / 19%)), url("assets/backgrounds/tools-hero.webp");
+}
+#recipes > .section-heading {
+  background-image: linear-gradient(90deg, rgb(7 22 28 / 89%), rgb(7 22 31 / 61%) 52%, rgb(7 22 31 / 18%)), url("assets/backgrounds/recipes-hero.webp");
+}
+.enchant-section .section-wrap > .section-heading {
+  background-image: linear-gradient(90deg, rgb(7 22 28 / 89%), rgb(7 22 31 / 61%) 52%, rgb(7 22 31 / 18%)), url("assets/backgrounds/enchanting-hero.webp");
+}
+.guides-section .section-wrap > .section-heading {
+  background-image: linear-gradient(90deg, rgb(7 26 28 / 88%), rgb(7 29 32 / 61%) 49%, rgb(7 29 35 / 19%)), url("assets/backgrounds/guides-hero.webp");
+}
+.farms-section .section-wrap > .section-heading {
+  background-image: linear-gradient(90deg, rgb(7 26 28 / 88%), rgb(7 29 32 / 61%) 49%, rgb(7 29 35 / 19%)), url("assets/backgrounds/farms-hero.webp");
+}
 .commands-section .section-wrap > .section-heading {
-  background-image:
-    linear-gradient(90deg, rgb(7 22 28 / 95%), rgb(7 22 31 / 83%) 52%, rgb(7 22 31 / 31%)),
-    url("assets/backgrounds/enchanting-cavern.svg");
+  background-image: linear-gradient(90deg, rgb(7 22 28 / 89%), rgb(7 22 31 / 61%) 52%, rgb(7 22 31 / 18%)), url("assets/backgrounds/commands-hero.webp");
+}
+#about.cta-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #173b3c;
+  background-image: linear-gradient(90deg, rgb(7 26 28 / 89%), rgb(7 29 32 / 61%) 50%, rgb(7 29 35 / 19%)), url("assets/backgrounds/about-hero.webp");
+  background-position: center;
+  background-size: cover;
+  border-color: rgb(84 145 117 / 55%);
+  color: #f7fff8;
+}
+#about.cta-section .eyebrow { color: #b6fbc7; }
+#about.cta-section p:not(.eyebrow) { color: #e0f1e8; }
+
+/* High Contrast deliberately removes decorative imagery to maximize legibility. */
+.high-contrast .hero.hero-scenic,
+.high-contrast #tools > .section-heading,
+.high-contrast #recipes > .section-heading,
+.high-contrast .enchant-section .section-wrap > .section-heading,
+.high-contrast .guides-section .section-wrap > .section-heading,
+.high-contrast .farms-section .section-wrap > .section-heading,
+.high-contrast .commands-section .section-wrap > .section-heading,
+.high-contrast #about.cta-section {
+  background-image: none;
+  background-color: #000;
+  border-color: #fff;
 }
 #tools > .section-heading .eyebrow,
 #recipes > .section-heading .eyebrow,

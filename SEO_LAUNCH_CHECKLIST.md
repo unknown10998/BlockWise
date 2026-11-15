@@ -5,11 +5,11 @@ This checklist records the remaining human steps for the GitHub Pages site at `h
 ## Completed in the final-polish branch
 
 - [x] Every intended public page has a unique title, meta description, H1, project-path canonical URL, favicon, and crawlable HTML.
-- [x] `sitemap.xml` contains the 11 intended public canonical URLs and genuine `2026-11-10` modification dates.
+- [x] `sitemap.xml` contains the 11 intended public canonical URLs; the eight primary pages changed by the scenic-background update use genuine `2026-11-15` modification dates.
 - [x] The homepage has a minimal, accurate `WebSite` JSON-LD record. No rating, review, FAQ, or unsupported rich-result markup was added.
 - [x] The JavaScript-driven catalog pages have explanatory visible HTML around their tools; the recipe data itself remains client-rendered.
 - [x] The site has no `robots.txt` file in this repository. A `/BlockWise/robots.txt` file would not be the hostname-root `https://unknown10998.github.io/robots.txt`, so it must not be treated as crawler control for the shared GitHub Pages host.
-- [x] No images, analytics, cookies, advertisements, game textures, or external font downloads were added.
+- [x] The supplied local WebP scenic-background pack and social card are used without external image requests; no extracted game textures, analytics, cookies, advertisements, or external font downloads were added.
 
 ## Before requesting indexing
 
@@ -21,9 +21,9 @@ This checklist records the remaining human steps for the GitHub Pages site at `h
 6. Use URL Inspection for the homepage, Tools, Commands, Recipes, and one reference guide after deployment. Fix real indexing errors; do not repeatedly request indexing for unchanged pages.
 7. Recheck the visible titles, descriptions, canonicals, and internal links on the deployed site. Do not use a `robots.txt` file inside the project directory as evidence of host-level crawl control.
 
-## Approved-background handoff
+## Scenic-background provenance handoff
 
-No approved screenshot is currently in the repository. If an owner chooses to add one, supply:
+The supplied WebP files are in `assets/backgrounds/` and are active across the primary pages. Before publishing or using advertising, retain:
 
 - An original gameplay screenshot the owner captured or otherwise has explicit written permission to publish.
 - The source world/build attribution, Minecraft version, date captured, and the person or license holder.
@@ -31,7 +31,7 @@ No approved screenshot is currently in the repository. If an owner chooses to ad
 - A descriptive filename such as `blockwise-cherry-grove-hero-2560x1440.webp`, plus the original source image kept outside the public repository if appropriate.
 - A WebP or AVIF derivative sized for its display use, with an unambiguous subject and focal point. The hero should not be lazy-loaded; secondary decorative images can be considered for lazy loading.
 
-After rights are documented, place the optimized image under `assets/backgrounds/`, add its source/credit record, then apply the existing `hero-art-owner-image` CSS hook with `--blockwise-owner-hero-image`. Keep the overlay, fixed hero geometry, and decorative treatment so text remains readable and layout shift stays low. Use an `<img>` with useful alt text for an informational screenshot; a purely decorative background should remain hidden from assistive technology. Google can discover standard HTML images, but not CSS backgrounds as image-search assets.
+Keep the source/credit record with the project, preserve the overlay and fixed hero geometry so text remains readable and layout shift stays low, and use an `<img>` with useful alt text for any informational screenshot. The existing CSS backgrounds are decorative and therefore hidden from assistive technology. Google can discover standard HTML images, but not CSS backgrounds as image-search assets.
 
 ## Rights and scope reminders
 

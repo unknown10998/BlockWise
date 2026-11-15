@@ -147,12 +147,23 @@ test('site provides locally hosted scenic backgrounds and recipe explorer stylin
   const home = fs.readFileSync('index.html', 'utf8');
   const recipesPage = fs.readFileSync('recipes.html', 'utf8');
   assert.match(home, /class="hero hero-scenic section-wrap"/);
-  for (const path of ['assets/backgrounds/overworld-landscape.svg', 'assets/backgrounds/enchanting-cavern.svg']) {
+  for (const path of [
+    'assets/backgrounds/home-hero.webp',
+    'assets/backgrounds/tools-hero.webp',
+    'assets/backgrounds/commands-hero.webp',
+    'assets/backgrounds/recipes-hero.webp',
+    'assets/backgrounds/enchanting-hero.webp',
+    'assets/backgrounds/guides-hero.webp',
+    'assets/backgrounds/farms-hero.webp',
+    'assets/backgrounds/about-hero.webp',
+    'assets/backgrounds/social-share.webp'
+  ]) {
     assert.ok(fs.existsSync(path), 'background exists locally: ' + path);
-    const artwork = fs.readFileSync(path, 'utf8');
-    assert.match(artwork, /^<svg /);
-    assert.ok(css.includes(path), 'stylesheet references ' + path);
   }
+  for (const path of [
+    'home-hero.webp', 'tools-hero.webp', 'commands-hero.webp', 'recipes-hero.webp',
+    'enchanting-hero.webp', 'guides-hero.webp', 'farms-hero.webp', 'about-hero.webp'
+  ]) assert.ok(css.includes(path), 'stylesheet references ' + path);
   assert.match(css, /recipe-ingredient-preview/);
   assert.match(css, /recipe-modal-ingredient/);
   assert.match(recipesPage, /Hover or focus an ingredient/);

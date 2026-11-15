@@ -46,7 +46,7 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 | WCAG AA tested text pairs and focus contrast | Pass | `tests/theme-contrast.test.js` checks documented color pairs. This is not a complete automated accessibility conformance audit. |
 | Exactly one H1, meaningful title/description, skip link, and favicon on every primary public page | Pass | Automated release-readiness test and browser check passed. |
 | Canonical URLs, share metadata, and sitemap match the GitHub Pages project path | Pass | `tests/release-readiness.test.js` and `tests/seo.test.js` check all 11 intended public URLs under `/BlockWise/`. |
-| Owner-approved Minecraft screenshots are present with a usable license/credit record | Not Tested | No screenshots were added; the existing CSS illustration remains the safe fallback. See `SEO_LAUNCH_CHECKLIST.md`. |
+| Scenic background assets have a usable source/credit record | Not Tested | The supplied local WebP pack is installed and tested locally, but its source/capture/license record is not stored in the repository. Retain that confirmation before publication or advertising. See `SEO_LAUNCH_CHECKLIST.md`. |
 | Local static links and assets resolve | Pass | New automated static-hosting-path test passed. |
 | External links, YouTube playback, and third-party availability | Not Tested | External sources can change; embeds were not played during this audit. |
 | Browser console errors | Pass | Final-polish local-browser error log was empty after calculator, recipe, command, guide, farm, navigation, and settings checks. |
