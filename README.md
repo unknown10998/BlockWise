@@ -160,3 +160,11 @@ The supplied pack's source/capture and license record was not included in the re
 The active scenic banners use the supplied local WebP pack. Text overlays use strong contrast, while interactive tools stay on solid surfaces. High Contrast mode removes decorative imagery entirely to maximize legibility. The older original SVG illustrations remain as unused historical artwork, not as replacement game textures.
 
 The Recipes page supports fullscreen ingredient recipe exploration. Hover or keyboard-focus an ingredient for a miniature crafting preview (where a defined recipe exists), then click it to open that recipe. Use **Back** to return to the previous recipe and choose from tagged ingredient alternatives using the select menu. Non-craftable items show that no defined recipe exists in the imported dataset. This feature uses Java Edition 1.21.11 recipe data and runs locally.
+
+### Minecraft recipe and command search guides
+
+For free search discovery, BlockWise includes crawlable, independently useful Java Edition 1.21.11 pages for crafting a **Crafting Table, Chest, Furnace, Torch, Enchanting Table, and Hopper**, and command examples for **Knockback sticks, long-lasting effects, keep inventory, infinite Night Vision, and giving 64 Diamonds**. Each has a distinctive title ending in **— BlockWise**, a canonical URL, clear visible answer, and links back to the corresponding browser/generator.
+
+The six recipe pages read their fixed ingredient combinations from the imported Java Edition 1.21.11 recipe dataset. Each includes a visible three-by-three grid. The recipe browser accepts validated `?item=minecraft:<item_id>` links that prefill a selected item query without creating duplicate indexable pages.
+
+Technical SEO includes a unique title/meta description per public page, a sitemap, appropriate internal links, and version scope labels. See `SEO_GROWTH_PLAN.md` for the researched free publishing and indexing checklist, including parental Search Console setup when eligible, and why indexing or ranking first is not guaranteed.
