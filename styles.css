@@ -968,3 +968,19 @@ body > footer { position: relative; z-index: 1; }
   .recipe-modal-item-name { font-size: .58rem; }
   .recipe-modal-slot { padding: 3px; }
 }
+
+/* Crawlable standalone recipe guides use accessible original text grids, not extracted Minecraft textures. */
+.seo-crumbs { font-size: .8rem; color: var(--text-muted); padding-bottom: 22px; }
+.seo-crumbs a { color: var(--accent); font-weight: 700; }
+.seo-recipe-article h3 { font-size: 1.15rem; margin: 0 0 12px; }
+.seo-recipe-visual { display: flex; flex-wrap: wrap; align-items: center; gap: 30px; margin: 24px 0 32px; }
+.seo-recipe-grid { display: grid; grid-template-columns: repeat(3,minmax(72px,100px)); gap: 6px; }
+.seo-recipe-slot { aspect-ratio: 1; min-width: 0; display: grid; place-items: center; padding: 5px; text-align: center; overflow-wrap: anywhere; background: var(--surface-muted); border: 2px solid var(--border-strong); border-radius: 8px; color: var(--text); font-size: .76rem; font-weight: 750; }
+.seo-recipe-empty { background: var(--surface); color: var(--text-subtle); border-style: dashed; font-weight: 450; }
+.seo-recipe-result { padding: 20px; border-radius: 14px; border: 2px solid var(--accent); background: var(--surface); color: var(--text); }
+.seo-recipe-result strong { font-size: 1.25rem; }
+.seo-recipe-result p:last-child { font-size: .8rem; margin: 9px 0 0; }
+.seo-grid-caption { max-width: 310px; margin: 8px 0 0; font-size: .73rem !important; }
+.seo-recipe-links { margin-top: 32px; }
+.seo-recipe-links .reference-guide-grid { margin-top: 16px; }
+@media (max-width: 420px) { .seo-recipe-grid { grid-template-columns: repeat(3,minmax(64px,1fr)); width: 100%; } .seo-recipe-slot { font-size: .66rem; } }
