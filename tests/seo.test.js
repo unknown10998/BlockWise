@@ -11,7 +11,8 @@ const publicPages = [
   'keep-inventory-java-1-21-11.html', 'farms.html', 'about.html',
   'crafting-table-recipe-java-1-21-11.html', 'chest-recipe-java-1-21-11.html',
   'furnace-recipe-java-1-21-11.html', 'torch-recipe-java-1-21-11.html',
-  'enchanting-table-recipe-java-1-21-11.html', 'hopper-recipe-java-1-21-11.html'
+  'enchanting-table-recipe-java-1-21-11.html', 'hopper-recipe-java-1-21-11.html',
+  'night-vision-command-java-1-21-11.html', 'give-diamonds-command-java-1-21-11.html'
 ];
 
 test('sitemap contains every intended public canonical URL and only existing pages', () => {
@@ -83,4 +84,17 @@ test('six standalone recipes have visible ingredients, crafting grids, and crawl
   }
   assert.match(index,/href="crafting-table-recipe-java-1-21-11.html"/);
   assert.match(index,/href="knockback-stick-java-1-21-11.html"/);
+});
+
+test('two additional command guides are discoverable through static HTML', () => {
+  const pages = ['night-vision-command-java-1-21-11.html', 'give-diamonds-command-java-1-21-11.html'];
+  const commands = fs.readFileSync(path.join(root,'commands.html'),'utf8');
+  const guides = fs.readFileSync(path.join(root,'guides.html'),'utf8');
+  for (const page of pages) {
+    const html = fs.readFileSync(path.join(root,page),'utf8');
+    assert.match(html,/Minecraft Java|Minecraft.*Java Edition|Java Edition 1\.21\.11|JAVA EDITION 1\.21\.11/);
+    assert.match(html,/href="commands.html"/);
+    assert.ok(commands.includes('href="' + page + '"'));
+    assert.ok(guides.includes('href="' + page + '"'));
+  }
 });
