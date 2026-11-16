@@ -13,11 +13,14 @@
   Object.entries(allowed).forEach(([key, values]) => {
     if (!values.includes(preferences[key])) preferences[key] = defaults[key];
   });
+  // Only an actual boolean enables a persisted accessibility preference. This
+  // avoids treating a corrupted string such as "false" as truthy.
+  preferences.contrast = preferences.contrast === true;
 
   const root = document.documentElement;
   root.dataset.theme = preferences.theme;
   root.dataset.text = preferences.text;
   root.dataset.density = preferences.density;
-  root.classList.toggle("high-contrast", Boolean(preferences.contrast));
+  root.classList.toggle("high-contrast", preferences.contrast);
   root.classList.toggle("reduce-motion", preferences.motion === "reduce");
 })();

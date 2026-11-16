@@ -114,6 +114,13 @@ menuToggle.addEventListener("click", () => {
 });
 navBackdrop.addEventListener("click", () => closeNavigation({ restoreFocus: true }));
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && siteNav.classList.contains("open")) {
+    event.preventDefault();
+    closeNavigation({ restoreFocus: true });
+  }
+});
+
 siteNav.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => closeNavigation({ immediate: true }));
 });
@@ -126,7 +133,9 @@ siteNav.querySelectorAll("a").forEach((link) => {
   let prefs = { ...defaults };
   try { prefs = { ...defaults, ...JSON.parse(localStorage.getItem(key) || "{}") }; } catch (_) {}
   Object.keys(allowed).forEach(name => { if (!allowed[name].includes(prefs[name])) prefs[name] = defaults[name]; });
-  prefs.contrast = Boolean(prefs.contrast);
+  // localStorage is user-editable; preserve the setting only when it is a
+  // boolean rather than coercing strings such as "false" to true.
+  prefs.contrast = prefs.contrast === true;
   let themeTimer = 0;
   const apply = (animateTheme = false) => {
     const root = document.documentElement;
