@@ -1,5 +1,15 @@
 # BlockWise planner progress
 
+## Search visibility and discoverability — November 2026
+
+- Public web search sampling found naming competition for "BlockWise" and did not verify the project's Google indexing; only Search Console can confirm index coverage and impressions. No guarantee of first-page ranking or AI citation.
+- Refined main-page and existing command-guide page title tags/description snippets to use concrete player terms and the suffix "— BlockWise". Google remains free to rewrite displayed title links.
+- Created six static, focused Java Edition 1.21.11 crafting recipe guides (Crafting Table, Chest, Furnace, Torch, Enchanting Table, Hopper), using imported recipe ingredient grids and visible HTML answers. Each links to the broader interactive recipe browser. The recipe browser supports validated `?item=minecraft:<id>` query prefill from the guides.
+- Added two targeted Java command guides (infinite Night Vision and /give 64 Diamonds) and updated the older effects guide to note `infinite` duration is supported. Internal links on Home, Recipes, Commands and Guides plus sitemap entries help crawlers discover the eight new pages.
+- Expanded `tests/seo.test.js` for the full sitemap, descriptive/unique titles and crawlable guide links; added `SEO_GROWTH_PLAN.md` with a free plan, eligibility-aware parent-managed Search Console guidance, and a warning that GitHub Pages project paths cannot specify a distinct Google SERP site name.
+- All changes remain on `feature/final-polish-seo` in existing PR #4; none were merged or deployed to GitHub Pages by this work.
+
+
 ## Layered lakeside page background — PR #4 follow-up
 
 - Added the supplied `assets/backgrounds/blockwise-site-background.webp` (1672×941 WebP) as a shared, decorative lakeside backdrop. The existing `home-hero.webp` remains the first Home hero container's image and all seven page-specific banner images remain unchanged.
