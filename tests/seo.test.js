@@ -8,7 +8,10 @@ const base = 'https://unknown10998.github.io/BlockWise/';
 const publicPages = [
   'index.html', 'tools.html', 'commands.html', 'recipes.html', 'enchanting.html', 'guides.html',
   'knockback-stick-java-1-21-11.html', 'permanent-effects-java-1-21-11.html',
-  'keep-inventory-java-1-21-11.html', 'farms.html', 'about.html'
+  'keep-inventory-java-1-21-11.html', 'farms.html', 'about.html',
+  'crafting-table-recipe-java-1-21-11.html', 'chest-recipe-java-1-21-11.html',
+  'furnace-recipe-java-1-21-11.html', 'torch-recipe-java-1-21-11.html',
+  'enchanting-table-recipe-java-1-21-11.html', 'hopper-recipe-java-1-21-11.html'
 ];
 
 test('sitemap contains every intended public canonical URL and only existing pages', () => {
@@ -48,4 +51,36 @@ test('the homepage declares only a truthful WebSite structured-data description'
   assert.equal(data['@type'], 'WebSite');
   assert.equal(data.url, base);
   assert.equal(data.name, 'BlockWise');
+});
+
+test('every public page has a unique descriptive title and useful meta description', () => {
+  const titles = new Set();
+  for (const page of publicPages) {
+    const html = fs.readFileSync(path.join(root, page), 'utf8');
+    const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+    assert.ok(title, 'title exists: ' + page);
+    assert.match(title, /BlockWise/);
+    assert.ok(!titles.has(title), 'unique title: ' + title);
+    titles.add(title);
+    assert.ok(title.length < 110, 'title not excessively long: ' + page);
+    const desc = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
+    assert.ok(desc && desc.length > 60, 'meaningful description: ' + page);
+  }
+});
+test('six standalone recipes have visible ingredients, crafting grids, and crawlable links', () => {
+  const items = ['crafting-table','chest','furnace','torch','enchanting-table','hopper'];
+  const index = fs.readFileSync(path.join(root,'index.html'),'utf8');
+  const recipeHub = fs.readFileSync(path.join(root,'recipes.html'),'utf8');
+  const browser = fs.readFileSync(path.join(root,'recipe-browser.js'),'utf8');
+  assert.match(browser,/itemParam/);
+  for (const id of items) {
+    const filename = id + '-recipe-java-1-21-11.html';
+    const html = fs.readFileSync(path.join(root,filename),'utf8');
+    assert.equal((html.match(/class="seo-recipe-slot/g)||[]).length,9,'exactly 9 crafting cells for '+id);
+    assert.match(html, /recipe ingredients/);
+    assert.match(html, /recipes\.html\?item=minecraft%3A/);
+    assert.ok(recipeHub.includes('href="' + filename + '"'));
+  }
+  assert.match(index,/href="crafting-table-recipe-java-1-21-11.html"/);
+  assert.match(index,/href="knockback-stick-java-1-21-11.html"/);
 });
