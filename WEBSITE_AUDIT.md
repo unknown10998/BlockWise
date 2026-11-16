@@ -2,6 +2,7 @@
 
 Audit date: November 16, 2026  
 Audit branch: `audit/full-site-quality` (not merged or deployed)
+Review pull request: [#5 — Audit BlockWise quality and fix verified issues](https://github.com/unknown10998/BlockWise/pull/5)
 
 ## Scope and evidence
 
@@ -36,6 +37,7 @@ Audit branch: `audit/full-site-quality` (not merged or deployed)
 - External YouTube/source availability and playback were not rechecked; farm cards remain appropriately qualified and must not be read as independently verified rates/material lists.
 - The supplied WebP background pack still lacks a source/capture/license record in the repository; retain permission/provenance before public advertising or wider distribution.
 - The legacy `tests/browser-smoke.cjs` did not run because its expected Chrome debugging endpoint (`127.0.0.1:9227`) was unavailable. This is a test-environment limitation, not a confirmed site failure.
+- At the time of this report, GitHub had not associated a pull-request workflow run with commit `69877ce`; local verification is recorded above. Recheck the PR checks before merging.
 
 ## Release recommendation
 

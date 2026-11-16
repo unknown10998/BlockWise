@@ -7,7 +7,7 @@
 - Added `tests/audit-regressions.test.js`, expanded the mobile-navigation regression assertions, and advanced all shared CSS/JS query markers to `quality-audit-1` so fresh static clients receive the revised shared files.
 - Verification actually run: `git diff --check`; syntax checks for all root and `scripts/` JavaScript; and `node --test tests/*.test.js` (**73 passing, 0 failing**). A static scan found zero missing local links/assets across all 19 HTML pages.
 - Local real-browser verification covered the eight primary pages at 320px, 375px, 390px, 768px, 1024px, 1440px, and 1920px, plus all standalone guides at 390px. Core calculators, recipe full screen/search, Smart Command Finder, farm and guide search, optimizer, Settings persistence/reset, and mobile-menu Escape were exercised. The final local Home console log contained no errors.
-- The public GitHub Pages homepage returned HTTP 200 on November 16, but it remains the deployed `main` baseline and therefore does not include this unmerged audit branch. See `WEBSITE_AUDIT.md` for exact findings, test limitations, and release blockers.
+- Pushed the two audit commits and opened [PR #5](https://github.com/unknown10998/BlockWise/pull/5) into `main`; no merge or deployment was performed. GitHub had not yet associated a PR workflow run with the latest commit at the time checked, so recheck its status before approving a merge. The public GitHub Pages homepage returned HTTP 200 on November 16, but it remains the deployed `main` baseline and therefore does not include this unmerged audit branch. See `WEBSITE_AUDIT.md` for exact findings, test limitations, and release blockers.
 
 ## Search visibility and discoverability — November 2026
 
