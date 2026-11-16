@@ -42,6 +42,7 @@ BlockWise is a free, beginner-friendly Minecraft guides-and-tools site for ordin
 
 ## Verification status
 
+- November 16, 2026 audit: `git diff --check`, JavaScript syntax checks, and the full Node suite passed with 73 tests. A real local-browser audit found and fixed missing Escape support in the mobile menu and Settings-related 1024px horizontal overflow; core calculators, recipes, commands, guides, farms, settings persistence, and responsive layouts were exercised. `WEBSITE_AUDIT.md` records the precise scope and untested production, device, screen-reader, in-game, external-link, performance, and image-provenance work. The audit branch is not merged or deployed.
 - Earlier-session test claims remain historical only.
 - This session verified the normal browser clipboard path and that Reset does not copy the empty-state placeholder.
 - This session also verified the stack calculator, guide search/filter, enchant optimizer, and 390px mobile navigation; browser console errors were empty.
