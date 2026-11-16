@@ -117,7 +117,7 @@ For GitHub Pages, use **Settings → Pages → Build and deployment → Deploy f
 
 ## Java recipe browser
 
-The Recipes section covers the imported **Java Edition 1.21.11** definitions, separately from the cross-edition starter planner. It works by opening `index.html` directly. Search by output name, item ID or recipe ID, filter by station and recipe type, and page through the results. Ingredient alternatives are listed below each grid; shapeless positions are illustrative. Click a crafting grid, or use Enter/Space while it is focused, to open a full-screen recipe view with larger slots and full item names.
+The Recipes section covers the imported **Java Edition 1.21.11** definitions, separately from the cross-edition starter planner. Open `recipes.html` to search by output name, item ID or recipe ID, filter by station and recipe type, and page through the results. Ingredient alternatives are listed below each grid; shapeless positions are illustrative. Click a crafting grid, or use Enter/Space while it is focused, to open a full-screen recipe view with larger slots and full item names.
 
 The source is [misode/mcmeta](https://github.com/misode/mcmeta), a community-maintained extraction of Minecraft data, tag `1.21.11-data-json`, commit `3926dfaf527cbf692f161ef8f7cdad17a1a06b74`; item registry tag `1.21.11-registries` is commit `208aa83038851414dfe235068fe36650b068384b`; English item names use `1.21.11-assets-json` commit `00cd93a451611a147b99a439e76c74d040407b69`. It is not an official Mojang project. Its code license should not be assumed to license the underlying Minecraft data or graphics. [Minecraft's usage guidelines](https://www.minecraft.net/en-us/usage-guidelines) allow appropriately branded Minecraft-information websites and third-party ads that do not harm the brand, but treat textures as Minecraft assets and prohibit redistributing game files. No game textures are included; text initials provide the item cue while game-derived icons remain unavailable pending clear separate permission or licensing. Review data and asset rights before public or advertising-supported deployment.
 
@@ -142,3 +142,29 @@ node --test tests/*.test.js
 ```
 
 The build script regenerates `recipe-data.js` and `recipe-coverage.json`. The report records all 1,470 source definitions: 1,396 standard and 74 special, with zero unresolved static item/tag references and 977 distinct fixed output IDs. Automated structural validation covers all 1,470 imported definitions: shaped dimensions/slots, shapeless inputs, fixed output counts, and station-input layouts. The 74 specials are represented as follows: 32 transmutations show their two defined inputs and fixed item type; 18 smithing trims show their template/base/addition choices and honestly identify their input-dependent outputs; 12 smithing transforms show three inputs and a fixed output; and 12 game-rule recipes are rendered as labeled limitation panels without invented grids. This is not recipe-by-recipe visual or in-game verification.
+
+## Search and content foundations
+
+Every public page has a page-specific title, description, canonical URL under `https://unknown10998.github.io/BlockWise/`, and share metadata. `sitemap.xml` lists only real, intended public pages, including the three Java Edition 1.21.11 command references. The homepage also includes a modest `WebSite` structured-data record that matches its visible purpose; no ratings, FAQ, or review schema is claimed.
+
+The site deliberately keeps useful explanatory text in the HTML around its JavaScript tools. Google can render JavaScript, but static titles, headings, descriptions, links, and reference notes make the site understandable before catalog scripts execute. See [SEO_LAUNCH_CHECKLIST.md](SEO_LAUNCH_CHECKLIST.md) for the Search Console steps and the project-path `robots.txt` limitation on GitHub Pages.
+
+## Background-image policy
+
+BlockWise now includes an owner-provided, locally hosted WebP background pack in `assets/backgrounds/`. The active page mapping is: Home (`home-hero.webp`), Tools (`tools-hero.webp`), Commands (`commands-hero.webp`), Recipes (`recipes-hero.webp`), Enchant Optimizer (`enchanting-hero.webp`), Guides (`guides-hero.webp`), Farms (`farms-hero.webp`), About (`about-hero.webp`), and the 1200×630 Open Graph/Twitter card (`social-share.webp`). `blockwise-site-background.webp` is a separate, shared lakeside scene behind content after the homepage hero and behind the other pages' solid/translucent content surfaces. The site loads these only from its own static files; CSS uses relative paths compatible with GitHub Pages under `/BlockWise/`.
+
+The supplied pack's source/capture and license record was not included in the repository. Before public publishing or advertising, the owner should retain the original source, capture/version information where applicable, and written confirmation that it can be published on BlockWise. Do not substitute extracted JAR textures, official promotional art, or images copied from fan sites. Minecraft's [Usage Guidelines](https://www.minecraft.net/en-us/usage-guidelines) allow fan information sites under conditions, allow gameplay screenshots to be shared, prohibit redistribution of game files, and require a clear independent-project disclaimer.
+
+### New visual backgrounds and ingredient recipe exploration
+
+The active scenic banners use the supplied local WebP pack. Text overlays use strong contrast, while interactive tools stay on solid surfaces. High Contrast mode removes decorative imagery entirely to maximize legibility. The older original SVG illustrations remain as unused historical artwork, not as replacement game textures.
+
+The Recipes page supports fullscreen ingredient recipe exploration. Hover or keyboard-focus an ingredient for a miniature crafting preview (where a defined recipe exists), then click it to open that recipe. Use **Back** to return to the previous recipe and choose from tagged ingredient alternatives using the select menu. Non-craftable items show that no defined recipe exists in the imported dataset. This feature uses Java Edition 1.21.11 recipe data and runs locally.
+
+### Minecraft recipe and command search guides
+
+For free search discovery, BlockWise includes crawlable, independently useful Java Edition 1.21.11 pages for crafting a **Crafting Table, Chest, Furnace, Torch, Enchanting Table, and Hopper**, and command examples for **Knockback sticks, long-lasting effects, keep inventory, infinite Night Vision, and giving 64 Diamonds**. Each has a distinctive title ending in **— BlockWise**, a canonical URL, clear visible answer, and links back to the corresponding browser/generator.
+
+The six recipe pages read their fixed ingredient combinations from the imported Java Edition 1.21.11 recipe dataset. Each includes a visible three-by-three grid. The recipe browser accepts validated `?item=minecraft:<item_id>` links that prefill a selected item query without creating duplicate indexable pages.
+
+Technical SEO includes a unique title/meta description per public page, a sitemap, appropriate internal links, and version scope labels. See `SEO_GROWTH_PLAN.md` for the researched free publishing and indexing checklist, including parental Search Console setup when eligible, and why indexing or ranking first is not guaranteed.

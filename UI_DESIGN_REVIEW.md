@@ -64,6 +64,15 @@ All listed text pairs exceed WCAG AA's 4.5:1 normal-text target; both focus ring
 - System/Light/Dark, text size, density, high contrast, reduced motion, and Reset remain in the shared Settings dialog. `theme-init.js` applies saved choices before CSS loads to avoid an incorrect-theme flash.
 - The mobile settings label is visually hidden rather than removed, and the button also has an explicit `aria-label`.
 
+## Layered scenic-background follow-up
+
+- **Aesthetic-Usability Effect:** a warm lakeside scene gives the static tools site a cohesive Minecraft-inspired environment without introducing new controls or motion.
+- **Figure-Ground and Common Region:** the scene sits in a pointer-inert `body::before` layer, while calculator cards, recipe grids, dialogs, forms, and command outputs retain solid surfaces and borders. Broad content bands use restrained theme-aware translucency rather than glass blur.
+- **Proximity, Hick's Law, and Jakob's Law:** spacing, cards, existing navigation, and action hierarchy are unchanged; the visual update adds no new navigation choices, controls, or interaction patterns.
+- **Doherty Threshold and Prägnanz:** one compressed 1672×941 local WebP is shared across pages, with no external request, background animation, parallax, or runtime JavaScript. The home hero stays `home-hero.webp`; page-specific banners continue to distinguish the other pages.
+- In Light mode the lakeside scene receives a pale 28% overlay with 88% light content bands. Dark mode uses a deeper 33% green overlay and 88% dark bands. High Contrast disables the decorative layer entirely, preserving its black/white contrast model.
+- The shared source file is a 1672×941 WebP (1,650,660 bytes). It is requested locally by CSS with no scripts, animation, blur, parallax, external host, or layout-affecting `<img>` element. A local server returned it with 200 status in 0.003380 seconds; this is not a substitute for Lighthouse or throttled production-network measurements.
+
 ## Browser review and revisions
 
 Real local-browser screenshots were inspected during the review. They were captured in the browser test session and were not written as workspace image files.
@@ -78,6 +87,8 @@ Real local-browser screenshots were inspected during the review. They were captu
 | 390px | System-dark Farms | Cards, filters, and warning panel are readable. |
 | 768px | Light and dark Tools | Found desktop-nav overflow; switched header to hamburger at tablet width and rechecked with no overflow. |
 | 1440px | Light Farms and Guides; dark Home, Recipes/full-screen grid, Optimizer, and About | Navigation, card hierarchy, calculator layout, full-screen recipe layout, footer, and page headings were inspected. |
+| 1440px | Layered Home | Confirmed `home-hero.webp` remains in the first hero while the separate lakeside scene is visible behind lower page sections. |
+| 320px, 390px, 768px | All eight primary pages | The lakeside layer was present and every page passed a no-horizontal-overflow check. |
 
 High-contrast mode was also inspected in the optimizer after its specificity defect was corrected. Extra Large text was reviewed in the Recipe Browser and full-screen crafting-grid view.
 
