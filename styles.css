@@ -25,6 +25,9 @@
   --info-text: #164d70;
   --header: rgb(245 247 243 / 94%);
   --shadow: 0 16px 40px rgb(21 45 29 / 8%);
+  --scenic-overlay: rgb(245 247 243 / 28%);
+  --scenic-band: rgb(245 247 243 / 88%);
+  --scenic-footer: rgb(245 247 243 / 94%);
   /* Legacy aliases keep the established component code readable while it uses semantic tokens. */
   --paper: var(--page); --white: var(--surface); --ink: var(--text); --muted: var(--text-muted);
   --line: var(--border); --green: var(--accent); --green-dark: var(--accent-hover); --mint: var(--accent-soft); --orange: #d79025;
@@ -39,6 +42,7 @@
   --warning-bg: #3c3017; --warning-text: #ffe4a6; --warning-border: #886b25;
   --error-bg: #481f1b; --error-text: #ffcbc5; --error-border: #91584f;
   --info-bg: #163449; --info-text: #c3e7ff; --header: rgb(16 26 21 / 94%); --shadow: 0 16px 44px rgb(0 0 0 / 26%);
+  --scenic-overlay: rgb(9 20 15 / 33%); --scenic-band: rgb(16 26 21 / 88%); --scenic-footer: rgb(16 26 21 / 94%);
 }
 @media (prefers-color-scheme: dark) { :root[data-theme="system"] {
   color-scheme: dark;
@@ -817,6 +821,40 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
   background-image: none;
   background-color: #000;
   border-color: #fff;
+}
+
+/* Shared lakeside scene: a non-interactive, fixed visual layer behind content.
+   The hero and page-specific banners keep their own images above it. */
+body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  background: var(--page);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: linear-gradient(180deg, var(--scenic-overlay), var(--scenic-overlay)), url("assets/backgrounds/blockwise-site-background.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body > header,
+body > main,
+body > footer { position: relative; z-index: 1; }
+
+/* Broad section bands establish figure-ground separation without hiding the scene. */
+.quick-strip,
+.guides-section,
+.enchant-section { background: var(--scenic-band); }
+.site-footer { background: var(--scenic-footer); }
+.high-contrast body::before { display: none; }
+
+@media (max-width: 680px) {
+  body::before { background-position: 62% center; }
 }
 #tools > .section-heading .eyebrow,
 #recipes > .section-heading .eyebrow,

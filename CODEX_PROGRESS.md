@@ -1,5 +1,13 @@
 # BlockWise planner progress
 
+## Layered lakeside page background — PR #4 follow-up
+
+- Added the supplied `assets/backgrounds/blockwise-site-background.webp` (1672×941 WebP) as a shared, decorative lakeside backdrop. The existing `home-hero.webp` remains the first Home hero container's image and all seven page-specific banner images remain unchanged.
+- `body::before` supplies the separate background layer with `pointer-events: none`; headers, main content, and footer are stacked above it. No parallax, background animation, or blur effect was added. Tools, cards, forms, recipe grids, command outputs, and dialogs retain their existing solid surfaces; broad feature bands use theme-aware translucent colors so the scenery is visible without weakening figure-ground separation.
+- Light mode uses a restrained pale overlay and translucent light bands; dark mode uses a deeper green overlay and dark translucent bands. High Contrast removes every decorative background layer, retaining the established black/white accessible treatment.
+- The Laws of UX implementation is documented in `UI_DESIGN_REVIEW.md`. Automated and browser verification are recorded after they run.
+- Verification actually run: `git diff --check`; syntax checks for `script.js`, `recipe-browser.js`, `farm-browser.js`, `commands-browser.js`, `build-estimator.js`, and `theme-init.js`; and `node --test tests/*.test.js` (**66 passing, 0 failing**). Local HTTP returned **200** for `blockwise-site-background.webp` (1,650,660 bytes, 0.003380s local transfer). Real-browser checks confirmed both backgrounds on Home at 1440px, Light/Dark/High Contrast behavior, and the shared backdrop/no horizontal overflow across all eight primary pages at 320px, 390px, and 768px. At 390px, Stack Calculator returned 15 stacks / 40 leftovers and Recipes returned three Oak Stairs results; the final browser error log was empty. No Lighthouse, throttled-network, physical-device, screen-reader, or live GitHub Pages test was run.
+
 ## Provided WebP scenic-background pack — PR #4 update
 
 - Added the nine supplied, locally hosted WebP assets under `assets/backgrounds/`: `home-hero.webp`, `tools-hero.webp`, `commands-hero.webp`, `recipes-hero.webp`, `enchanting-hero.webp`, `guides-hero.webp`, `farms-hero.webp`, `about-hero.webp`, and `social-share.webp`. No image was downloaded from an external source.

@@ -15,11 +15,23 @@ const pages = [
 ];
 
 test('the supplied WebP background pack is present and has WebP headers', () => {
-  for (const [, , filename] of pages.concat([['social-share', '', 'social-share.webp']])) {
+  for (const [, , filename] of pages.concat([
+    ['site-background', '', 'blockwise-site-background.webp'],
+    ['social-share', '', 'social-share.webp']
+  ])) {
     const image = fs.readFileSync(`${imageDirectory}/${filename}`);
     assert.equal(image.subarray(0, 4).toString('ascii'), 'RIFF', `${filename} starts as RIFF`);
     assert.equal(image.subarray(8, 12).toString('ascii'), 'WEBP', `${filename} is WebP`);
   }
+});
+
+test('the full-page lakeside background is wired behind content without replacing the home hero', () => {
+  const css = fs.readFileSync('styles.css', 'utf8');
+  assert.match(css, /body::before\s*\{[^}]*pointer-events:\s*none[^}]*blockwise-site-background\.webp/s);
+  assert.match(css, /body > header,[\s\S]*body > footer \{ position: relative; z-index: 1; \}/);
+  assert.match(css, /\.high-contrast body::before \{ display: none; \}/);
+  assert.match(css, /\.hero\.hero-scenic\s*\{[^}]*home-hero\.webp/s);
+  assert.match(css, /\.quick-strip,[\s\S]*\.enchant-section \{ background: var\(--scenic-band\); \}/);
 });
 
 test('every primary page has the intended locally hosted scenic background and share card', () => {
