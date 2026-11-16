@@ -984,3 +984,10 @@ body > footer { position: relative; z-index: 1; }
 .seo-recipe-links { margin-top: 32px; }
 .seo-recipe-links .reference-guide-grid { margin-top: 16px; }
 @media (max-width: 420px) { .seo-recipe-grid { grid-template-columns: repeat(3,minmax(64px,1fr)); width: 100%; } .seo-recipe-slot { font-size: .66rem; } }
+
+/* Compact source-first command reference links, without hiding the working command tool. */
+.command-seo-reference { margin: 0 0 26px; padding: 20px; border: 1px solid var(--border); border-radius: 15px; background: var(--surface); }
+.command-seo-reference h2 { margin-bottom: 7px; font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.command-seo-reference p { color: var(--text-muted); font-size: .88rem; margin-bottom: 16px; }
+.command-seo-reference .reference-guide-grid { gap: 12px; }
+.command-seo-reference .reference-guide-grid a { padding: 15px; }
