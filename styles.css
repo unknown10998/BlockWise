@@ -52,13 +52,14 @@
   --warning-bg: #3c3017; --warning-text: #ffe4a6; --warning-border: #886b25;
   --error-bg: #481f1b; --error-text: #ffcbc5; --error-border: #91584f;
   --info-bg: #163449; --info-text: #c3e7ff; --header: rgb(16 26 21 / 94%); --shadow: 0 16px 44px rgb(0 0 0 / 26%);
+  --scenic-overlay: rgb(9 20 15 / 33%); --scenic-band: rgb(16 26 21 / 88%); --scenic-footer: rgb(16 26 21 / 94%);
 } }
 
 :root[data-text="small"] { font-size: 14px; }
 :root[data-text="large"] { font-size: 18px; }
 :root[data-text="xlarge"] { font-size: 20px; }
 :root[data-density="compact"] { --space-scale: .84; }
-:root.high-contrast { --page:#000; --surface:#000; --surface-raised:#000; --surface-muted:#000; --control:#000; --text:#fff; --text-muted:#fff; --text-subtle:#fff; --border:#fff; --border-strong:#fff; --accent:#ffff00; --accent-hover:#fff; --accent-soft:#000; --on-accent:#000; --focus:#00ffff; --header:#000; --warning-bg:#000; --warning-text:#fff; --warning-border:#fff; --error-bg:#000; --error-text:#fff; --error-border:#fff; --info-bg:#000; --info-text:#fff; }
+:root.high-contrast { --page:#000; --surface:#000; --surface-raised:#000; --surface-muted:#000; --control:#000; --text:#fff; --text-muted:#fff; --text-subtle:#fff; --border:#fff; --border-strong:#fff; --accent:#ffff00; --accent-hover:#fff; --accent-soft:#000; --on-accent:#000; --focus:#00ffff; --header:#000; --warning-bg:#000; --warning-text:#fff; --warning-border:#fff; --error-bg:#000; --error-text:#fff; --error-border:#fff; --info-bg:#000; --info-text:#fff; --scenic-overlay:#000; --scenic-band:#000; --scenic-footer:#000; }
 .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 
 .settings-trigger { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; border: 1px solid var(--border); border-radius: 9px; padding: 8px 11px; background: var(--surface); color: var(--text); font-weight: 750; cursor: pointer; }
@@ -850,7 +851,17 @@ body > footer { position: relative; z-index: 1; }
 .quick-strip,
 .guides-section,
 .enchant-section { background: var(--scenic-band); }
-.site-footer { background: var(--scenic-footer); }
+.site-footer {
+  background: var(--scenic-footer);
+  color: var(--text);
+  border-top-color: var(--border);
+}
+.site-footer .footer-main > p { color: var(--text-muted); }
+.site-footer .footer-main nav,
+.site-footer .footer-bottom { color: var(--text-subtle); }
+.site-footer .footer-bottom { border-top-color: var(--border); }
+.site-footer a:hover,
+.site-footer a:focus-visible { color: var(--accent); }
 .high-contrast body::before { display: none; }
 
 @media (max-width: 680px) {

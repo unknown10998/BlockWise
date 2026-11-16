@@ -34,6 +34,16 @@ test('the full-page lakeside background is wired behind content without replacin
   assert.match(css, /\.quick-strip,[\s\S]*\.enchant-section \{ background: var\(--scenic-band\); \}/);
 });
 
+test('scenic footer variables and text tokens support dark and system-dark themes', () => {
+  const css = fs.readFileSync('styles.css', 'utf8');
+  const systemDark = css.match(/@media \(prefers-color-scheme: dark\) \{ :root\[data-theme="system"\] \{([\s\S]*?)\} \}/);
+  assert.ok(systemDark, 'system-dark theme rule exists');
+  assert.match(systemDark[1], /--scenic-footer: rgb\(16 26 21 \/ 94%\)/);
+  assert.match(css, /\.site-footer \{[\s\S]*background: var\(--scenic-footer\);[\s\S]*color: var\(--text\);/);
+  assert.match(css, /\.site-footer \.footer-main > p \{ color: var\(--text-muted\); \}/);
+  assert.match(css, /:root\.high-contrast \{[^}]*--scenic-footer:#000;/);
+});
+
 test('every primary page has the intended locally hosted scenic background and share card', () => {
   const css = fs.readFileSync('styles.css', 'utf8');
   for (const [page, selector, filename] of pages) {
