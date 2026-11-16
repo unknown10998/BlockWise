@@ -344,5 +344,15 @@
   prev.addEventListener('click', () => { page--; render(); });
   next.addEventListener('click', () => { page++; render(); });
   document.querySelector('#recipeReset').addEventListener('click', () => { search.value = ''; station.value = 'all'; typeFilter.value = 'all'; filter(); });
+  // Search-friendly static guide pages can link into this browser by exact output item ID.
+  const itemParam = (window.location?.search || '').match(/(?:^\?|&)item=([^&]+)/)?.[1];
+  if (itemParam) {
+    try {
+      const requested = decodeURIComponent(itemParam.replace(/\+/g, ' '));
+      if (/^minecraft:[a-z0-9_]+$/.test(requested) && recipes.some(recipe => recipe.result?.id === requested)) {
+        search.value = requested;
+      }
+    } catch (_) { /* Ignore malformed links and show the normal browser. */ }
+  }
   render();
 })();
