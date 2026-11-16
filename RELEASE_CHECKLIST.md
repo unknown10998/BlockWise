@@ -2,6 +2,10 @@
 
 Status key: **Pass** was verified in this release audit; **Fail** needs resolution before calling the beta fully release-ready; **Not Tested** was not verified in this audit.
 
+## November 16, 2026 audit follow-up
+
+The current review branch, `audit/full-site-quality`, fixes mobile Escape behavior, 1024px header overflow, strict local preference parsing, and an Enchanting Table guide copy error. It is not merged or deployed. `WEBSITE_AUDIT.md` contains the evidence table, a 73-test automated result, local-browser coverage, and the remaining production/device/performance/in-game limitations. Do not replace the original statuses below with a claim that the new branch is live.
+
 ## Product and data trust
 
 | Requirement | Status | Evidence / action |

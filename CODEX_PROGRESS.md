@@ -1,5 +1,14 @@
 # BlockWise planner progress
 
+## Full website quality audit — November 16, 2026
+
+- Created the separate `audit/full-site-quality` branch from current `main`; this audit work is not merged or deployed.
+- Fixed three confirmed quality issues: the mobile menu now closes with Escape and restores trigger focus; the header switches to the menu layout at 1100px to prevent Settings-related horizontal overflow at 1024px; and malformed localStorage strings such as `"false"` no longer incorrectly enable High Contrast. Corrected four “a enchanting” grammar errors in the Enchanting Table guide and its metadata.
+- Added `tests/audit-regressions.test.js`, expanded the mobile-navigation regression assertions, and advanced all shared CSS/JS query markers to `quality-audit-1` so fresh static clients receive the revised shared files.
+- Verification actually run: `git diff --check`; syntax checks for all root and `scripts/` JavaScript; and `node --test tests/*.test.js` (**73 passing, 0 failing**). A static scan found zero missing local links/assets across all 19 HTML pages.
+- Local real-browser verification covered the eight primary pages at 320px, 375px, 390px, 768px, 1024px, 1440px, and 1920px, plus all standalone guides at 390px. Core calculators, recipe full screen/search, Smart Command Finder, farm and guide search, optimizer, Settings persistence/reset, and mobile-menu Escape were exercised. The final local Home console log contained no errors.
+- The public GitHub Pages homepage returned HTTP 200 on November 16, but it remains the deployed `main` baseline and therefore does not include this unmerged audit branch. See `WEBSITE_AUDIT.md` for exact findings, test limitations, and release blockers.
+
 ## Search visibility and discoverability — November 2026
 
 - Public web search sampling found naming competition for "BlockWise" and did not verify the project's Google indexing; only Search Console can confirm index coverage and impressions. No guarantee of first-page ranking or AI citation.
