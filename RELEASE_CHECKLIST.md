@@ -6,6 +6,10 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 
 The current review branch, `audit/full-site-quality`, fixes mobile Escape behavior, 1024px header overflow, strict local preference parsing, and an Enchanting Table guide copy error. It is not merged or deployed. `WEBSITE_AUDIT.md` contains the evidence table, a 73-test automated result, local-browser coverage, and the remaining production/device/performance/in-game limitations. Do not replace the original statuses below with a claim that the new branch is live.
 
+## November 16, 2026 privacy and rights follow-up
+
+`legal/privacy-about-rights` adds the public About and Privacy pages, links Privacy from every page footer, and records the current asset-rights and future-AdSense readiness findings. The new pages passed local static checks and 78 automated Node tests after their addition. Local browser QA found and corrected duplicate footer links plus a 768px footer overflow before review. This branch is not merged or deployed; no advertising, analytics, consent tooling, or external account changes were made.
+
 ## Product and data trust
 
 | Requirement | Status | Evidence / action |

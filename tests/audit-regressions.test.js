@@ -29,7 +29,7 @@ test("every sitemap page keeps baseline static accessibility and SEO hooks", () 
   const pages = [...sitemap.matchAll(/<loc>https:\/\/unknown10998\.github\.io\/BlockWise\/(?:([^<]+))?<\/loc>/g)]
     .map(([, filename]) => filename || "index.html");
 
-  assert.equal(pages.length, 19, "audit baseline sitemap size");
+  assert.equal(pages.length, 20, "current public sitemap size");
   for (const page of pages) {
     const html = read(page);
     assert.match(html, /<html lang="en"/i, `${page}: document language`);

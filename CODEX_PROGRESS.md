@@ -1,5 +1,12 @@
 # BlockWise planner progress
 
+## About, privacy, rights, and future-advertising preparation — November 16, 2026
+
+- Created `privacy.html` as a separate, crawlable Privacy Policy and expanded `about.html` into a complete feature, audience, accuracy, fan-project, privacy, and future-advertising introduction. No public contact address was invented; both pages transparently identify that a responsible adult owner must provide one before monetization where needed.
+- Added a Privacy link to every public-page footer, added the policy URL to `sitemap.xml`, and refreshed shared static asset versions to `legal-privacy-1` so the new About styling and footer links are not held behind older browser cache markers.
+- Audited the actual source: BlockWise currently has browser localStorage for preferences and Smart Command Finder history/favorites; GitHub Pages hosting; six privacy-enhanced YouTube embeds; and external references. No AdSense publisher ID, ad tag, analytics script, account system, form, payment flow, or server database was found.
+- Created `ASSET_RIGHTS_AUDIT.md` and `ADSENSE_PRIVACY_READINESS.md`. Ten supplied WebP images are classified **NEEDS HUMAN VERIFICATION** because their origin/license/AI record is not in the repository. The original source-code SVGs and favicon have repository provenance only. Advertising remains disabled and no legal/AdSense approval is claimed.
+
 ## Full website quality audit — November 16, 2026
 
 - Created the separate `audit/full-site-quality` branch from current `main`; this audit work is not merged or deployed.

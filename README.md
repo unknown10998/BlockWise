@@ -34,6 +34,12 @@ BlockWise uses a restrained Minecraft-inspired palette: natural greens for ident
 
 The automated suite includes contrast checks for the active light and dark normal-text pairs and focus colors. The latest audit measured all tested text pairs at 4.5:1 or greater and focus colors at 3:1 or greater. See [UI_DESIGN_REVIEW.md](UI_DESIGN_REVIEW.md) for the full palette, calculations, UX references, browser viewport review, and remaining testing limits.
 
+## Privacy and future advertising
+
+[Privacy Policy](privacy.html) explains the current static site's browser-local preferences, Smart Command Finder local history/favorites, GitHub Pages hosting, YouTube embeds, and external links. BlockWise currently has no advertising, AdSense, analytics, accounts, forms, or first-party server database. This is not a promise that advertising will never be added: any future advertising requires a review of the actual provider, cookie/local-storage disclosures, regional consent obligations, a responsible adult owner/contact method, and current legal requirements before code is activated.
+
+See [ADSENSE_PRIVACY_READINESS.md](ADSENSE_PRIVACY_READINESS.md) for the required pre-activation checklist and [ASSET_RIGHTS_AUDIT.md](ASSET_RIGHTS_AUDIT.md) for the image/content-provenance review. The supplied WebP scenery pack remains installed but has no source/license record in this repository, so it must be verified or replaced before advertising.
+
 ## Motion and interaction feedback
 
 BlockWise uses a small shared motion system for immediate feedback: controls acknowledge hover/press, hover-capable cards lift slightly, disclosures reveal their related content, calculators briefly acknowledge completed results, and mobile navigation/dialogs fade and move a few pixels. These transitions use 140–280ms tokens, do not delay actions, and do not animate the large recipe list in bulk.
