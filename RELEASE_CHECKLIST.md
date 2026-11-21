@@ -4,7 +4,7 @@ Status key: **Pass** was verified in this release audit; **Fail** needs resoluti
 
 ## November 21, 2026 final production audit
 
-`origin/main` at `045bf4e6afcbfb7d3e99fcd1789ed33e28e008e0` is the deployed baseline audited. The local candidate remains on open PR #6 and is not live. The complete local Node suite passed with 81 tests; GitHub Actions run 49 for PR #6 succeeded. A live HTTP pass found 19 sitemap pages returning 200 but `privacy.html` returning 503, because the policy has not been merged/deployed. See `FINAL_LAUNCH_AUDIT.md` for the evidence table and separate **NO-GO** decisions for public launch, custom domain, and AdSense. Real-browser, device, screen-reader, external-video, and Lighthouse checks were not available in this audit.
+`origin/main` at `045bf4e6afcbfb7d3e99fcd1789ed33e28e008e0` is the deployed baseline audited. The local candidate remains on open PR #6 and is not live. The complete local Node suite passed with 81 tests; GitHub Actions run 50 for the committed PR #6 update succeeded. A live HTTP pass found 19 sitemap pages returning 200 but `privacy.html` returning 503, because the policy has not been merged/deployed. See `FINAL_LAUNCH_AUDIT.md` for the evidence table and separate **NO-GO** decisions for public launch, custom domain, and AdSense. Real-browser, device, screen-reader, external-video, and Lighthouse checks were not available in this audit.
 
 ## November 16, 2026 audit follow-up
 

@@ -9,7 +9,7 @@ Audit date: November 21, 2026. This is an evidence-based engineering review, not
 | Deployed production baseline audited | `origin/main` at `045bf4e6afcbfb7d3e99fcd1789ed33e28e008e0` (the latest merged commit when audited). |
 | Local release candidate checked | `legal/privacy-about-rights` at `a2403a01376482e058e52b05b1993b50c00893ae`, plus nine uncommitted user-request changes already present in the working tree. |
 | Pull requests | One open PR: [#6 — Add privacy policy and expand About page](https://github.com/unknown10998/BlockWise/pull/6). It is one commit ahead of `main`, has no merge conflict in a `git merge-tree` check, and includes the missing Privacy Policy. |
-| CI | GitHub Actions run [49](https://github.com/unknown10998/BlockWise/actions/runs/43986001486) for PR #6 completed successfully. The last `main` workflow run also completed successfully. |
+| CI | GitHub Actions run [50](https://github.com/unknown10998/BlockWise/actions/runs/44917546270) for the committed audit update completed successfully. The earlier PR #6 run and the last `main` workflow run also completed successfully. |
 | Deployment comparison | All 19 live `main` sitemap routes returned HTTP 200 in the live route check. `/BlockWise/privacy.html` returned HTTP 503 and `privacy.html` is absent from `origin/main`, so the deployed site cannot truthfully claim the candidate Privacy Policy is live. |
 
 ## What was checked
@@ -62,7 +62,7 @@ Audit date: November 21, 2026. This is an evidence-based engineering review, not
 | `git diff --check` | Passed. |
 | `node --check` for root and `scripts/` JavaScript | Passed. |
 | `node --test tests/*.test.js` | Passed: 81/81 tests. |
-| GitHub Actions static checks for PR #6 | Passed: run 49. |
+| GitHub Actions static checks for PR #6 | Passed: run 50. |
 | Live HTTP checks | 19 live sitemap routes: 200. Live Privacy and project-path `robots.txt`: 503. |
 | Real-browser visual/interaction checks | Not tested in this audit environment. |
 | Screen-reader and physical-device checks | Not tested. |
