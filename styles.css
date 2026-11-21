@@ -976,19 +976,45 @@ body > footer { position: relative; z-index: 1; }
   background: #d5e9d3;
 }
 .recipe-modal-ingredient.recipe-modal-no-recipe { cursor: help; }
-.recipe-modal-choice {
-  display: block;
+.recipe-modal-choice-wrap {
+  position: relative;
   width: 100%;
   max-width: 150px;
   margin-top: 5px;
-  background: #fff;
-  border: 1px solid #819883;
-  border-radius: 6px;
-  padding: 3px;
-  color: #203b2d;
-  font: inherit;
-  font-size: .71rem;
 }
+.recipe-modal-choice-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--text);
+  border-bottom: 2px solid var(--text);
+  pointer-events: none;
+  transform: translateY(-65%) rotate(45deg);
+}
+.recipe-modal-choice {
+  display: block;
+  width: 100%;
+  min-height: 38px;
+  appearance: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 7px 31px 7px 9px;
+  background: var(--control);
+  color: var(--text);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 7%);
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 750;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: background-color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard);
+}
+.recipe-modal-choice:hover { border-color: var(--accent); background: var(--surface-muted); }
+.recipe-modal-choice:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-color: var(--accent); }
+.recipe-modal-choice option { background: var(--control); color: var(--text); }
 .recipe-ingredient-preview {
   box-sizing: border-box;
   width: min(980px, 100%);
@@ -1014,7 +1040,7 @@ body > footer { position: relative; z-index: 1; }
   .recipe-modal-header h2 { font-size: clamp(1.75rem, 7vw, 2.75rem); }
   .recipe-modal-controls { justify-content: start; }
   .recipe-modal-ingredient { min-height: 73px; padding: 3px; }
-  .recipe-modal-choice { font-size: .63rem; }
+  .recipe-modal-choice { min-height: 36px; font-size: .67rem; }
   .recipe-modal-slot .recipe-icon { width: 31px; height: 31px; font-size: 1rem; }
   .recipe-ingredient-preview { margin-top: 16px; padding: 13px; }
 }

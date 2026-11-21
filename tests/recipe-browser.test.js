@@ -166,5 +166,8 @@ test('site provides locally hosted scenic backgrounds and recipe explorer stylin
   ]) assert.ok(css.includes(path), 'stylesheet references ' + path);
   assert.match(css, /recipe-ingredient-preview/);
   assert.match(css, /recipe-modal-ingredient/);
+  assert.match(css, /\.recipe-modal-choice-wrap::after/);
+  assert.match(css, /\.recipe-modal-choice \{[\s\S]*appearance: none[\s\S]*background: var\(--control\)[\s\S]*color: var\(--text\)/);
+  assert.match(css, /\.recipe-modal-choice:focus-visible \{ outline: 3px solid var\(--focus\)/);
   assert.match(recipesPage, /Hover or focus an ingredient/);
 });
