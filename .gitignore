@@ -9,6 +9,20 @@
 .env.*
 !.env.example
 
+# Private BlockWise legal, ownership, and image-rights evidence. Keep these
+# owner records in a private backup, not in the public website repository.
+Legal-and-Rights/
+legal-and-rights/
+**/Legal-and-Rights/
+**/legal-and-rights/
+*Image-Rights-Evidence-PRIVATE.zip
+*Image-Usage-Terms-Summary.pdf
+private-evidence/
+**/private-evidence/
+*Private-Source-Record*
+*Private-Generation-Record*
+*Private-Ownership-Record*
+
 # Dependencies and build output
 node_modules/
 dist/
