@@ -1,6 +1,6 @@
 # BlockWise AdSense and privacy readiness
 
-Status date: November 16, 2026. This checklist prepares a future review; it does not enable advertising, create an AdSense account, add a publisher ID, create `ads.txt`, or provide legal advice.
+Status updated: November 21, 2026. This checklist prepares a future review; it does not enable advertising, create an AdSense account, add a publisher ID, create `ads.txt`, or provide legal advice.
 
 ## Current state
 
@@ -13,7 +13,7 @@ Status date: November 16, 2026. This checklist prepares a future review; it does
 | AdSense privacy notice | Pending before activation | Google says publishers using AdSense must clearly display a privacy policy about cookies. Update the policy for the actual providers, cookies, choices, and data flows before adding code. |
 | EEA, UK, Switzerland consent | Pending before activation | Google documents a certified CMP/TCF requirement for relevant personalized-ad traffic. Choose a current supported solution and obtain adult-owner/legal review; requirements can change. |
 | Child-directed / children's privacy review | Pending before activation | Minecraft has a broad-age audience. A responsible adult must assess applicable child-privacy rules, traffic, targeting, and any accounts/forms/analytics before advertising. |
-| Rights to supplied WebP visuals | Pending human verification | Ten supplied WebPs lack source/license evidence in the repo. See `ASSET_RIGHTS_AUDIT.md`. |
+| Rights to supplied WebP visuals | Provenance traced; final rights review pending | Ten published WebPs now match recovered original package/scene files. The evidence register and SHA-256 source map are in `IMAGE_PROVENANCE_REGISTER.md`; the private source archive must be retained offline. Exact prompts/reference inputs and responsible-adult clearance remain outstanding. |
 | Minecraft fan-site disclaimer | Partially completed | Footer and About clearly state the project is unofficial. Official guidance also expects owner/contact information; a suitable contact method is still needed. |
 | Public owner/contact method | Pending responsible adult | Do not invent an email, address, or company identity. An adult owner must choose an appropriate, monitored public contact method before monetization. |
 | Account age / ownership | Pending responsible adult | Google says AdSense applicants must be 18 or older; its guidance says a parent/guardian may sign up with their own account if the applicant is under 18. Existing project documentation notes an age-restricted Google account, so the adult owner must manage any application. |
@@ -23,7 +23,7 @@ Status date: November 16, 2026. This checklist prepares a future review; it does
 ## Before any advertising code is added
 
 1. An eligible responsible adult must own and manage the AdSense account, payment/tax responsibilities, and public contact method.
-2. Resolve or replace the ten supplied WebP images whose origin/license is not documented.
+2. Use the new `IMAGE_PROVENANCE_REGISTER.md` and private evidence archive to review all ten WebPs, confirm any original reference images and their permissions, visually inspect possible protected elements, and document an adult-owner commercial-use decision. Replace only assets whose rights cannot be supported after review.
 3. Re-read the current [AdSense site-readiness guidance](https://support.google.com/adsense/answer/7299563), [cookie guidance](https://support.google.com/adsense/answer/7549925), [eligibility guidance](https://support.google.com/adsense/answer/9724), and [EEA/UK/Switzerland consent requirements](https://support.google.com/adsense/answer/13554116).
 4. Re-read the current [Minecraft Usage Guidelines](https://www.minecraft.net/en-us/usage-guidelines) and [EULA](https://www.minecraft.net/en-us/eula), including the rules on unofficial presentation, advertising, assets, and contact responsibility.
 5. Determine applicable privacy, consumer, tax, and children's-privacy rules with a qualified adult/legal adviser. Google certification does not itself determine legal compliance.
@@ -44,3 +44,9 @@ Status date: November 16, 2026. This checklist prepares a future review; it does
 ## Decision record
 
 Advertising is intentionally **not enabled** by this work. BlockWise is not AdSense-approved and this checklist does not imply legal, privacy, copyright, tax, or platform compliance.
+
+## November 21 image-evidence update
+
+The complete original-delivery package, eight individual source scenes, the standalone lakeside source, and the ten final published WebPs have been recovered in a **private archive**. All ten final files exactly match GitHub's stored Git blobs. Public non-sensitive evidence and the limitations are recorded in [IMAGE_PROVENANCE_REGISTER.md](IMAGE_PROVENANCE_REGISTER.md). This **resolves the missing file-provenance trail** but **does not resolve third-party reference-image rights, trademark/copyright questions, or the final owner monetization decision**. Do not label BlockWise AdSense-ready solely based on this recovery.
+
+The site's current Privacy Policy and About pages were merged to main via PR #6 on November 21, 2026. The owner still needs to test those links in the actual deployed browser and complete consent/contact/adult-account work before activation.

@@ -1,5 +1,14 @@
 # BlockWise planner progress
 
+## Scenic imagery provenance recovery — November 21, 2026
+
+- Recovered the original nine-image BlockWise scenic delivery archive and its manifest: eight individually named AI-generated Minecraft-inspired scenery source renders plus the social-share WebP. Recovered the tenth page-wide lakeside original separately.
+- Verified the eight scenes against their published resized/compressed WebPs, confirmed the lakeside original is byte-for-byte identical to its WebP, and checked that all ten published WebP outputs exactly match GitHub's stored Git blob identities. See `IMAGE_PROVENANCE_REGISTER.md` for source names, SHA-256 checksums, first-import commits, and evidence caveats.
+- Assembled a separate **private**, roughly 25 MB source and rights-evidence archive for the owner (not added to the repo), including original scenes, final files, original pack, comparisons, manifest and public-term references.
+- Updated `ASSET_RIGHTS_AUDIT.md` and `ADSENSE_PRIVACY_READINESS.md`. Image-origin provenance is materially stronger, but source-specific exact prompts/reference-image rights, third-party/trademark concerns, and responsible adult's monetization sign-off remain `NEEDS HUMAN VERIFICATION`.
+- These changes are documentation only; no artwork, scripts, licenses, account settings, advertising, hosting, or production website content were changed. Open a review PR; do not merge automatically.
+
+
 ## Final production launch audit — November 21, 2026
 
 - Audited the deployed `origin/main` commit `045bf4e6afcbfb7d3e99fcd1789ed33e28e008e0` separately from the local candidate (`legal/privacy-about-rights` at `a2403a0` plus existing uncommitted work). All 19 live sitemap routes returned HTTP 200, but the live Privacy URL returned HTTP 503 because `privacy.html` remains only in open [PR #6](https://github.com/unknown10998/BlockWise/pull/6). The candidate is one commit ahead of `main` with no merge conflict found.

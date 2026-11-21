@@ -174,3 +174,9 @@ For free search discovery, BlockWise includes crawlable, independently useful Ja
 The six recipe pages read their fixed ingredient combinations from the imported Java Edition 1.21.11 recipe dataset. Each includes a visible three-by-three grid. The recipe browser accepts validated `?item=minecraft:<item_id>` links that prefill a selected item query without creating duplicate indexable pages.
 
 Technical SEO includes a unique title/meta description per public page, a sitemap, appropriate internal links, and version scope labels. See `SEO_GROWTH_PLAN.md` for the researched free publishing and indexing checklist, including parental Search Console setup when eligible, and why indexing or ranking first is not guaranteed.
+
+## Image source and rights records
+
+The ten published scenic WebP files now have an evidence-based chain-of-custody record in [IMAGE_PROVENANCE_REGISTER.md](IMAGE_PROVENANCE_REGISTER.md). This documents their recovered source pack, eight named original scene renders, matching source and published checksums, and the byte-identical standalone lakeside image. The source image pack and private image-rights archive are **not included** in this public repository. The full archive is retained by the project owner rather than being published.
+
+The source pack characterizes the eight scene renders as original AI-generated Minecraft-inspired imagery, but the exact generation prompts, any third-party reference-image permissions, and independent commercial-use sign-off remain unresolved. Provenance does not mean legal clearance. See [ASSET_RIGHTS_AUDIT.md](ASSET_RIGHTS_AUDIT.md) and [ADSENSE_PRIVACY_READINESS.md](ADSENSE_PRIVACY_READINESS.md) before enabling advertising.
