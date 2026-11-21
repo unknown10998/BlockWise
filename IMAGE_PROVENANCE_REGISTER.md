@@ -41,6 +41,8 @@ This is a **public, privacy-safe summary of verifiable facts**, not a commercial
 
 **Not established:** Exact image-generation tool/model for every image, complete original prompts, account-specific generation receipts and timestamps, the presence/absence and legal status of input reference images, individual original source for `social-share.webp`, exclusive copyrightability, and permission to reproduce any third-party/IP-protected material that may appear. The first eight originals and the lakeside file are saved privately for future review.
 
+**Visual spot check (not a legal determination):** A comparison contact sheet of all ten final images was inspected. It shows stylized block/voxel landscapes, villages, farms and caves; no prominent official Minecraft wordmark or Mojang/Microsoft logo was apparent at contact-sheet resolution. This limited review does **not** establish that individual elements, textures, characters, or reference inputs are free of third-party rights. Original-resolution human review remains outstanding.
+
 **Current review classification:** Keep the ten WebPs as `NEEDS HUMAN VERIFICATION — provenance traced` until the responsible owner/adult reviews actual original ChatGPT conversations (if accessible), any reference-image inputs, full-size visual content, and commercial/ad-supported use. Do **not** misstate that OpenAI automatically grants rights to third-party Minecraft assets, and do **not** automatically replace the currently used images without identifying a confirmed problem.
 
 ## Review of terms (November 21, 2026)
