@@ -30,7 +30,7 @@ A lightweight, responsive Minecraft guides-and-tools website built with plain HT
 
 ## Appearance and accessibility
 
-BlockWise uses a restrained Minecraft-inspired palette: natural greens for identity and primary actions, neutral surfaces for content, and separately colored warning/error states. The saved appearance is applied before the main stylesheet loads to avoid a visible wrong-theme flash. Keyboard focus uses a dedicated high-visibility ring, and high-contrast/reduced-motion modes are available in Settings.
+BlockWise uses a restrained Minecraft-inspired palette: natural greens for identity and primary actions, neutral surfaces for content, and separately colored warning/error states. The saved appearance is applied before the main stylesheet loads to avoid a visible wrong-theme flash. Keyboard focus uses a dedicated high-visibility ring, and Settings provides System, Light, Dark, and High Contrast appearance themes plus reduced motion.
 
 The automated suite includes contrast checks for the active light and dark normal-text pairs and focus colors. The latest audit measured all tested text pairs at 4.5:1 or greater and focus colors at 3:1 or greater. See [UI_DESIGN_REVIEW.md](UI_DESIGN_REVIEW.md) for the full palette, calculations, UX references, browser viewport review, and remaining testing limits.
 

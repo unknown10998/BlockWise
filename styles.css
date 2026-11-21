@@ -59,7 +59,7 @@
 :root[data-text="large"] { font-size: 18px; }
 :root[data-text="xlarge"] { font-size: 20px; }
 :root[data-density="compact"] { --space-scale: .84; }
-:root.high-contrast { --page:#000; --surface:#000; --surface-raised:#000; --surface-muted:#000; --control:#000; --text:#fff; --text-muted:#fff; --text-subtle:#fff; --border:#fff; --border-strong:#fff; --accent:#ffff00; --accent-hover:#fff; --accent-soft:#000; --on-accent:#000; --focus:#00ffff; --header:#000; --warning-bg:#000; --warning-text:#fff; --warning-border:#fff; --error-bg:#000; --error-text:#fff; --error-border:#fff; --info-bg:#000; --info-text:#fff; --scenic-overlay:#000; --scenic-band:#000; --scenic-footer:#000; }
+:root[data-theme="high-contrast"] { color-scheme: dark; --page:#000; --surface:#000; --surface-raised:#000; --surface-muted:#000; --control:#000; --text:#fff; --text-muted:#fff; --text-subtle:#fff; --border:#fff; --border-strong:#fff; --accent:#ffff00; --accent-hover:#fff; --accent-soft:#000; --on-accent:#000; --focus:#00ffff; --header:#000; --warning-bg:#000; --warning-text:#fff; --warning-border:#fff; --error-bg:#000; --error-text:#fff; --error-border:#fff; --info-bg:#000; --info-text:#fff; --scenic-overlay:#000; --scenic-band:#000; --scenic-footer:#000; }
 .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 
 .settings-trigger { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; border: 1px solid var(--border); border-radius: 9px; padding: 8px 11px; background: var(--surface); color: var(--text); font-weight: 750; cursor: pointer; }
@@ -265,7 +265,7 @@ h2 { margin-bottom: 10px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; l
 .planner-copy-fallback label { display: block; margin-bottom: 6px; font-size: .76rem; font-weight: 800; color: var(--green-dark); }
 .planner-copy-fallback textarea { box-sizing: border-box; width: 100%; resize: vertical; border: 1px solid #d9e2d5; border-radius: 8px; padding: 9px; color: var(--ink); background: white; font: inherit; font-size: .78rem; line-height: 1.45; }
 .guides-section { padding-block: 88px 95px; background: #edf1e8; border-block: 1px solid #e3e9de; }
-.guide-controls { display: flex; justify-content: space-between; gap: 18px; align-items: center; margin-bottom: 24px; }
+.guide-controls { display: flex; justify-content: space-between; gap: 18px; align-items: center; margin-block: 24px; }
 .search-box { display: flex; align-items: center; gap: 9px; width: min(310px, 100%); border: 1px solid #dce4d7; border-radius: 9px; padding: 0 12px; background: white; color: #8b988b; }
 .search-box span { font-size: 1.4rem; }
 .search-box input { width: 100%; min-width: 0; padding-block: 10px; border: 0; outline: none; background: transparent; color: var(--ink); }
@@ -595,8 +595,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .optimizer-error { background: var(--error-bg); color: var(--error-text); border: 1px solid var(--error-border); }.remove-book { color: var(--error-text); }.plan-step { background: var(--surface-raised); border-color: var(--border); }.plan-step-number { background: var(--accent-soft); color: var(--accent-hover); }.empty-step { border-color: var(--border-strong); color: var(--text-subtle); }
 .cta-section { background: var(--surface-raised); color: var(--text); border: 1px solid var(--border-strong); }.cta-section .eyebrow { color: var(--accent); }.cta-section p:not(.eyebrow) { color: var(--text-muted); }.button-light { background: var(--accent); color: var(--on-accent); }.button-light:hover { background: var(--accent-hover); color: var(--on-accent); }
 
-.high-contrast .tool-card, .high-contrast .recipe-browser-controls, .high-contrast .recipe-detail, .high-contrast .guide-card, .high-contrast .farm-card, .high-contrast .optimizer-card, .high-contrast .optimizer-results, .high-contrast .starter-details, .high-contrast .settings-dialog, .high-contrast .site-header, .high-contrast .site-footer, .high-contrast .site-nav { box-shadow: none; }
-.high-contrast .button-primary, .high-contrast .nav-cta, .high-contrast .filter-button.active { background: var(--accent); color: var(--on-accent); border: 2px solid var(--accent); }
+:root[data-theme="high-contrast"] .tool-card, :root[data-theme="high-contrast"] .recipe-browser-controls, :root[data-theme="high-contrast"] .recipe-detail, :root[data-theme="high-contrast"] .guide-card, :root[data-theme="high-contrast"] .farm-card, :root[data-theme="high-contrast"] .optimizer-card, :root[data-theme="high-contrast"] .optimizer-results, :root[data-theme="high-contrast"] .starter-details, :root[data-theme="high-contrast"] .settings-dialog, :root[data-theme="high-contrast"] .site-header, :root[data-theme="high-contrast"] .site-footer, :root[data-theme="high-contrast"] .site-nav { box-shadow: none; }
+:root[data-theme="high-contrast"] .button-primary, :root[data-theme="high-contrast"] .nav-cta, :root[data-theme="high-contrast"] .filter-button.active { background: var(--accent); color: var(--on-accent); border: 2px solid var(--accent); }
 
 @media (max-width: 1100px) {
   .menu-toggle { display: inline-flex; }
@@ -866,14 +866,14 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
 #about.cta-section p:not(.eyebrow) { color: #e0f1e8; }
 
 /* High Contrast deliberately removes decorative imagery to maximize legibility. */
-.high-contrast .hero.hero-scenic,
-.high-contrast #tools > .section-heading,
-.high-contrast #recipes > .section-heading,
-.high-contrast .enchant-section .section-wrap > .section-heading,
-.high-contrast .guides-section .section-wrap > .section-heading,
-.high-contrast .farms-section .section-wrap > .section-heading,
-.high-contrast .commands-section .section-wrap > .section-heading,
-.high-contrast #about.cta-section {
+:root[data-theme="high-contrast"] .hero.hero-scenic,
+:root[data-theme="high-contrast"] #tools > .section-heading,
+:root[data-theme="high-contrast"] #recipes > .section-heading,
+:root[data-theme="high-contrast"] .enchant-section .section-wrap > .section-heading,
+:root[data-theme="high-contrast"] .guides-section .section-wrap > .section-heading,
+:root[data-theme="high-contrast"] .farms-section .section-wrap > .section-heading,
+:root[data-theme="high-contrast"] .commands-section .section-wrap > .section-heading,
+:root[data-theme="high-contrast"] #about.cta-section {
   background-image: none;
   background-color: #000;
   border-color: #fff;
@@ -917,7 +917,7 @@ body > footer { position: relative; z-index: 1; }
 .site-footer .footer-bottom { border-top-color: var(--border); }
 .site-footer a:hover,
 .site-footer a:focus-visible { color: var(--accent); }
-.high-contrast body::before { display: none; }
+:root[data-theme="high-contrast"] body::before { display: none; }
 
 @media (max-width: 680px) {
   body::before { background-position: 62% center; }
