@@ -50,7 +50,7 @@ The **Reduced Motion** setting and operating-system reduced-motion preference di
 
 Open `farms.html` for Iron, General Mob & XP, Sugar Cane, Bamboo, Creeper, Gold & XP, Enderman XP, Villager Crop, Slime, and Honey & Honeycomb references. This is deliberately a research catalog rather than a claim that all ten builds are verified for Java 1.21.11: nine cards say “Rate not verified,” and their materials are “Not audited.” The Gold & XP card retains ianxofour’s linked creator-stated 360-gold-blocks/hour figure but labels it as not independently benchmarked. See [farm-verification-report.md](farm-verification-report.md) for all coverage and limits.
 
-Six categories have verified rendered embeds: Iron, Sugar Cane, Bamboo, Gold & XP, Enderman XP, and Honey & Honeycomb. General Mob & XP, Creeper, Villager Crop, and Slime retain external YouTube source links only; their creator identity and embeddable tutorial status are not independently verified. Candidate videos are not presented as watchable embeds.
+Seven categories have verified rendered embeds: Iron, Sugar Cane, Bamboo, Gold & XP, Enderman XP, Slime, and Honey & Honeycomb. The Slime Farm credits BigBooty17's Java 1.21+-titled tutorial, while its 1.21.11 output and materials remain unverified. General Mob & XP, Creeper, and Villager Crop retain external YouTube source links only because a matching attributable BigBooty17 tutorial was not established for those categories. Candidate videos are not presented as watchable embeds.
 
 ## Commands Explorer
 

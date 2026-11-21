@@ -31,7 +31,7 @@ test('the full-page lakeside background is wired behind content without replacin
   assert.match(css, /body > header,[\s\S]*body > footer \{ position: relative; z-index: 1; \}/);
   assert.match(css, /\.high-contrast body::before \{ display: none; \}/);
   assert.match(css, /\.hero\.hero-scenic\s*\{[^}]*home-hero\.webp/s);
-  assert.match(css, /\.quick-strip,[\s\S]*\.enchant-section \{ background: var\(--scenic-band\); \}/);
+  assert.match(css, /\.quick-strip \{ background: var\(--scenic-band\); \}/);
 });
 
 test('scenic footer variables and text tokens support dark and system-dark themes', () => {
@@ -54,4 +54,21 @@ test('every primary page has the intended locally hosted scenic background and s
     assert.match(html, /property="og:image" content="https:\/\/unknown10998\.github\.io\/BlockWise\/assets\/backgrounds\/social-share\.webp"/);
     assert.match(html, /name="twitter:image" content="https:\/\/unknown10998\.github\.io\/BlockWise\/assets\/backgrounds\/social-share\.webp"/);
   }
+});
+
+test('home hero artwork does not repeat inside its plain green art panel', () => {
+  const css = fs.readFileSync('styles.css', 'utf8');
+  const heroArt = css.match(/\.hero\.hero-scenic \.hero-art\s*\{([\s\S]*?)\}/)?.[1] || '';
+  assert.match(heroArt, /background:\s*rgb\(9 42 31 \/ 84%\);/);
+  assert.match(heroArt, /backdrop-filter:\s*blur\(4px\);/);
+  assert.doesNotMatch(heroArt, /home-hero\.webp/);
+});
+
+test('home hero art panel provides useful next-session links instead of a decorative slogan', () => {
+  const home = fs.readFileSync('index.html', 'utf8');
+  assert.match(home, /Plan your next session\./);
+  assert.match(home, /href="tools\.html"[\s\S]*Plan a build/);
+  assert.match(home, /href="recipes\.html"[\s\S]*Find a recipe/);
+  assert.match(home, /href="enchanting\.html"[\s\S]*Optimize enchantments/);
+  assert.doesNotMatch(home, /YOUR NEXT ADVENTURE STARTS HERE/);
 });

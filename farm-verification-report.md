@@ -15,7 +15,7 @@ Target: Minecraft Java Edition 1.21.11
 | Gold & XP | Verified embed: ianxofour | Creator states Java 1.13–1.21 | Creator-stated: 360 gold blocks/hour; not independently benchmarked | Not audited |
 | Enderman XP | Verified embed: Jumper | Video targets Java 1.21.11; creator identity is shown, build not independently verified | Not independently verified | Not audited |
 | Villager crop | External YouTube source link only; no embed | Tutorial creator not independently verified; 1.21.11 is a research reference | Not verified for 1.21.11 | Not audited |
-| Slime | External YouTube source link only; no embed | Tutorial creator not independently verified; 1.21.11 is a research reference | Not verified for 1.21.11 | Not audited |
+| Slime | Verified embed: bigbooty17 | Video title states Java 1.21+; 1.21.11 requires revalidation | Not verified for 1.21.11 | Not audited |
 | Honey & honeycomb | Verified embed: ilmango | Historical 1.15 tutorial; not a confirmed 1.21.11 build | Not verified for 1.21.11 | Not audited |
 
 ## Evidence and limitations
@@ -25,8 +25,8 @@ Target: Minecraft Java Edition 1.21.11
 - The iron and honey tutorial links predate Java 1.21.11. They are kept as historical creator references, not compatibility endorsements.
 - Generic tutorial pages are used only as references where a named creator’s current 1.21.11 design and exact rate have not yet been audited.
 - No build materials, storage totals, simulation values, or block-by-block tutorials were published because they would require choosing and auditing a precise version-matched design. The Build Material Estimator remains available separately.
-- Six categories have rendered YouTube embeds: Iron, Sugar Cane, Bamboo, Gold & XP, Enderman XP, and Honey & Honeycomb. Sugar Cane and Bamboo intentionally share ilmango's combined tutorial.
-- General Mob & XP, Creeper, Villager Crop, and Slime have external YouTube source links but no rendered embed. Their candidate URLs remain source links only because the creator/channel identity and embeddable tutorial status are not independently verified.
+- Seven categories have rendered YouTube embeds: Iron, Sugar Cane, Bamboo, Gold & XP, Enderman XP, Slime, and Honey & Honeycomb. Sugar Cane and Bamboo intentionally share ilmango's combined tutorial.
+- General Mob & XP, Creeper, and Villager Crop have external YouTube source links but no rendered embed. A direct, attributable BigBooty17 tutorial was found for Slime; no matching BigBooty17 tutorial was established for the remaining three categories during this update, so they remain clearly labelled source links rather than receiving unrelated videos.
 - No material list has been audited. The only numeric production value displayed is ianxofour's creator-reported Gold & XP figure; it is not an independent BlockWise measurement.
 
 ## Next verification gate

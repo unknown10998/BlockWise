@@ -785,6 +785,7 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
   padding-inline: clamp(24px, 4vw, 66px);
   box-shadow: 0 24px 64px rgb(10 34 26 / 22%);
   color: #f4fff5;
+  margin-block: 20px;
 }
 .hero.hero-scenic h1 { color: #fff; text-shadow: 0 2px 18px rgb(0 0 0 / 30%); }
 .hero.hero-scenic h1 span, .hero.hero-scenic .eyebrow { color: #b2fac7; }
@@ -795,15 +796,26 @@ html.theme-transitioning body, html.theme-transitioning .site-header, html.theme
 .hero.hero-scenic .button-primary:hover { background: #c2fbd0; }
 .hero.hero-scenic .button-quiet { background: rgb(9 36 31 / 89%); border: 1px solid #a6d7bd; color: #fff; }
 .hero.hero-scenic .hero-art {
-  background-image: linear-gradient(180deg, rgb(7 26 24 / 3%), rgb(7 26 24 / 30%)), url("assets/backgrounds/home-hero.webp");
-  background-size: cover;
-  background-position: 76% center;
-  border-color: rgb(226 255 236 / 42%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(24px, 5vw, 48px);
+  /* A green glass surface blends with the outer scene without repeating it. */
+  background: rgb(9 42 31 / 84%);
+  backdrop-filter: blur(4px);
+  border-color: rgb(226 255 236 / 34%);
   min-height: 350px;
   box-shadow: 0 18px 48px rgb(0 0 0 / 24%);
 }
-.hero.hero-scenic .hero-art > :not(.art-label) { display: none; }
-.hero.hero-scenic .art-label { background: rgb(6 25 23 / 84%); color: #f3fff5; border-color: rgb(226 255 236 / 35%); }
+.hero-art-kicker { margin: 0 0 9px; color: #a8efbb; font-size: .72rem; font-weight: 850; letter-spacing: .14em; }
+.hero.hero-scenic .hero-art h2 { margin: 0; color: #fff; font-size: clamp(1.85rem, 3.2vw, 2.75rem); line-height: 1.02; letter-spacing: -.055em; }
+.hero-art-intro { max-width: 31rem; margin: 13px 0 22px; color: #d7ebe0; font-size: .92rem; }
+.hero-art-tools { display: grid; gap: 10px; }
+.hero-art-tools a { display: flex; align-items: center; gap: 12px; min-height: 58px; padding: 11px 13px; border: 1px solid rgb(214 255 226 / 20%); border-radius: 10px; background: rgb(4 28 20 / 44%); color: #fff; }
+.hero-art-tools a:hover, .hero-art-tools a:focus-visible { border-color: #a8efbb; background: rgb(4 28 20 / 70%); }
+.hero-art-tools strong, .hero-art-tools small { display: block; }
+.hero-art-tools strong { font-size: .88rem; }.hero-art-tools small { margin-top: 1px; color: #c4dbcc; font-size: .73rem; }
+.hero-art-icon { display: grid; place-items: center; flex: 0 0 32px; width: 32px; height: 32px; border-radius: 8px; background: rgb(164 246 183 / 16%); color: #b8f8c7; font-weight: 850; }
 
 /* Page banners are scenic; forms and data remain on solid accessible surfaces. */
 #tools > .section-heading,
@@ -891,9 +903,9 @@ body > main,
 body > footer { position: relative; z-index: 1; }
 
 /* Broad section bands establish figure-ground separation without hiding the scene. */
-.quick-strip,
+.quick-strip { background: var(--scenic-band); }
 .guides-section,
-.enchant-section { background: var(--scenic-band); }
+.enchant-section { background: var(--shadow); }
 .site-footer {
   background: var(--scenic-footer);
   color: var(--text);
@@ -997,7 +1009,7 @@ body > footer { position: relative; z-index: 1; }
 .recipe-preview-open:hover, .recipe-preview-open:focus-visible { background: var(--accent-hover); }
 @media (max-width: 680px) {
   .hero.hero-scenic { padding-inline: 21px; background-position: 54% center; }
-  .hero.hero-scenic .hero-art { min-height: 235px; }
+  .hero.hero-scenic .hero-art { min-height: auto; padding: 25px; }
   .recipe-modal-header { align-items: center; }
   .recipe-modal-header h2 { font-size: clamp(1.75rem, 7vw, 2.75rem); }
   .recipe-modal-controls { justify-content: start; }

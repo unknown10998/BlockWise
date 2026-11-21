@@ -96,11 +96,12 @@
     {
       id: "slime",
       name: "Slime farm",
-      type: "mob", dimension: "Overworld", difficulty: "Advanced", version: "Java 1.21.11 — research reference",
-      creator: "Tutorial creator not independently verified", sourceTitle: "Super EFFICIENT Slime Farm in Minecraft 1.21+ (Tutorial)", sourceUrl: "https://www.youtube.com/watch?v=TaA_qE2kq3c",
+      type: "mob", dimension: "Overworld", difficulty: "Advanced", version: "Java 1.21+ stated by creator — revalidate",
+      creator: "bigbooty17", sourceTitle: "Fast Simple Oozing Slime Farm for Minecraft 1.21+", sourceUrl: "https://www.youtube.com/watch?v=Ln-F7y669nk",
+      videoId: "Ln-F7y669nk", videoTitle: "Fast Simple Oozing Slime Farm for Minecraft 1.21+", videoCreator: "bigbooty17", channelUrl: "https://www.youtube.com/@bigbooty17",
       referenceUrl: "https://minecraft.wiki/w/Tutorial%3ASlime_farming",
       rate: null, rateUnit: "", rateStatus: "Not verified for 1.21.11",
-      description: "A slime-chunk and swamp-farming reference. Site-specific spawning conditions prevent an honest universal rate or material count.",
+      description: "A BigBooty17 oozing-slime-farm tutorial whose title states Java 1.21+. BlockWise has not independently verified its 1.21.11 output, operating conditions, or material list.",
       requirements: ["Overworld", "Slime chunk or swamp conditions", "Spawn-proofing strategy"], materialsStatus: "Not audited"
     },
     {
