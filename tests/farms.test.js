@@ -39,12 +39,21 @@ test('embedded videos use verified YouTube IDs only where a direct YouTube sourc
   }
 });
 
-test('only the six attributable tutorial sources render embeds', () => {
+test('attributable tutorial sources render embeds while unresolved sources remain links only', () => {
   const embedded = farms.filter(farm => farm.videoId).map(farm => farm.id).sort();
   const externalOnly = farms.filter(farm => !farm.videoId).map(farm => farm.id).sort();
-  assert.deepEqual(embedded, ['bamboo', 'enderman-xp', 'gold', 'honey', 'iron', 'sugar-cane']);
-  assert.deepEqual(externalOnly, ['creeper', 'mob-xp', 'slime', 'villager-crop']);
+  assert.deepEqual(embedded, ['bamboo', 'enderman-xp', 'gold', 'honey', 'iron', 'slime', 'sugar-cane']);
+  assert.deepEqual(externalOnly, ['creeper', 'mob-xp', 'villager-crop']);
   for (const farm of farms.filter(farm => !farm.videoId)) {
     assert.match(farm.creator, /not independently verified/i);
   }
+});
+
+test('the slime farm credits the verified BigBooty17 tutorial without claiming a rate', () => {
+  const slime = farms.find(farm => farm.id === 'slime');
+  assert.equal(slime.creator, 'bigbooty17');
+  assert.equal(slime.videoId, 'Ln-F7y669nk');
+  assert.match(slime.sourceTitle, /Oozing Slime Farm/);
+  assert.equal(slime.rate, null);
+  assert.match(slime.rateStatus, /not verified/i);
 });

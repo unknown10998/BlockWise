@@ -2,9 +2,17 @@
 
 Status key: **Pass** was verified in this release audit; **Fail** needs resolution before calling the beta fully release-ready; **Not Tested** was not verified in this audit.
 
+## November 21, 2026 final production audit
+
+`origin/main` at `045bf4e6afcbfb7d3e99fcd1789ed33e28e008e0` is the deployed baseline audited. The local candidate remains on open PR #6 and is not live. The complete local Node suite passed with 81 tests; GitHub Actions run 50 for the committed PR #6 update succeeded. A live HTTP pass found 19 sitemap pages returning 200 but `privacy.html` returning 503, because the policy has not been merged/deployed. See `FINAL_LAUNCH_AUDIT.md` for the evidence table and separate **NO-GO** decisions for public launch, custom domain, and AdSense. Real-browser, device, screen-reader, external-video, and Lighthouse checks were not available in this audit.
+
 ## November 16, 2026 audit follow-up
 
 The current review branch, `audit/full-site-quality`, fixes mobile Escape behavior, 1024px header overflow, strict local preference parsing, and an Enchanting Table guide copy error. It is not merged or deployed. `WEBSITE_AUDIT.md` contains the evidence table, a 73-test automated result, local-browser coverage, and the remaining production/device/performance/in-game limitations. Do not replace the original statuses below with a claim that the new branch is live.
+
+## November 16, 2026 privacy and rights follow-up
+
+`legal/privacy-about-rights` adds the public About and Privacy pages, links Privacy from every page footer, and records the current asset-rights and future-AdSense readiness findings. The new pages passed local static checks and 78 automated Node tests after their addition. Local browser QA found and corrected duplicate footer links plus a 768px footer overflow before review. This branch is not merged or deployed; no advertising, analytics, consent tooling, or external account changes were made.
 
 ## Product and data trust
 
@@ -14,7 +22,7 @@ The current review branch, `audit/full-site-quality`, fixes mobile Escape behavi
 | Recipe Browser is identified as Java Edition 1.21.11 data, not the cross-edition starter planner | Pass | Recipe heading and README describe the separate scope. |
 | Recipe coverage is not overstated | Pass | Documentation records 1,470 structurally imported definitions and says visual/in-game validation is incomplete. |
 | Farm cards distinguish creator claims from verified results | Pass | Gold is labelled creator-stated/not independently benchmarked; all other rates are unverified and materials are not audited. |
-| Farm cards accurately identify embed, creator, compatibility, rate, and material confidence | Pass | Six verified embeds are rendered; four cards retain external YouTube links only; unverified compatibility, rates, and materials are explicitly labelled. |
+| Farm cards accurately identify embed, creator, compatibility, rate, and material confidence | Pass | Seven attributable embeds are rendered in the current candidate; three cards retain external YouTube links only; unverified compatibility, rates, and materials are explicitly labelled. |
 | Every farm has a current 1.21.11-compatible, independently verified tutorial and materials list | Not Tested | This is a future research goal, not a public-beta blocker while the catalog remains clearly labelled. See `farm-verification-report.md`. |
 | Restricted Minecraft textures are not bundled | Pass | BlockWise uses original item initials; no game textures are distributed. |
 | Commands Explorer distinguishes Java syntax from Bedrock reference syntax and warns about permissions/destructive actions | Pass | The Commands page labels edition-specific syntax, provides safety guidance, and links to its sources. It does not claim full command or in-game coverage. |

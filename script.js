@@ -128,14 +128,15 @@ siteNav.querySelectorAll("a").forEach((link) => {
 // Shared, versioned local preferences. Kept dependency-free for static hosting.
 (() => {
   const key = "blockwise.preferences.v1";
-  const defaults = { theme: "system", text: "normal", density: "comfortable", contrast: false, motion: "system" };
-  const allowed = { theme: ["system", "light", "dark"], text: ["small", "normal", "large", "xlarge"], density: ["compact", "comfortable"], motion: ["system", "reduce"] };
+  const defaults = { theme: "system", text: "normal", density: "comfortable", motion: "system" };
+  const allowed = { theme: ["system", "light", "dark", "high-contrast"], text: ["small", "normal", "large", "xlarge"], density: ["compact", "comfortable"], motion: ["system", "reduce"] };
   let prefs = { ...defaults };
   try { prefs = { ...defaults, ...JSON.parse(localStorage.getItem(key) || "{}") }; } catch (_) {}
+  // Preserve the former checkbox preference while making High Contrast a
+  // complete, mutually exclusive appearance theme.
+  if (prefs.contrast === true) prefs.theme = "high-contrast";
+  delete prefs.contrast;
   Object.keys(allowed).forEach(name => { if (!allowed[name].includes(prefs[name])) prefs[name] = defaults[name]; });
-  // localStorage is user-editable; preserve the setting only when it is a
-  // boolean rather than coercing strings such as "false" to true.
-  prefs.contrast = prefs.contrast === true;
   let themeTimer = 0;
   const apply = (animateTheme = false) => {
     const root = document.documentElement;
@@ -148,7 +149,6 @@ siteNav.querySelectorAll("a").forEach((link) => {
     root.dataset.theme = prefs.theme;
     root.dataset.text = prefs.text;
     root.dataset.density = prefs.density;
-    root.classList.toggle("high-contrast", prefs.contrast);
     root.classList.toggle("reduce-motion", prefs.motion === "reduce");
     try { localStorage.setItem(key, JSON.stringify(prefs)); } catch (_) {}
   };
@@ -160,10 +160,10 @@ siteNav.querySelectorAll("a").forEach((link) => {
   trigger.className = "settings-trigger"; trigger.type = "button"; trigger.setAttribute("aria-haspopup", "dialog"); trigger.setAttribute("aria-label", "Settings"); trigger.innerHTML = "<span aria-hidden=\"true\">⚙</span><span>Settings</span>";
   header.append(trigger);
   const dialog = document.createElement("dialog"); dialog.className = "settings-dialog"; dialog.setAttribute("aria-labelledby", "settingsTitle");
-  dialog.innerHTML = `<form><div class="settings-head"><h2 id="settingsTitle">Settings</h2><button type="button" data-close aria-label="Close settings">×</button></div><p>Preferences stay on this device.</p><label>Theme <select name="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label><label>Text size <select name="text"><option value="small">Small</option><option value="normal">Normal</option><option value="large">Large</option><option value="xlarge">Extra large</option></select></label><label>Layout density <select name="density"><option value="compact">Compact</option><option value="comfortable">Comfortable</option></select></label><label class="settings-check"><input name="contrast" type="checkbox"> High contrast</label><label>Motion <select name="motion"><option value="system">Use system preference</option><option value="reduce">Reduce motion</option></select></label><div class="settings-actions"><button type="button" class="button button-quiet" data-reset>Reset defaults</button><button class="button button-primary" type="submit">Done</button></div></form>`;
+  dialog.innerHTML = `<form><div class="settings-head"><h2 id="settingsTitle">Settings</h2><button type="button" data-close aria-label="Close settings">×</button></div><p>Preferences stay on this device.</p><label>Theme <select name="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option><option value="high-contrast">High contrast</option></select></label><label>Text size <select name="text"><option value="small">Small</option><option value="normal">Normal</option><option value="large">Large</option><option value="xlarge">Extra large</option></select></label><label>Layout density <select name="density"><option value="compact">Compact</option><option value="comfortable">Comfortable</option></select></label><label>Motion <select name="motion"><option value="system">Use system preference</option><option value="reduce">Reduce motion</option></select></label><div class="settings-actions"><button type="button" class="button button-quiet" data-reset>Reset defaults</button><button class="button button-primary" type="submit">Done</button></div></form>`;
   document.body.append(dialog);
   const form = dialog.querySelector("form");
-  const sync = () => { ["theme", "text", "density", "motion"].forEach(n => form.elements[n].value = prefs[n]); form.elements.contrast.checked = prefs.contrast; };
+  const sync = () => { ["theme", "text", "density", "motion"].forEach(n => form.elements[n].value = prefs[n]); };
   let dialogCloseTimer = 0;
   const closeDialog = () => {
     if (!dialog.open || dialog.classList.contains("is-closing")) return;
@@ -173,7 +173,7 @@ siteNav.querySelectorAll("a").forEach((link) => {
     dialogCloseTimer = window.setTimeout(finish, 200);
   };
   trigger.addEventListener("click", () => { window.clearTimeout(dialogCloseTimer); dialog.classList.remove("is-closing"); sync(); dialog.showModal(); });
-  const savePreferences = () => { ["theme", "text", "density", "motion"].forEach(n => prefs[n] = form.elements[n].value); prefs.contrast = form.elements.contrast.checked; apply(true); };
+  const savePreferences = () => { ["theme", "text", "density", "motion"].forEach(n => prefs[n] = form.elements[n].value); apply(true); };
   form.addEventListener("input", savePreferences);
   form.addEventListener("change", savePreferences);
   form.addEventListener("submit", event => { event.preventDefault(); closeDialog(); });

@@ -169,6 +169,7 @@
       });
       slot.append(action);
       if (options.length > 1) {
+        const choiceWrap = el('div', 'recipe-modal-choice-wrap');
         const choice = el('select', 'recipe-modal-choice');
         choice.setAttribute('aria-label', 'Choose ingredient alternative');
         options.forEach(id => {
@@ -181,7 +182,8 @@
           refreshChoice();
           previewIngredient(current);
         });
-        slot.append(choice);
+        choiceWrap.append(choice);
+        slot.append(choiceWrap);
       }
       refreshChoice();
       return slot;

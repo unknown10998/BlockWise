@@ -30,9 +30,15 @@ A lightweight, responsive Minecraft guides-and-tools website built with plain HT
 
 ## Appearance and accessibility
 
-BlockWise uses a restrained Minecraft-inspired palette: natural greens for identity and primary actions, neutral surfaces for content, and separately colored warning/error states. The saved appearance is applied before the main stylesheet loads to avoid a visible wrong-theme flash. Keyboard focus uses a dedicated high-visibility ring, and high-contrast/reduced-motion modes are available in Settings.
+BlockWise uses a restrained Minecraft-inspired palette: natural greens for identity and primary actions, neutral surfaces for content, and separately colored warning/error states. The saved appearance is applied before the main stylesheet loads to avoid a visible wrong-theme flash. Keyboard focus uses a dedicated high-visibility ring, and Settings provides System, Light, Dark, and High Contrast appearance themes plus reduced motion.
 
 The automated suite includes contrast checks for the active light and dark normal-text pairs and focus colors. The latest audit measured all tested text pairs at 4.5:1 or greater and focus colors at 3:1 or greater. See [UI_DESIGN_REVIEW.md](UI_DESIGN_REVIEW.md) for the full palette, calculations, UX references, browser viewport review, and remaining testing limits.
+
+## Privacy and future advertising
+
+[Privacy Policy](privacy.html) explains the current static site's browser-local preferences, Smart Command Finder local history/favorites, GitHub Pages hosting, YouTube embeds, and external links. BlockWise currently has no advertising, AdSense, analytics, accounts, forms, or first-party server database. This is not a promise that advertising will never be added: any future advertising requires a review of the actual provider, cookie/local-storage disclosures, regional consent obligations, a responsible adult owner/contact method, and current legal requirements before code is activated.
+
+See [ADSENSE_PRIVACY_READINESS.md](ADSENSE_PRIVACY_READINESS.md) for the required pre-activation checklist and [ASSET_RIGHTS_AUDIT.md](ASSET_RIGHTS_AUDIT.md) for the image/content-provenance review. The supplied WebP scenery pack remains installed but has no source/license record in this repository, so it must be verified or replaced before advertising.
 
 ## Motion and interaction feedback
 
@@ -44,7 +50,7 @@ The **Reduced Motion** setting and operating-system reduced-motion preference di
 
 Open `farms.html` for Iron, General Mob & XP, Sugar Cane, Bamboo, Creeper, Gold & XP, Enderman XP, Villager Crop, Slime, and Honey & Honeycomb references. This is deliberately a research catalog rather than a claim that all ten builds are verified for Java 1.21.11: nine cards say “Rate not verified,” and their materials are “Not audited.” The Gold & XP card retains ianxofour’s linked creator-stated 360-gold-blocks/hour figure but labels it as not independently benchmarked. See [farm-verification-report.md](farm-verification-report.md) for all coverage and limits.
 
-Six categories have verified rendered embeds: Iron, Sugar Cane, Bamboo, Gold & XP, Enderman XP, and Honey & Honeycomb. General Mob & XP, Creeper, Villager Crop, and Slime retain external YouTube source links only; their creator identity and embeddable tutorial status are not independently verified. Candidate videos are not presented as watchable embeds.
+Seven categories have verified rendered embeds: Iron, Sugar Cane, Bamboo, Gold & XP, Enderman XP, Slime, and Honey & Honeycomb. The Slime Farm credits BigBooty17's Java 1.21+-titled tutorial, while its 1.21.11 output and materials remain unverified. General Mob & XP, Creeper, and Villager Crop retain external YouTube source links only because a matching attributable BigBooty17 tutorial was not established for those categories. Candidate videos are not presented as watchable embeds.
 
 ## Commands Explorer
 

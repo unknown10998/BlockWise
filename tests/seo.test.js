@@ -9,6 +9,7 @@ const publicPages = [
   'index.html', 'tools.html', 'commands.html', 'recipes.html', 'enchanting.html', 'guides.html',
   'knockback-stick-java-1-21-11.html', 'permanent-effects-java-1-21-11.html',
   'keep-inventory-java-1-21-11.html', 'farms.html', 'about.html',
+  'privacy.html',
   'crafting-table-recipe-java-1-21-11.html', 'chest-recipe-java-1-21-11.html',
   'furnace-recipe-java-1-21-11.html', 'torch-recipe-java-1-21-11.html',
   'enchanting-table-recipe-java-1-21-11.html', 'hopper-recipe-java-1-21-11.html',
