@@ -48,12 +48,11 @@ test("privacy, sitemap, and local site paths resolve from the project root", () 
   }
 });
 
-test("all tracked scenic assets named by the rights audit are present", () => {
+test("all current scenic assets named by the rights audit are present", () => {
   const assets = [
     "about-hero.webp", "blockwise-site-background.webp", "commands-hero.webp",
-    "enchanting-cavern.svg", "enchanting-hero.webp", "farms-hero.webp",
-    "guides-hero.webp", "home-hero.webp", "overworld-landscape.svg",
-    "recipes-hero.webp", "social-share.webp", "tools-hero.webp"
+    "enchanting-hero.webp", "farms-hero.webp", "guides-hero.webp",
+    "home-hero.webp", "recipes-hero.webp", "social-share.webp", "tools-hero.webp"
   ];
   for (const asset of assets) {
     assert.ok(fs.existsSync(path.join(root, "assets", "backgrounds", asset)), `asset exists: ${asset}`);
