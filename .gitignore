@@ -27,3 +27,8 @@ playwright-report/
 .idea/
 *.swp
 *.swo
+
+# Private legal and image-rights evidence
+legal-and-rights/
+Legal-and-Rights/
+*Image-Rights-Evidence-PRIVATE.zip
