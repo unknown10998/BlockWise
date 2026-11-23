@@ -24,6 +24,7 @@ test("mobile navigation has backdrop, animated close state, and Escape focus res
   assert.match(script, /event\.key === "Escape"/);
   assert.match(css, /\.site-nav\.is-closing/);
   assert.match(css, /@media \(max-width: 1100px\)[\s\S]*\.site-nav \{ display: none/);
+  assert.match(css, /@media \(max-width: 1100px\) \{[\s\S]*\.menu-toggle \{ display: inline-flex; margin-left: 0; order: 3; \}[\s\S]*\.settings-trigger \{ margin-left: auto; order: 2; \}/);
 });
 
 test("settings and recipe dialogs support animated exit without losing keyboard focus", () => {
