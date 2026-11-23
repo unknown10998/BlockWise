@@ -163,7 +163,7 @@ The supplied pack's source/capture and license record was not included in the re
 
 ### New visual backgrounds and ingredient recipe exploration
 
-The active scenic banners use the supplied local WebP pack. Text overlays use strong contrast, while interactive tools stay on solid surfaces. High Contrast mode removes decorative imagery entirely to maximize legibility. The older original SVG illustrations remain as unused historical artwork, not as replacement game textures.
+The active scenic banners use the supplied local WebP pack. Text overlays use strong contrast, while interactive tools stay on solid surfaces. High Contrast mode removes decorative imagery entirely to maximize legibility. The older unused SVG scenery was removed when the current WebP replacement set was installed; no extracted game textures are used.
 
 The Recipes page supports fullscreen ingredient recipe exploration. Hover or keyboard-focus an ingredient for a miniature crafting preview (where a defined recipe exists), then click it to open that recipe. Use **Back** to return to the previous recipe and choose from tagged ingredient alternatives using the select menu. Non-craftable items show that no defined recipe exists in the imported dataset. This feature uses Java Edition 1.21.11 recipe data and runs locally.
 
