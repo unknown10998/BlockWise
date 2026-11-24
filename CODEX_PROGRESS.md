@@ -1,10 +1,18 @@
 # BlockWise planner progress
 
-## Scenic imagery provenance recovery — November 21, 2026
+## Current scenic-image provenance update — November 24, 2026
 
-- Recovered the original nine-image BlockWise scenic delivery archive and its manifest: eight individually named AI-generated Minecraft-inspired scenery source renders plus the social-share WebP. Recovered the tenth page-wide lakeside original separately.
-- Verified the eight scenes against their published resized/compressed WebPs, confirmed the lakeside original is byte-for-byte identical to its WebP, and checked that all ten published WebP outputs exactly match GitHub's stored Git blob identities. See `IMAGE_PROVENANCE_REGISTER.md` for source names, SHA-256 checksums, first-import commits, and evidence caveats.
-- Assembled a separate **private**, roughly 25 MB source and rights-evidence archive for the owner (not added to the repo), including original scenes, final files, original pack, comparisons, manifest and public-term references.
+- Verified that all ten current scenic WebPs were replaced in `bac42270cb8f45f944f8aa5d00c04458d1d92ca1` on November 23, 2026, then merged into `main` as `142fb06324eb0f6710e457eb83b7811bdfcb9b42`. The current register records independent SHA-256 checksums, Git blob SHA-1 identities, dimensions, sizes, and the superseded versions' historical hashes.
+- The current task owner reports that the replacement scenes were newly generated in ChatGPT from text directions with no external website images supplied as references. This workspace did not contain inspectable prompts, receipts, conversation exports, or `BlockWise-New-Image-Sources-PRIVATE.zip`, so that origin statement is recorded as owner-provided rather than independently verified.
+- The prior WebPs, including their historical Vecteezy Pro reference-image connection, remain documented separately as superseded history recoverable from Git. The project does not claim a Vecteezy license or a verified private archive for those older originals.
+- Updated the public provenance register, asset-rights audit, AdSense-readiness checklist, release checklist, and automated integrity test. Private legal, source, generation, and original-background records remain ignored and are not committed.
+- Remaining: responsible-adult review of current full-resolution images and any available generation context; current Minecraft policy, privacy/consent, public-contact, and AdSense eligibility review. No advertising or tracking was enabled.
+
+## Scenic imagery provenance recovery — November 21, 2026 (superseded images)
+
+- This historical work concerned the then-current WebP assets, which were superseded on November 23, 2026. It is retained as an audit record and must not be used to characterize the current replacement images.
+- Earlier notes recorded recovered scene/pack evidence and Git-blob matches for the superseded assets. Their historical SHA-256 checksums and Git identities remain in `IMAGE_PROVENANCE_REGISTER.md`.
+- The November 24 audit did not find the previously described private source archive locally. Do not claim that archive or old originals remain privately backed up unless the owner verifies that separately.
 - Updated `ASSET_RIGHTS_AUDIT.md` and `ADSENSE_PRIVACY_READINESS.md`. Image-origin provenance is materially stronger, but source-specific exact prompts/reference-image rights, third-party/trademark concerns, and responsible adult's monetization sign-off remain `NEEDS HUMAN VERIFICATION`.
 - These changes are documentation only; no artwork, scripts, licenses, account settings, advertising, hosting, or production website content were changed. Open a review PR; do not merge automatically.
 

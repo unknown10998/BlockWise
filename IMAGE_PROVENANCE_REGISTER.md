@@ -1,83 +1,64 @@
 # BlockWise — image provenance and integrity register
 
-**Record assembled:** November 21, 2026  
+**Record updated:** November 24, 2026
 **Scope:** Ten published WebP images in `assets/backgrounds/`  
-**Repository baseline verified:** `main`, commit `097641b1c78f97612b6801980fb7c0012a309268`  
-**Status:** SOURCE LINEAGE RECOVERED; THIRD-PARTY / BRAND-RIGHTS REVIEW STILL OPEN
+**Current website baseline:** `main` merge commit `142fb06324eb0f6710e457eb83b7811bdfcb9b42`
+**Status:** REPLACEMENT VERIFIED IN GIT; HUMAN RIGHTS / COMMERCIAL-USE REVIEW STILL OPEN
 
-This is a **public, privacy-safe summary of verifiable facts**, not a commercial-use permission certificate, copyright registration, endorsement, or legal opinion. The detailed original files and their ChatGPT deliverable archive are retained in a separate **owner-held private evidence ZIP**, not uploaded to public GitHub.
+This public, privacy-safe record is not a copyright registration, commercial-use permission, endorsement, or legal opinion. Git blob SHA-1 values and SHA-256 file checksums are distinct identifiers and are recorded separately below.
 
-## What was recovered
+## Current images — November 2026 replacement
 
-- The original `BlockWise-Minecraft-Backgrounds-and-Codex.zip`, including `ASSET_MANIFEST.json`, `README_IMAGES.md` and `CODEX_INTEGRATION_PROMPT.md`. The delivered documentation expressly describes **eight original AI-generated Minecraft-inspired scene renders**, plus a social-sharing preview, rather than gameplay screenshots, website-scraped pictures or extracted Minecraft textures. This is a contemporaneous source statement, **not an independent generator log**.
-- The manifest names original source files for the **eight scene images**. All eight original render files were recovered. Comparing each original resized to its published compressed WebP yielded mean absolute per-channel pixel differences of **2.05–4.88 on a 0–255 scale** (strong visual derivation evidence).
-- A ninth original file, `golden_hour_lakeside_village.png`, was recovered for the separate page-wide `blockwise-site-background.webp`. Both files are **byte-for-byte identical**, despite the original file's `.png` name actually holding lossless WebP content.
-- The `social-share.webp` image is recorded and present in the original nine-image delivery ZIP; the original manifest **does not identify a separate source render or exact generation prompt for it**.
-- All **ten final WebP assets** in the recovered delivery matched the exact Git blob SHA-1 objects found in the published repository. This proves that these are the very same files, not lookalike replacements.
-- Git history first added the initial nine WebPs in commit `600969396a19f9dd116787ab4c9948f42735e5ac` (November 15, 2026 UTC), and the separate lakeside backdrop in commit `ebf66ce6a8c4cd1e33dca40063223227861750de` (November 16, 2026 UTC). **Import dates are not generation dates.**
+### Replacement verification
 
-## Individual asset fingerprints
+- The ten active WebPs were replaced in commit `bac42270cb8f45f944f8aa5d00c04458d1d92ca1` (**November 23, 2026, 14:54:33 CST**). That commit was merged into `main` as `142fb06324eb0f6710e457eb83b7811bdfcb9b42` at **14:55:24 CST**.
+- The replacement commit changed all ten current WebPs relative to its first parent, `3c876d68abc5faa20cacc300b7d6cbc10672d4a6`.
+- The task owner reports that the replacements were newly generated in ChatGPT from a text request for original Minecraft-inspired scenery and that no external website images were submitted as generation references. This statement was not independently verified from prompts, conversation exports, receipts, or tool logs in this workspace.
+- The named private source package, `BlockWise-New-Image-Sources-PRIVATE.zip`, was **not found locally** during this November 24 verification. This register therefore does not claim that its contents were inspected, verified, or backed up.
+- “Generation date” is not separately verifiable from the available public Git data. The dates below are Git replacement/import dates, not proof of generation time.
 
-**Published hash = SHA-256 of the deployed/repository WebP file; Source hash = SHA-256 of the recovered original image file.** The comparison column is either per-channel mean absolute difference after resizing the source to final dimensions, or exact byte identity. Small differences corroborate image derivation, **not legal clearance**.
+All file sizes are bytes. “Git blob SHA-1” is Git's content-object identifier for the exact stored bytes; it is not a SHA-256 checksum. SHA-256 values were calculated directly from the current local WebP files and checked against the current image bytes.
 
-| Public WebP filename | Original render / source evidence | Published SHA-256 | Recovered source SHA-256 | Comparison |
-|---|---|---|---|---|
-| `home-hero.webp` | `a_highly_detailed_cinematic_minecraft_style_lands.png` | `5ede4b883081c0469f37d68c4fd4c7681e2f99d09b2e142151eda80cd380dec7` | `9862bea49daa1e8721c9c43304a5f73109a3c628ad5069a64435cbccb63738a6` | 4.22 |
-| `tools-hero.webp` | `a_highly_detailed_bright_cinematic_minecraft_s.png` | `40ba2185306573242ce29081b5239448e16d9a357389fc62bda7f549ccd8b26b` | `d61ab17ce9ca609bebbe432923e5398c0ebcbc963bf480f39f503bf3aaf27be6` | 4.25 |
-| `commands-hero.webp` | `a_highly_detailed_cinematic_minecraft_style_scene.png` | `8a3e2fdc2710cb675e77c5aff3e9c72046b1d3175060b5e5a06373501de97967` | `e8e5cfaad93971338625d29feeed0055eb6bd992e742eac285911d0cee682448` | 3.11 |
-| `recipes-hero.webp` | `a_wide_highly_detailed_minecraft_style_render_sh.png` | `ecea473dc636fbeefe7d0a88ffb31d62dffb3202b2944773e34b2d499432ce2c` | `32976b664c3adee5ad8676961061c188fa818885af627a761d0bb8e2a1d143e8` | 2.51 |
-| `enchanting-hero.webp` | `a_highly_detailed_atmospheric_minecraft_style_vo.png` | `08ee3ff956e0577a0b51210d373a5014ac7c02ecfd28cc79280c5540bfdff549` | `0672a95a39061aa248a14e83b72e8698ace117a5cfed03db88bd30da97ca82f8` | 2.05 |
-| `guides-hero.webp` | `a_bright_highly_detailed_minecraft_style_scenic_l.png` | `08f70bfec65a8bd05d6d0451d8540f7247fbd3b68f2d2ff854a1a1fb56941939` | `16bbd5b520d6f654467eedf075214a0155d99b6e32c55af4ae000b3785af43f5` | 3.74 |
-| `farms-hero.webp` | `a_detailed_vibrant_minecraft_style_scene_voxel_b.png` | `65902449393ff534792a18de9e9c745d1ad5ec4b2c7184a9898bd5c70a0ac4d9` | `0a6451692b3adc1546edd2875d7a8d8388f9153456b20200a73bdbea1a3ce4a5` | 4.88 |
-| `about-hero.webp` | `a_vivid_detailed_minecraft_style_scene_rendered_w.png` | `b8a0d2159fa5aea7d07288e8f187e55b42ac21c8322bece313f398609ac7822e` | `8db7813a063696b36cc7b3e3cebd7fed4e841895d178a70149339cd6e311c1f7` | 4.05 |
-| `social-share.webp` | `No separate original identified` | `7df411442acbe642c81dc6c78ec37cb3cc4b7dacb6ab8be292bb9219424c8973` | `—` | Pack member only |
-| `blockwise-site-background.webp` | `golden_hour_lakeside_village.png` | `54f0bc0b24666afc8d9d5461fe22de4fa14f898db030057d71e7fbfbe011cf2a` | `54f0bc0b24666afc8d9d5461fe22de4fa14f898db030057d71e7fbfbe011cf2a` | Exact byte identity |
+| Current file | Reported generation origin / reference-input status | Replacement Git commit and date | SHA-256 | Git blob SHA-1 | Dimensions | Size | Evidence available / remaining review |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `home-hero.webp` | Owner reports original ChatGPT text-directed image; no external reference image reported. | `bac4227`, Nov. 23, 2026 | `39e60753d24a947d9c1e1a1c1d68320ab6be4231e4c9e0dbdd5b44e375fa88da` | `32b38b13b8a90451e16742e1da5691fe4084566c` | 1672×941 | 249,716 | Git replacement and checksum verified. No prompt, receipt, or private source ZIP inspected; responsible-adult rights review remains required. |
+| `tools-hero.webp` | Owner reports original ChatGPT text-directed image; no external reference image reported. | `bac4227`, Nov. 23, 2026 | `f88f9e4d08a72ba41c55cb1206deeb2430dde3f84ee5952e099f62a5afafb17f` | `6a41ccc1c857ff0c3986c25bbd3dedddbeb98b08` | 1720×860 | 300,134 | Git replacement and checksum verified. No prompt, receipt, or private source ZIP inspected; responsible-adult rights review remains required. |
+| `commands-hero.webp` | Owner reports original ChatGPT text-directed image; no external reference image reported. | `bac4227`, Nov. 23, 2026 | `b6c33bcf726eeae94a3d47e935a1e0c901f23fffc96c40e42d895ef80948566a` | `a5b45c393496b5a43630ddc8ace030ac705939d3` | 1720×573 | 160,906 | Git replacement and checksum verified. No prompt, receipt, or private source ZIP inspected; responsible-adult rights review remains required. |
+| `recipes-hero.webp` | Owner reports original ChatGPT text-directed image; no external reference image reported. | `bac4227`, Nov. 23, 2026 | `d887e971cc4e08da4ef6dbe9b55311e80b0431beb1ca6c76037727c568a0762e` | `424dc9f557a873673f12667aeeeb1f61131124fb` | 1672×941 | 237,662 | Git replacement and checksum verified. No prompt, receipt, or private source ZIP inspected; responsible-adult rights review remains required. |
+| `enchanting-hero.webp` | Owner reports original ChatGPT text-directed image; no external reference image reported. | `bac4227`, Nov. 23, 2026 | `3d8e2bb178009f47461af2af7319f7b6b2c61fa325357850070ba10a0878877f` | `0d6be4b1ae66d60b109669f0e5fa0b14ab099bfe` | 1672×941 | 266,108 | Git replacement and checksum verified. No prompt, receipt, or private source ZIP inspected; responsible-adult rights review remains required. |
+| `guides-hero.webp` | Owner reports original ChatGPT text-directed image; no external reference image reported. | `bac4227`, Nov. 23, 2026 | `7e9a2e078f84d084e80a38bac7a3e7b9425b8ac975191cdabe9cac89b6a418e0` | `45cc8c5484395a08816a5050a9a960841ccf5154` | 1672×941 | 337,790 | Git replacement and checksum verified. No prompt, receipt, or private source ZIP inspected; responsible-adult rights review remains required. |
+| `farms-hero.webp` | Owner reports original ChatGPT text-directed image; no external reference image reported. | `bac4227`, Nov. 23, 2026 | `50e312916a8b507b3ba1d69fabbe7aa19b6d5336a6f2a5c81be78639bc5817e4` | `803663ea366a9ab2bde45ac2c02eb21e959f45f3` | 1720×573 | 253,872 | Git replacement and checksum verified. No prompt, receipt, or private source ZIP inspected; responsible-adult rights review remains required. |
+| `about-hero.webp` | Owner reports original ChatGPT text-directed image; no external reference image reported. | `bac4227`, Nov. 23, 2026 | `3707f1ebf59b8e58ad929a6e78299ba8ef858375e67fa672f56ceb1a5dea3d37` | `7a8c5d391b94707aad7259ecc7163d05d279cab2` | 1720×860 | 249,938 | Git replacement and checksum verified. No prompt, receipt, or private source ZIP inspected; responsible-adult rights review remains required. |
+| `blockwise-site-background.webp` | Owner reports original ChatGPT text-directed image; no external reference image reported. | `bac4227`, Nov. 23, 2026 | `b5762d10f7492d7d928554570d8be951741a558e821b00de185f2493f42f6df5` | `296a2dbb09a76448a73f3e9b1fbdbdd92e0e7eb7` | 1672×941 | 239,198 | Git replacement and checksum verified. No prompt, receipt, or private source ZIP inspected; responsible-adult rights review remains required. |
+| `social-share.webp` | Owner reports original ChatGPT text-directed image; no external reference image reported. | `bac4227`, Nov. 23, 2026 | `152e473398f08a91eb3abe33af7e20e35456c8a3dfab07f2248dab9a97f2fc66` | `a07c54feadf0af263cd4f8cde633a104cb10f8aa` | 1200×630 | 143,358 | Git replacement and checksum verified. No prompt, receipt, or private source ZIP inspected; responsible-adult rights review remains required. |
 
-## Evidence quality and unresolved items
+### Current-image rights status
 
-**Proven:** Original pack exists; its manifest identifies eight source renders; eight images closely match; lakeside original is identical to published file; all ten published WebPs match GitHub's blob identities.
+The files' replacement and integrity are verified in Git. Their reported AI-generation origin and absence of reference images are owner-provided statements, not an independent licensing determination. The project has not established that the images are copyright-free, Mojang-approved, free of third-party/IP concerns, commercially cleared, or AdSense-approved. A responsible adult must review the actual generation context if available, the full-resolution images, current Minecraft policies, and any intended advertising use before making such a decision.
 
-**Documented original-pack claim (not independently proven by tool logs):** Those scenes are original AI-generated Minecraft-inspired illustrations. No evidence from the original pack states that official game textures or gameplay screenshot files were intentionally extracted.
+## Previous images — archived history
 
-**Not established:** Exact image-generation tool/model for every image, complete original prompts, account-specific generation receipts and timestamps, the presence/absence and legal status of input reference images, individual original source for `social-share.webp`, exclusive copyrightability, and permission to reproduce any third-party/IP-protected material that may appear. The first eight originals and the lakeside file are saved privately for future review.
+The ten earlier WebPs were superseded by `bac4227` on November 23, 2026. Their pre-replacement bytes are recoverable from Git history, specifically the replacement commit's first parent `3c876d68abc5faa20cacc300b7d6cbc10672d4a6` and earlier commits (the original scenic import began at `600969396a19f9dd116787ab4c9948f42735e5ac`). Git recovery is the only historical preservation verified in this workspace; this register does **not** claim that old originals were retained in private storage.
 
-**Visual spot check (not a legal determination):** A comparison contact sheet of all ten final images was inspected. It shows stylized block/voxel landscapes, villages, farms and caves; no prominent official Minecraft wordmark or Mojang/Microsoft logo was apparent at contact-sheet resolution. This limited review does **not** establish that individual elements, textures, characters, or reference inputs are free of third-party rights. Original-resolution human review remains outstanding.
+| Previous file | Previous SHA-256 | Previous Git blob SHA-1 |
+| --- | --- | --- |
+| `home-hero.webp` | `5ede4b883081c0469f37d68c4fd4c7681e2f99d09b2e142151eda80cd380dec7` | `0535372bcb242bf8a233a863f8f88c1130eb8bdc` |
+| `tools-hero.webp` | `40ba2185306573242ce29081b5239448e16d9a357389fc62bda7f549ccd8b26b` | `adde400f470bc27f814b414fc91cddacfe1118df` |
+| `commands-hero.webp` | `8a3e2fdc2710cb675e77c5aff3e9c72046b1d3175060b5e5a06373501de97967` | `bd47848c8c7021e11889d3c87b24a788116510ae` |
+| `recipes-hero.webp` | `ecea473dc636fbeefe7d0a88ffb31d62dffb3202b2944773e34b2d499432ce2c` | `de71c349f005a589fff5d236527717c9c50c2ee9` |
+| `enchanting-hero.webp` | `08ee3ff956e0577a0b51210d373a5014ac7c02ecfd28cc79280c5540bfdff549` | `c4de79eea2c11e7aee790e9d32e6d372b1856663` |
+| `guides-hero.webp` | `08f70bfec65a8bd05d6d0451d8540f7247fbd3b68f2d2ff854a1a1fb56941939` | `49f35782883bc9d3c2eacd69a633cb796eab4d92` |
+| `farms-hero.webp` | `65902449393ff534792a18de9e9c745d1ad5ec4b2c7184a9898bd5c70a0ac4d9` | `4861d372d77fa11d4eb0b30f8d00068cbcdf6a95` |
+| `about-hero.webp` | `b8a0d2159fa5aea7d07288e8f187e55b42ac21c8322bece313f398609ac7822e` | `b86fe0fe15c2ae926e47ba422cea31c3a095288b` |
+| `blockwise-site-background.webp` | `54f0bc0b24666afc8d9d5461fe22de4fa14f898db030057d71e7fbfbe011cf2a` | `4733fee35050f35d981492c941ca3b7af7a6d923` |
+| `social-share.webp` | `7df411442acbe642c81dc6c78ec37cb3cc4b7dacb6ab8be292bb9219424c8973` | `07483fc37f7003dcff2867e536730b852f9245c2` |
 
-**Current review classification:** Keep the ten WebPs as `NEEDS HUMAN VERIFICATION — provenance traced` until the responsible owner/adult reviews actual original ChatGPT conversations (if accessible), any reference-image inputs, full-size visual content, and commercial/ad-supported use. Do **not** misstate that OpenAI automatically grants rights to third-party Minecraft assets, and do **not** automatically replace the currently used images without identifying a confirmed problem.
+The task owner identifies the following as a previous Vecteezy Pro reference-image connection: [A vibrant and colorful Minecraft landscape adorned with adorable bunnies and beautiful flowers](https://www.vecteezy.com/photo/54659403-a-vibrant-and-colorful-minecraft-landscape-adorned-with-adorable-bunnies-and-beautiful-flowers). This record does **not** assert that BlockWise purchased, received, or retained a license for that image. That historical connection must not be attributed to the current November 2026 replacement assets.
 
-## Review of terms (November 21, 2026)
+## Verification method and limitations
 
-- [OpenAI Terms of Use](https://openai.com/policies/terms-of-use/): effective January 1, 2026; as between the user and OpenAI, and to the extent permitted by applicable law, users own generated Output and OpenAI assigns its rights, if any. Users are responsible for Input rights and avoiding infringement. Output may resemble other users' output; no automatic rights in third-party content.
-- [OpenAI Service Terms](https://openai.com/policies/service-terms/): relevant additional product/service provisions.
-- [Minecraft Usage Guidelines](https://www.minecraft.net/en-us/usage-guidelines): subject to conditions, allow Minecraft-information fan websites and third-party advertising that does not harm the brand, while requiring a prominent unofficial-project disclaimer and clear owner/contact details. Do not redistribute game files or treat the permission for gameplay screenshots as unlimited permission for textures/artwork.
-- [Minecraft EULA](https://www.minecraft.net/en-us/eula): review alongside Usage Guidelines; Minecraft's game assets remain subject to their own rights.
-
-These references were reviewed on November 21, 2026. They can change. This record is **not** permission granted by Mojang, Microsoft, OpenAI, or another person.
-
-## Private evidence retention
-
-The user should keep a private `BlockWise-Image-Rights-Evidence-PRIVATE.zip` containing:
-
-- Original recovered source images (`original-images/`);
-- the ten published WebPs (`published-webp/`);
-- original pack ZIP, original asset manifest, original README and integration prompt (`generation-records/`);
-- cryptographic source/final fingerprints (`SHA256_ASSET_MANIFEST.json`);
-- the source-chain table (`image-sources.md`);
-- the dated review of official public terms (`reference-terms/usage-terms-summary.pdf`).
-
-This ZIP is **not committed** to the repository. It is for the site owner/responsible adult to retain. No source-file path in this repo should be represented as a public, open license.
-
-## Remaining owner review before advertising
-
-1. If possible, save the original **ChatGPT conversations and exact generation prompts** privately, including whether any external photos/screenshots were submitted as references. If they cannot be recovered, leave that evidence limitation documented.
-2. Inspect every recovered source image at original resolution to rule out obvious Mojang/Microsoft logos, copied game textures, branded characters or suspicious third-party imagery. A visual review cannot guarantee noninfringement.
-3. Confirm that any third-party input images were owned/licensed for the intended use; if there were no input images, record that as an owner-attested fact, not a tool assumption.
-4. Have the responsible adult review intended website advertising, independent-fan branding, visible disclaimer and publisher/contact method.
-5. Keep the private archive and rights notes as part of the site's records, and refresh this register if an image changes.
-6. Mark commercial-use review as complete only after these findings are actually signed off. Until then, see `ADSENSE_PRIVACY_READINESS.md`.
-
-## Provenance verification method
-
-Published output SHA-256 values were computed from the recovered WebP outputs. Each matching Git blob SHA-1 was computed using the actual Git blob encoding (`SHA1("blob <byte length>\\0" + bytes)`) and compared to the GitHub repository tree. Source similarity was measured with original-to-output resizing and mean absolute RGB-channel differences. `social-share.webp` has no separate source similarity claim.
-
-This process establishes reproducible file identity; it does **not** inspect protected input rights or issue a license.
+- Current SHA-256 checksums are calculated over the exact WebP file bytes with SHA-256.
+- Current Git blob SHA-1 values are calculated over Git's blob encoding: `SHA1("blob <byte length>\\0" + bytes)`.
+- Current dimensions and sizes are read from the current local files; the regression test checks all ten entries against the files and calculated identifiers.
+- This work did not inspect private archives, generation chats, prompts, account receipts, or personal information. Private evidence remains excluded by `.gitignore` rules and must never be committed.
+- The record must be updated whenever any current image changes. It does not grant any license or replace legal, platform, or responsible-adult review.

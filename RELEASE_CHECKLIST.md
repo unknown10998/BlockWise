@@ -2,6 +2,10 @@
 
 Status key: **Pass** was verified in this release audit; **Fail** needs resolution before calling the beta fully release-ready; **Not Tested** was not verified in this audit.
 
+## November 24, 2026 image-rights documentation update
+
+The ten live scenic WebPs were replaced on November 23 in `bac4227`, merged to `main` as `142fb06`. Their current SHA-256 checksums, Git blob SHA-1 identities, dimensions, sizes, and superseded predecessors are documented in `IMAGE_PROVENANCE_REGISTER.md` and checked by automated regression coverage. The owner reports text-directed ChatGPT generation with no external website images supplied as references; no prompts, receipts, or named private source ZIP were locally available to independently verify that claim. This is a provenance/integrity record, not commercial-use, Minecraft-IP, or AdSense clearance.
+
 ## November 21, 2026 final production audit
 
 `origin/main` at `045bf4e6afcbfb7d3e99fcd1789ed33e28e008e0` is the deployed baseline audited. The local candidate remains on open PR #6 and is not live. The complete local Node suite passed with 81 tests; GitHub Actions run 50 for the committed PR #6 update succeeded. A live HTTP pass found 19 sitemap pages returning 200 but `privacy.html` returning 503, because the policy has not been merged/deployed. See `FINAL_LAUNCH_AUDIT.md` for the evidence table and separate **NO-GO** decisions for public launch, custom domain, and AdSense. Real-browser, device, screen-reader, external-video, and Lighthouse checks were not available in this audit.
@@ -58,7 +62,7 @@ The current review branch, `audit/full-site-quality`, fixes mobile Escape behavi
 | WCAG AA tested text pairs and focus contrast | Pass | `tests/theme-contrast.test.js` checks documented color pairs. This is not a complete automated accessibility conformance audit. |
 | Exactly one H1, meaningful title/description, skip link, and favicon on every primary public page | Pass | Automated release-readiness test and browser check passed. |
 | Canonical URLs, share metadata, and sitemap match the GitHub Pages project path | Pass | `tests/release-readiness.test.js` and `tests/seo.test.js` check all 11 intended public URLs under `/BlockWise/`. |
-| Scenic background assets have a usable source/credit record | Not Tested | The supplied local WebP pack is installed and tested locally, but its source/capture/license record is not stored in the repository. Retain that confirmation before publication or advertising. See `SEO_LAUNCH_CHECKLIST.md`. |
+| Current scenic background assets have an integrity and replacement record | Pass | All ten active WebPs are checksum-, size-, dimension-, and Git-blob-verified in `IMAGE_PROVENANCE_REGISTER.md`; the old versions are separately preserved in Git history. This does not establish advertising, copyright, Minecraft-IP, or third-party-reference clearance. |
 | Local static links and assets resolve | Pass | New automated static-hosting-path test passed. |
 | External links, YouTube playback, and third-party availability | Not Tested | External sources can change; embeds were not played during this audit. |
 | Browser console errors | Pass | Final-polish local-browser error log was empty after calculator, recipe, command, guide, farm, navigation, and settings checks. |
