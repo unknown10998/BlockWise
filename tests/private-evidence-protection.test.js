@@ -12,7 +12,9 @@ const trackedFiles = childProcess.execFileSync("git", ["ls-files"], { cwd: root,
 const privatePathRules = [
   /(^|\/)(legal-and-rights|private-evidence)(\/|$)/i,
   /image-rights-evidence-private[^/]*\.zip$/i,
+  /new-image-sources-private[^/]*\.zip$/i,
   /image-usage-terms-summary[^/]*\.pdf$/i,
+  /(^|\/)backgrounds-og(\/|$)/i,
   /private-(source|generation|ownership)-record/i
 ];
 
@@ -30,6 +32,12 @@ test("required public rights documentation remains tracked", () => {
   for (const file of publicRightsDocuments) {
     assert.ok(trackedFiles.includes(file), `${file} must remain public documentation`);
   }
+});
+
+test("private source packages and original-background working files are ignored", () => {
+  const ignore = fs.readFileSync(path.join(root, ".gitignore"), "utf8");
+  assert.match(ignore, /\*New-Image-Sources-PRIVATE\.zip/);
+  assert.match(ignore, /assets\/backgrounds-og\//);
 });
 
 test("tracked text files contain no obvious private-key or personal-contact markers", () => {

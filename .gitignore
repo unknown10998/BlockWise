@@ -22,6 +22,10 @@ private-evidence/
 *Private-Source-Record*
 *Private-Generation-Record*
 *Private-Ownership-Record*
+*New-Image-Sources-PRIVATE.zip
+
+# Local original-background working files; publish only reviewed WebP exports.
+assets/backgrounds-og/
 
 # Local original background-image working files; publish only reviewed WebP exports.
 assets/backgrounds-og/

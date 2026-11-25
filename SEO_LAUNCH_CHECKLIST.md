@@ -23,15 +23,15 @@ This checklist records the remaining human steps for the GitHub Pages site at `h
 
 ## Scenic-background provenance handoff
 
-The supplied WebP files are in `assets/backgrounds/` and are active across the primary pages. Before publishing or using advertising, retain:
+The active WebP files are in `assets/backgrounds/` and their November 23, 2026 replacement hashes are documented in `IMAGE_PROVENANCE_REGISTER.md`. Before advertising, retain privately, if available:
 
-- An original gameplay screenshot the owner captured or otherwise has explicit written permission to publish.
-- The source world/build attribution, Minecraft version, date captured, and the person or license holder.
-- Written permission covering publication on BlockWise and its possible future advertising-supported fan-site use.
-- A descriptive filename such as `blockwise-cherry-grove-hero-2560x1440.webp`, plus the original source image kept outside the public repository if appropriate.
+- The original ChatGPT generation conversation, prompts, model/product context, and generation date.
+- An owner record confirming whether any reference images were supplied and that they were permitted for the intended use.
+- A responsible-adult review of the current full-resolution images, current Minecraft fan-site policy, and potential advertising-supported use.
+- A descriptive filename and the original source image kept outside the public repository when appropriate.
 - A WebP or AVIF derivative sized for its display use, with an unambiguous subject and focal point. The hero should not be lazy-loaded; secondary decorative images can be considered for lazy loading.
 
-Keep the source/credit record with the project, preserve the overlay and fixed hero geometry so text remains readable and layout shift stays low, and use an `<img>` with useful alt text for any informational screenshot. The existing CSS backgrounds are decorative and therefore hidden from assistive technology. Google can discover standard HTML images, but not CSS backgrounds as image-search assets.
+Do not invent unavailable evidence: the named private source ZIP was not found in this workspace during the November 24 audit. Keep any source/credit record with the project, preserve the overlay and fixed hero geometry so text remains readable and layout shift stays low, and use an `<img>` with useful alt text for any informational screenshot. The existing CSS backgrounds are decorative and therefore hidden from assistive technology. Google can discover standard HTML images, but not CSS backgrounds as image-search assets.
 
 ## Rights and scope reminders
 
