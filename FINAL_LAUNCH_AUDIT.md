@@ -117,3 +117,5 @@ Audited baseline: `92cc99a26c222c5c942a644cb3c225c62c9061af`, after PRs #11 and 
 | Advertising and rights | Not Tested | Human image/IP review, adult account ownership, privacy/consent and current platform policy checks remain; no advertising approval is implied. |
 
 Readiness decisions: free public site — **conditional**, pending live interaction and responsive testing; custom domain — **not assessed**, pending owner and DNS decisions; Search Console — **technically preparable**, pending owner verification and indexing checks; AdSense — **not ready**, pending the human and technical checks above. No in-game, external video playback, or SEO indexing verification was performed.
+
+November 26 follow-up: In the live in-app browser, entering 65 in the Stack Calculator and selecting Calculate produced 1 full stack and 1 leftover. This verifies that one case only; the other browser, accessibility, viewport, and performance checks listed above remain outstanding.
