@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
-const pages = fs.readdirSync(root).filter((file) => file.endsWith(".html"));
+const pages = fs.readdirSync(root).filter((file) => file.endsWith(".html") && !/^google[0-9a-f]+\.html$/i.test(file));
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
 
 test("privacy policy is a crawlable public page with a canonical URL", () => {
@@ -58,4 +58,10 @@ test("all current scenic assets named by the rights audit are present", () => {
     assert.ok(fs.existsSync(path.join(root, "assets", "backgrounds", asset)), `asset exists: ${asset}`);
   }
   assert.match(read("ASSET_RIGHTS_AUDIT.md"), /NEEDS HUMAN VERIFICATION/);
+});
+
+test("Google Search Console verification file keeps its exact content", () => {
+  const filename = "google846e6e169a4dc810.html";
+  assert.equal(read(filename).trim(), `google-site-verification: ${filename}`);
+  assert.ok(!pages.includes(filename), "verification file is not a public content page");
 });
