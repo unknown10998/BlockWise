@@ -1,5 +1,11 @@
 # BlockWise planner progress
 
+## November 24 production audit — preliminary
+
+- PRs #11 and #12 were merged. Created `audit/final-production-2026-11` from `main` at `92cc99a26c222c5c942a644cb3c225c62c9061af`; GitHub Pages built this commit successfully.
+- All 20 sitemap routes returned HTTP 200; all ten live WebP hashes matched the local repository. `node --test tests/*.test.js` passed 87 tests. Live Home was visually inspected in a browser.
+- Full browser feature/viewport/keyboard testing, console inspection, physical devices, screen readers, and Lighthouse remain untested; see `FINAL_LAUNCH_AUDIT.md`. These preliminary findings are not a complete launch certification.
+
 ## Current scenic-image provenance update — November 24, 2026
 
 - Verified that all ten current scenic WebPs were replaced in `bac42270cb8f45f944f8aa5d00c04458d1d92ca1` on November 23, 2026, then merged into `main` as `142fb06324eb0f6710e457eb83b7811bdfcb9b42`. The current register records independent SHA-256 checksums, Git blob SHA-1 identities, dimensions, sizes, and the superseded versions' historical hashes.

@@ -102,3 +102,20 @@ Blockers:
 4. Keep all claims about farm rates, compatibility, recipes, commands, and icon rights within the documented limitations.
 
 No deployment, DNS update, advertisement activation, AdSense application, merge, or external-account change was made in this audit.
+# Production audit update — November 24, 2026
+
+Audited baseline: `92cc99a26c222c5c942a644cb3c225c62c9061af`, after PRs #11 and #12. GitHub Pages reported this exact commit as built; the main-branch static checks succeeded.
+
+| Requirement | Status | Evidence / remaining work |
+| --- | --- | --- |
+| Sitemap routes, About, Privacy | Pass | All 20 sitemap URLs returned HTTP 200, including About and Privacy. HTTP status alone does not establish page functionality. |
+| Current live images | Pass | All ten WebP URLs returned 200 and their SHA-256 matched local main; the existing integrity test passed. Home hero appeared in a live browser. |
+| Automated regression suite | Pass | `node --test tests/*.test.js`: 87 passed, 0 failed. Static SEO, local paths, color-pair checks, and many tool calculations are included. |
+| Full browser feature and responsive audit | Not Tested | Only the live Home page was visually inspected; all requested viewport widths, interactive tools, settings, console logs, cropping, keyboard and reduced motion remain to be tested. |
+| Screen readers and physical mobile devices | Not Tested | No screen-reader or physical-device session was performed. |
+| Performance | Not Tested | Lighthouse, LCP, CLS, INP and throttled mobile measurements were not run. |
+| Advertising and rights | Not Tested | Human image/IP review, adult account ownership, privacy/consent and current platform policy checks remain; no advertising approval is implied. |
+
+Readiness decisions: free public site — **conditional**, pending live interaction and responsive testing; custom domain — **not assessed**, pending owner and DNS decisions; Search Console — **technically preparable**, pending owner verification and indexing checks; AdSense — **not ready**, pending the human and technical checks above. No in-game, external video playback, or SEO indexing verification was performed.
+
+November 26 follow-up: In the live in-app browser, entering 65 in the Stack Calculator and selecting Calculate produced 1 full stack and 1 leftover. This verifies that one case only; the other browser, accessibility, viewport, and performance checks listed above remain outstanding.

@@ -1,5 +1,9 @@
 # BlockWise public beta release checklist
 
+## November 24 production audit — preliminary
+
+Main `92cc99a` deployed successfully; all 20 sitemap URLs returned HTTP 200 and all ten live images matched the repository by SHA-256. The local automated suite passed 87 tests. The live Home page was visually inspected. Full browser feature checks, requested responsive widths, screen-reader and physical-device tests, and Lighthouse measurements remain **Not Tested**. See `FINAL_LAUNCH_AUDIT.md` for readiness decisions.
+
 Status key: **Pass** was verified in this release audit; **Fail** needs resolution before calling the beta fully release-ready; **Not Tested** was not verified in this audit.
 
 ## November 24, 2026 image-rights documentation update
