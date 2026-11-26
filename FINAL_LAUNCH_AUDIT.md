@@ -1,5 +1,9 @@
 # BlockWise final production launch audit
 
+## November 26 guide expansion — local candidate
+
+Four Java 1.21.11 planning guides were added to the guide index and sitemap. The local Node suite passed 87 tests. Browser/mobile interaction, PageSpeed, screen-reader, and farm-video checks for this candidate are **NOT TESTED**. No change to the live deployment is claimed.
+
 Audit date: November 21, 2026. This is an evidence-based engineering review, not legal advice, an AdSense approval, or a promise of search indexing.
 
 ## Scope and source state
