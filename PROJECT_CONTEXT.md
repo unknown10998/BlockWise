@@ -1,5 +1,9 @@
 # BlockWise project context
 
+## Future brand: ChunkOwl
+
+The owner selected **ChunkOwl — Minecraft Tools & Guides** as the future public brand, with the suggested tagline “Craft smarter. Play better.” BlockWise is the previous name. The repository, local folder, GitHub Pages URL, public UI and canonical URLs remain unchanged until a separate, reviewed migration. See `CHUNKOWL_REBRAND_PLAN.md`.
+
 ## Goal
 
 BlockWise is a free, beginner-friendly Minecraft guides-and-tools site for ordinary Java and Bedrock survival players. It uses plain HTML, CSS, and JavaScript with no dependencies, paid APIs, or build step.

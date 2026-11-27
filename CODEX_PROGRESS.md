@@ -1,5 +1,15 @@
 # BlockWise planner progress
 
+## PR #14 and ChunkOwl preparation — November 27, 2026
+
+- The owner chose ChunkOwl as the future public name. `CHUNKOWL_REBRAND_PLAN.md` records a separate migration strategy; this PR does not rename the website, repository or Pages URL.
+- GitHub Actions run 45900581237 failed because a privacy-footer test treated the Google verification file as a public HTML page. Current main already fixes that test. The two independently added verification files differed only by a trailing newline; the published main version was retained during synchronization.
+
+## Four planning guides — November 26, 2026
+
+- Added standalone Java 1.21.11 guides for storage, building estimates, bulk crafting, and enchantment order, with tool links, worked examples, metadata, navigation, and sitemap entries. Existing starter tips remain available.
+- Ran `node --test tests/*.test.js`: 87 passed after updating sitemap expectations. Browser, PageSpeed, farm-video and full accessibility checks for this change remain untested; these pages have not been deployed.
+
 ## November 24 production audit — preliminary
 
 - PRs #11 and #12 were merged. Created `audit/final-production-2026-11` from `main` at `92cc99a26c222c5c942a644cb3c225c62c9061af`; GitHub Pages built this commit successfully.

@@ -13,7 +13,9 @@ const publicPages = [
   'crafting-table-recipe-java-1-21-11.html', 'chest-recipe-java-1-21-11.html',
   'furnace-recipe-java-1-21-11.html', 'torch-recipe-java-1-21-11.html',
   'enchanting-table-recipe-java-1-21-11.html', 'hopper-recipe-java-1-21-11.html',
-  'night-vision-command-java-1-21-11.html', 'give-diamonds-command-java-1-21-11.html'
+  'night-vision-command-java-1-21-11.html', 'give-diamonds-command-java-1-21-11.html',
+  'storage-calculations-java-1-21-11.html', 'building-material-estimation-java-1-21-11.html',
+  'bulk-crafting-java-1-21-11.html', 'enchantment-order-java-1-21-11.html'
 ];
 
 test('sitemap contains every intended public canonical URL and only existing pages', () => {
